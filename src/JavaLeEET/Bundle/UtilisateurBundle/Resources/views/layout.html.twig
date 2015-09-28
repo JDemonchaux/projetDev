@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	</br>
+	<div class="card grey lighten-4">
+		<div class="card-content">
+			<div class="card-title center black-text">
+				<h3>Identification</h3>
+				Veuillez saisir vos identifiants :
+			</div>
+        	
+        	<div class="row">
+            	{% block fos_user_content %}
+
+            	{% endblock fos_user_content %}
+        	</div>
+        </div>
+    </div>
+{% endblock %}

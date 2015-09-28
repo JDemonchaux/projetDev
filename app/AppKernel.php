@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new AppBundle\AppBundle(),
             new JavaLeEET\Bundle\LivretBundle\LivretBundle(),
             new JavaLeEET\Bundle\UtilisateurBundle\UtilisateurBundle(),
         );

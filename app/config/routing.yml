@@ -1,3 +1,10 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+utilisateur:
+    resource: "@UtilisateurBundle/Resources/config/routing.yml"
+    prefix:   /
+
 livret:
     resource: "@LivretBundle/Resources/config/routing.yml"
     prefix:   /

@@ -42,7 +42,7 @@ class Utilisateur extends BaseUser
     protected $motDePasse;
 
     /**
-     * @MongoDB\String
+     * @MongoDB\File
      */
     protected $signature;
 }

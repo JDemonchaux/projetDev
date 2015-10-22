@@ -10,11 +10,5 @@ class DefaultController extends Controller
     {
         return $this->render('LivretBundle:Default:index.html.twig');
     }
-    
-    public function importSignAction()
-    {
-        return $this->render('LivretBundle:Default:importSign.html.twig'); 
-    }
-    
-    
+   
 }

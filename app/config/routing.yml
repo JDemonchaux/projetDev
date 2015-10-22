@@ -7,4 +7,4 @@ utilisateur:
 
 livret:
     resource: "@LivretBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /livret

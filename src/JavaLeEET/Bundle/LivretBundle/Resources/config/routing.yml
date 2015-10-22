@@ -1,3 +1,8 @@
 livret_homepage:
     path:     /
     defaults: { _controller: LivretBundle:Default:index }
+
+livret_importSignature:
+    path:   /importSign
+    defaults: { _controller: LivretBundle:Default:importSign }
+    

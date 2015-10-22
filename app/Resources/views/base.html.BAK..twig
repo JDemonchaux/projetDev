@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('./assets/img/Logo.png') }}" />
+        <title>{% block title %}Livret de suivi ASI{% endblock %}</title>
+        
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/materialize.min.css') }}" />
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/jerome.css') }}" />
+        {% endblock %}
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        
+        <header>
+                
+            <ul id="dropdown-modification-RD" class="dropdown-content">
+                <li><a href="#!">Livret</a></li>
+                <li><a href="#!">Activités / Compétences</a></li>
+            </ul>
+
+            <ul id="dropdown-consultation-RD" class="dropdown-content">
+                <li><a href="#!">Modèle Livret</a></li>
+                <li><a href="#!">Livret des apprentis</a></li>
+                <li><a href="#!">Compétences Validées</a></li>
+            </ul>
+
+            <ul id="dropdown-consultation-Tuteur" class="dropdown-content">
+                <li><a href="#!">Livret Quinzaine</a></li>
+                <li><a href="#!">Livret Apprenti</a></li>
+                <li><a href="#!">Compétences validées</a></li>
+            </ul>
+
+            <div class="row">
+            
+                <div class="col s2 left">
+                    <ul id="nav-mobile" class="side-nav fixed grey darken-4">
+                        <li class="logo center">
+                            <a id="logo-container" href="#" class="brand-logo">
+                                <img width="140" src="{{ asset('./assets/img/Logo.png') }}" />
+                            </a>
+                        </li>
+                    </ul>
+                    &nbsp;
+                </div>
+
+                <div class="col s10">
+                    <nav class="top-nav cyan">
+                    <div class="container">
+                        <div class="nav-wrapper">
+                        
+                            {% if app.user %}
+                                <ul class="right hide-on-med-and-down">
+                                    <li>
+                                        <a href="#">Accueil</a>
+                                    </li>
+                            
+                                {% if is_granted('ROLE_RD') %}                    
+                                    <li>
+                                        <a class="dropdown-button" href="#!" data-activates="dropdown-modification-RD" data-beloworigin="true" data-hover="true">
+                                            Modification
+                                            <i class="material-icons right">arrow_drop_down</i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-button" href="#!" data-activates="dropdown-consultation-RD" data-beloworigin="true" data-hover="true">
+                                            Consultation
+                                            <i class="material-icons right">arrow_drop_down</i>
+                                        </a>
+                                    </li>
+
+                                {% elseif is_granted('ROLE_TUTEUR') or is_granted('ROLE_APPRENTI') %}
+                                    <li>
+                                        <a href="#!">
+                                        Remplir Livret
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!">
+                                            Remplir Quinzaine
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-button" href="#!" data-activates="dropdown-consultation-Tuteur" data-beloworigin="true" data-hover="true">
+                                            Consultation
+                                            <i class="material-icons right">arrow_drop_down</i>
+                                        </a>
+                                    </li>
+
+                                {% endif %}
+                                    <li>
+                                            <label class="white-text">Connecté en tant que :</label>
+                                            {{ app.user }}
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('fos_user_security_logout') }}">
+                                            <i class="material-icons right">exit_to_app</i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            {% else %}                                
+                                <a href="#" class="brand-logo center">Livret de Suivi ASI</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </nav>
+
+        </header>
+
+        <main style="margin-left: 20%; width: 80%;">
+            <div class="container">
+                <div class="row">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </div>
+        </main>
+        
+        {% block javascripts %}
+            <script type="text/javascript" src="./assets/js/jquery-2.1.4.min.js"></script>
+            <script type="text/javascript" src="./assets/js/materialize.min.js"></script>
+        {% endblock %}
+    </body>
+</html>

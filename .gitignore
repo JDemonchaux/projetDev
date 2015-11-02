@@ -1,4 +1,3 @@
-/.idea
 /app/bootstrap.php.cache
 /app/cache/*
 !app/cache/.gitkeep
@@ -10,3 +9,4 @@
 /composer.phar
 /vendor/
 /web/bundles/
+/.idea/

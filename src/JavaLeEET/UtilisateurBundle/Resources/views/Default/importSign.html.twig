@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="card grey lighten-4">
+        <div class="card-content">
+
+            <div class="card-title center black-text">
+                <h3>Import de la signature</h3>
+                (au format PNG)
+            </div>
+
+            </br>
+
+            <div class="row">
+
+                <form class="col s12" method="post" {{form_enctype(form)}} >
+
+                    <div class="file-field input-field">
+
+                        <div class="btn right">
+                            <span>Parcourir</span>
+                            <input id="javaleeet_utilisateurbundle_signaturetype_signature" name="javaleeet_utilisateurbundle_signaturetype[signature]" required="required" type="file">
+                        </div>
+
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+
+                    </div>
+
+                    <div class="center card-action">
+                        <button class="btn waves-effect waves-light" type="submit" id="_submit" name="_submit">
+                            Importer
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -36,7 +36,7 @@
     </ul>
 
     <ul id="dropdown-utilisateur" class="dropdown-content">
-        <li><a href="{{  path("utilisateur_importSign") }}">Importer signature</a></li>
+        <li><a href="{{ path("utilisateur_importSign") }}">Importer signature</a></li>
     </ul>
 
     <div class="left">
@@ -44,8 +44,17 @@
             <a id="logo-container" href="{{ path("utilisateur_homepage") }}" class="brand-logo">
                 <img width="140" src="{{ asset('./assets/img/Logo.png') }}"/>
             </a>
+
+            <!-- MENU DE GAUCHE ICI -->
+            {% block menu %}
+
+            {% endblock %}
+
         </ul>
+
     </div>
+
+
     <div class="content">
         <div class="col s12">
             <nav class="top-nav cyan">
@@ -75,7 +84,7 @@
 
                             {% elseif is_granted('ROLE_TUTEUR') or is_granted('ROLE_APPRENTI') %}
                                 <li>
-                                    <a href="#!">
+                                    <a href="{{ path('livret_remplir') }}">
                                         Remplir Livret
                                     </a>
                                 </li>
@@ -95,7 +104,7 @@
                             {% endif %}
                             <li>
                                 <a class="dropdown-button white-text" href="#!" data-activates="dropdown-utilisateur"
-                                        data-beloworigin="true" data-hover="true">
+                                   data-beloworigin="true" data-hover="true">
                                     Connect&eacute; en tant que :
                                     {{ app.user }}
                                     <i class="material-icons right">arrow_drop_down</i>

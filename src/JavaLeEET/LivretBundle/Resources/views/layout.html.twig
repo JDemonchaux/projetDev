@@ -1,5 +1,35 @@
 {% extends 'base.html.twig' %}
 
+{# Construction du menu ici #}
+{% block menu %}
+    <div id="menu">
+        <div>
+            <span class="categorie-title">Le contrat</span>
+            <ul class="categorie">
+                <li class="section">Présentation du contrat</li>
+                <li class="section">Engagement des acteurs</li>
+                <li class="section">Contrat d'apprentissage</li>
+            </ul>
+        </div>
+        <div>
+            <span class="categorie-title">Le projet</span>
+            <ul class="categorie">
+                <li class="section">Présentation de l'apprenti</li>
+                <li class="section">CV</li>
+            </ul>
+        </div>
+        <div>
+            <span class="categorie-title">L'emploi</span>
+            <ul class="categorie">
+                <li class="section">Présentation de l'entreprise</li>
+                <li class="section">Contexte</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+
+{# définition du contenu ici (remplacé dans les vues) #}
 {% block body %}
 
 {% endblock %}

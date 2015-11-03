@@ -1,3 +1,15 @@
 livret_homepage:
     path:     /
     defaults: { _controller: LivretBundle:Default:index }
+
+livret_remplir:
+    path:   /remplir
+    defaults: { _controller: LivretBundle:Default:remplir }
+
+livret_consulter:
+    path:   /consulter
+    defaults: { _controller: LivretBundle:Default:consulter }
+
+livret_quinzaine:
+    path:   /quinzaine
+    defaults: { _controller: LivretBundle:Default:quinzaine }

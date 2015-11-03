@@ -10,4 +10,17 @@ class DefaultController extends Controller
     {
         return $this->render('LivretBundle:Default:index.html.twig');
     }
+
+    public function remplirAction() {
+        return $this->render('LivretBundle:Default:index.html.twig');
+    }
+
+    public function consulterAction() {
+        return $this->render('LivretBundle:Default:index.html.twig');
+    }
+
+    public function quinzaineAction() {
+        return $this->render('LivretBundle:Default:quinzaine.html.twig');
+    }
+
 }

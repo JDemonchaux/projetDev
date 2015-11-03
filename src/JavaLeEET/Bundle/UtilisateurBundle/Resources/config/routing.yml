@@ -1,3 +1,0 @@
-livret_importSignature:
-    path:     /importSign
-    defaults: { _controller: UtilisateurBundle:Default:importSign }

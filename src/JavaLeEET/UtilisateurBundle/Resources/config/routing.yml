@@ -1,0 +1,8 @@
+utilisateur_homepage:
+    path:     /
+    defaults: { _controller: UtilisateurBundle:Default:index }
+
+
+utilisateur_importSign:
+    path:    /importSign
+    defaults: { _controller: UtilisateurBundle:Default:importSign }

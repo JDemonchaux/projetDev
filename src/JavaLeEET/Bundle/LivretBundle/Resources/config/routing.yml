@@ -1,3 +1,0 @@
-livret_homepage:
-    path:     /
-    defaults: { _controller: LivretBundle:Default:index }

@@ -16,6 +16,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new AppBundle\AppBundle(),
             new JavaLeEET\UtilisateurBundle\UtilisateurBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
@@ -27,7 +28,6 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
-            $bundles[] = new IsmaAmbrosi\Bundle\GeneratorBundle\IsmaAmbrosiGeneratorBundle();
         }
 
         return $bundles;

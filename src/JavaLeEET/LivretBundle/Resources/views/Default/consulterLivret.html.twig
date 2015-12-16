@@ -1,0 +1,37 @@
+{% extends 'LivretBundle::layout.html.twig' %}
+
+{% block body %}
+    {#{{ dump(livret) }}#}
+
+
+    {% for categorie in livret.categorie %}
+        <div class="{{ categorie.id }} categories c{{ loop.index }}">
+            <h1 class="bleu-text">{{ categorie.nom }}</h1>
+            {% for section in categorie.sections %}
+                <div class="livret-section {{ categorie.id }} {{ section.id }} i{{ loop.index }}">
+                    <img src="{{ asset('assets/img/fond-title.png') }}" class="fond-title"/>
+
+                    <h3 class="section-title bleu-text">{{ section.nom }}</h3>
+                    {% for itemLivret in section.itemLivret %}
+                        <h3 class="item-title {% if loop.index % 2 %} bleu {% else %} vert {% endif %}">{{ itemLivret.nom }}</h3>
+                        {% if (itemLivret.typeVariable == "tableau") %}
+                            <div class="border">
+                                <table class="item-tableau" data-columns="4" data-rows="4">
+                                    {% for key, value in itemLivret.valeurVariable %}
+                                        <tr>
+                                            <td class="text deuxpoints">{{ key }}</td>
+                                            <td class="aRemplir">{{ value }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        {% elseif (itemLivret.typeVariable == "texte") %}
+                            {{ itemLivret.valeurVariable[0] }}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+{% endblock %}

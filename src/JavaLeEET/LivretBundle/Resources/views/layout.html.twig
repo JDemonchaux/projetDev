@@ -2,30 +2,34 @@
 
 {# Construction du menu ici #}
 {% block menu %}
-    <div id="menu">
-        <div>
-            <span class="categorie-title">Le contrat</span>
-            <ul class="categorie">
-                <li class="section">Présentation du contrat</li>
-                <li class="section">Engagement des acteurs</li>
-                <li class="section">Contrat d'apprentissage</li>
-            </ul>
+    {% if app.request.attributes.get('_route') == 'livret_consulter' %}
+        <div id="menu">
+            {% for categorie in livret.categorie %}
+                <ul class="categorie collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="categorie-title collapsible-header bleu-text">{{ categorie.nom }}</div>
+                        {% for section in categorie.sections %}
+                            <div class="sections collapsible-body {% if loop.index % 2 %} bleu-text {% else %} vert-text {% endif %}"
+                                 data-vue="{{ categorie.id }} {{ section.id }}">{{ section.nom }}</div>
+                        {% endfor %}
+                    </li>
+                </ul>
+            {% endfor %}
+            {#{% for categorie in livret.categorie %}#}
+            {#<ul class="collection with-header collapsible">#}
+            {#<li class="collection-header">#}
+            {#<h5>{{ categorie.nom }}</h5>#}
+            {#</li>#}
+            {#{% for section in categorie.sections %}#}
+            {#<li class="collection-item sections" data-vue="{{ categorie.id }} {{ section.id }}">{{ section.nom }}</li>#}
+            {#{% endfor %}#}
+            {#</ul>#}
+            {#{% endfor %}#}
         </div>
-        <div>
-            <span class="categorie-title">Le projet</span>
-            <ul class="categorie">
-                <li class="section">Présentation de l'apprenti</li>
-                <li class="section">CV</li>
-            </ul>
-        </div>
-        <div>
-            <span class="categorie-title">L'emploi</span>
-            <ul class="categorie">
-                <li class="section">Présentation de l'entreprise</li>
-                <li class="section">Contexte</li>
-            </ul>
-        </div>
-    </div>
+    {% endif %}
+    {% if app.request.attributes.get('_route') == 'livret_remplir_quinzaine' %}
+
+    {% endif %}
 {% endblock %}
 
 

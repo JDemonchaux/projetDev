@@ -31,7 +31,7 @@
 
     <ul id="dropdown-consultation-Tuteur" class="dropdown-content">
         <li><a href="#!">Livret Quinzaine</a></li>
-        <li><a href="#!">Livret Apprenti</a></li>
+        <li><a href="{{ path('livret_consulter') }}">Livret Apprenti</a></li>
         <li><a href="#!">Compétences validées</a></li>
     </ul>
 
@@ -40,16 +40,14 @@
     </ul>
 
     <div class="left">
-        <ul id="slide-out" class="side-nav fixed grey darken-4 center">
+        <ul id="slide-out" class="side-nav fixed center">
             <a id="logo-container" href="{{ path("utilisateur_homepage") }}" class="brand-logo">
                 <img width="140" src="{{ asset('./assets/img/Logo.png') }}"/>
             </a>
-
             <!-- MENU DE GAUCHE ICI -->
             {% block menu %}
 
             {% endblock %}
-
         </ul>
 
     </div>
@@ -57,7 +55,7 @@
 
     <div class="content">
         <div class="col s12">
-            <nav class="top-nav cyan">
+            <nav class="top-nav bleu">
                 <div class="nav-wrapper">
 
                     {% if app.user %}
@@ -84,7 +82,7 @@
 
                             {% elseif is_granted('ROLE_TUTEUR') or is_granted('ROLE_APPRENTI') %}
                                 <li>
-                                    <a href="{{ path('livret_remplir') }}">
+                                    <a href="#!">
                                         Remplir Livret
                                     </a>
                                 </li>
@@ -102,6 +100,13 @@
                                 </li>
 
                             {% endif %}
+
+                            <li>
+                                <a href="#!">
+                                    Mentions legales
+                                </a>
+                            </li>
+
                             <li>
                                 <a class="dropdown-button white-text" href="#!" data-activates="dropdown-utilisateur"
                                    data-beloworigin="true" data-hover="true">
@@ -124,7 +129,7 @@
 
 </header>
 
-<main style="margin-left: 20%; width: 80%;">
+<main style="margin-left: 16rem; width: 80%;">
     <div class="container">
         <div class="row">
             {% block body %}

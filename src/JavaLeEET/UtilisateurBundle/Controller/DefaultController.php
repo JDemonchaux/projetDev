@@ -11,7 +11,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        // Si l'utilisateur n'est pas connecté, on affiche la page de login
+        // Si l'utilisateur n'est pas connect�, on affiche la page de login
         if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $url = $this->generateUrl("fos_user_security_login");
         } else {
@@ -23,10 +23,6 @@ class DefaultController extends Controller
 
     public function importSignAction(Request $request)
     {
-        if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            return $this->redirect($this->generateUrl("fos_user_security_login"));
-        }
-        
         $signature = new Signature();
         $form = $this->createForm(new SignatureType(), $signature);
         $form->handleRequest($request);
@@ -55,7 +51,7 @@ class DefaultController extends Controller
 
             // ... persist the $signature variable if needed
 
-            return $this->redirect($this->generateUrl("livret_homepage"));
+            return $this->redirect($this->generateUrl('fos_user_security_login'));
         }
 
         return $this->render('UtilisateurBundle:Default:importSign.html.twig', array(

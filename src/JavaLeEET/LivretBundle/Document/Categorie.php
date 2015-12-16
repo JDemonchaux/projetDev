@@ -29,7 +29,7 @@ class Categorie
     /**
      * @var collection $sections
      *
-     * @ODM\Field(name="sections", type="collection")
+     * @ODM\EmbedMany(targetDocument="Section")
      */
     protected $sections;
 

@@ -20,6 +20,13 @@ class ItemLivret
     protected $id;
 
     /**
+     * @var string $nom
+     *
+     * @ODM\Field(name="nom", type="string")
+     */
+    protected $nom;
+
+    /**
      * @var string $typeVariable
      *
      * @ODM\Field(name="typeVariable", type="string")
@@ -27,9 +34,9 @@ class ItemLivret
     protected $typeVariable;
 
     /**
-     * @var string $valeurVariable
+     * @var array $valeurVariable
      *
-     * @ODM\Field(name="valeurVariable", type="string")
+     * @ODM\Hash
      */
     protected $valeurVariable;
 
@@ -42,6 +49,28 @@ class ItemLivret
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set Nom
+     *
+     * @param string $nom
+     * @return self
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string $nom
+     */
+    public function getNom()
+    {
+        return $this->nom;
     }
 
     /**

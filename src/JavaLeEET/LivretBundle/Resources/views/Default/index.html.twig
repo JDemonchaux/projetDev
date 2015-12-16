@@ -1,5 +1,7 @@
 {% extends 'LivretBundle::layout.html.twig' %}
 
 {% block body %}
-
+    {% if livret is defined %}
+        {{ dump(livret) }}
+    {% endif %}
 {% endblock %}

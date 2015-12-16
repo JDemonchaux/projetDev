@@ -29,7 +29,7 @@ class Section
     /**
      * @var collection $itemLivret
      *
-     * @ODM\Field(name="itemLivret", type="collection")
+     * @ODM\EmbedMany(targetDocument="ItemLivret")
      */
     protected $itemLivret;
 

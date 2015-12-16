@@ -1,5 +1,5 @@
 .content {
-    padding-left:240px;
+    padding-left: 240px;
 }
 
 /*
@@ -7,22 +7,118 @@
 */
 
 div#menu {
-    margin-top:10rem;
-    background-color:white !important;
-    text-align:left;
-}
-
-ul.categorie {
-
+    margin-top: 10rem;
+    background-color: white !important;
+    text-align: left;
 }
 
 .categorie-title {
-    font-size:1.5rem;
-    padding-left:5px;
+    font-size: 2rem;
+    padding-left: 5px;
+    border-right: 1px solid #e0e0e0 !important;
+    border-left: 1px solid #e0e0e0 !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    margin: 0 !important;
 }
 
-.section {
-    cursor:pointer;
-    margin-top:1rem;
-    margin-bottom:1rem;
+.border-top {
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+.sections {
+    cursor: pointer;
+    padding-left: 10px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-right: 1px solid #e0e0e0 !important;
+    border-left: 1px solid #e0e0e0 !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.categorie-title:hover, .sections:hover {
+
+}
+
+.bleu {
+    background-color: rgb(21, 102, 173);
+}
+
+.bleu-text {
+    color: rgb(21, 102, 173);
+}
+
+.vert {
+    background-color: rgb(139, 184, 88);
+}
+
+.vert-text {
+    color: rgb(139, 184, 88);
+}
+
+/**
+** Style du livret
+**/
+
+.categories > h1 {
+    position: absolute;
+    width: 58%;
+    text-align: center;
+    font-size: 3rem;
+    font-style: italic;
+}
+
+.section-title {
+    position: absolute;
+    width: 58%;
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    margin-top: -4rem;
+}
+
+.item-title {
+    color: white;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    border-top-right-radius: 9rem;
+    border-bottom-right-radius: 9rem;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.livret-section {
+    overflow-y: visible;
+}
+
+img.fond-title {
+    margin-top: 4rem;
+}
+
+.border {
+    border: 3px solid rgb(178, 178, 178);
+    outline: 1px solid rgb(178, 178, 178);
+    outline-offset: 1px;
+
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    border-radius: 3rem;
+    -moz-outline-radius: 3rem;
+
+    padding:0 5px 0 1rem;
+}
+
+.text {
+    width:1%;
+    white-space:nowrap;
+}
+
+.aRemplir {
+
+}
+
+tr:not(:last-child) > td {
+    border:0;
+    border-bottom: 1px solid rgb(178, 178, 178);
 }

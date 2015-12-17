@@ -1,5 +1,36 @@
 {% extends 'LivretBundle::layout.html.twig' %}
 
 {% block body %}
+    <h1 class="bleu-text title">Fiches de la quinzaine</h1>
+    <img src="{{ asset('assets/img/fond-title.png') }}" class="fond-title"/>
+    {#<h3 class="section-title bleu-text">Du 99/99/99 au 99/99/99</h3>#}
+
+    {#<h3 class="item-title bleu">Formation</h3>#}
+
+    {#<h3 class="item-title vert">Entreprise</h3>#}
+    {#<h3 class="item-title bleu">Entreprise : évaluation du MA</h3>#}
+
+
+    <!-- Modal ajouter quinzaine -->
+    <div id="ajouterQuinzaine" class="modal">
+        <div class="modal-content">
+            <h4>Ajouter une quinzaine</h4>
+
+            <div class="date_debut">
+                <label for="date_debut">De : </label>
+                <input type="date" id="date_debut" class="datepicker" />
+            </div>
+
+            <div class="date_fin">
+                <label for="date_fin">&Agrave; : </label>
+                <input type="date" id="date_fin" class="datepicker" />
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ajouter</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">Fermer</a>
+        </div>
+    </div>
 
 {% endblock %}

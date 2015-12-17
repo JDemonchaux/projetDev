@@ -28,6 +28,12 @@
         </div>
     {% endif %}
     {% if app.request.attributes.get('_route') == 'livret_remplir_quinzaine' %}
+        <div id="menu">
+            <a class="btn vert white-text ajouterQuinzaine modal-trigger" href="#ajouterQuinzaine">Créer une quinzaine</a>
+        </div>
+
+
+
 
     {% endif %}
 {% endblock %}

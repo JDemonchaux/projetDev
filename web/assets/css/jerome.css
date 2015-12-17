@@ -59,7 +59,7 @@ div#menu {
 ** Style du livret
 **/
 
-.categories > h1 {
+.categories > h1, h1.title {
     position: absolute;
     width: 58%;
     text-align: center;
@@ -121,4 +121,23 @@ img.fond-title {
 tr:not(:last-child) > td {
     border:0;
     border-bottom: 1px solid rgb(178, 178, 178);
+}
+
+.ajouterQuinzaine {
+    margin-left:0.3rem;
+    margin-right:0.3rem;
+}
+
+
+/**
+** Modal ajout quinzaine
+**/
+#ajouterQuinzaine {
+    top: 3% !important;
+    bottom: 3% !important;
+    max-height:90% !important;
+}
+
+#ajouterQuinzaine > .modal-footer {
+    margin-top:20rem !important;
 }

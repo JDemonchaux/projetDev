@@ -22,7 +22,6 @@ $(document).ready(function () {
     });
     $('.tooltipped').tooltip({delay: 50});
 
-
     /**
      * Style du menu
      */
@@ -47,7 +46,7 @@ $(document).ready(function () {
         $(vueCategorie + " " + vueSection).show("normal");
     });
 
-    $(".periode-subtitle").on('click', function() {
+    $(".periode-subtitle").on('click', function () {
         $('.periodes-livret').hide();
         $("#formQuinzaine").hide();
         var tmp = $(this).data("vue").split(" ");

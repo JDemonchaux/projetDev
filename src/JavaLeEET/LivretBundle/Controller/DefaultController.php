@@ -8,13 +8,37 @@ use JavaLeEET\LivretBundle\Document\Categorie;
 use JavaLeEET\LivretBundle\Document\Livret;
 use JavaLeEET\LivretBundle\Document\Section;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
         return $this->render('LivretBundle:Default:index.html.twig');
+    }
+
+    public function quinzaineAction()
+    {
+        $odm = $this->get('doctrine_mongodb')->getManager();
+        $id = $this->getUser()->getId();
+
+        $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
+
+        return $this->render('LivretBundle:Default:quinzaine.html.twig', array("livret" => $livret));
+    }
+
+    public function quinzaineAjouterAction(Request $request)
+    {
+        if ($request->getMethod() == "POST") {
+            $ddf = \DateTime::createFromFormat('d/m/y', $request->request->get("ddf"));
+            $dff = \DateTime::createFromFormat('d/m/y', $request->request->get("dff"));
+            $dde = \DateTime::createFromFormat('d/m/y', $request->request->get("dde"));
+            $dfe = \DateTime::createFromFormat('d/m/y', $request->request->get("dfe"));
+
+
+        }
     }
 
     public function remplirAction()
@@ -32,17 +56,7 @@ class DefaultController extends Controller
 
         $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
 
-//        $qb = $odm->createQueryBuilder('LivretBundle:Livret');
-//        $livret = $qb->field("apprenti")->equals("566ddac3071339a413000029")->getQuery()->getSingleResult();
-
-
-
         return $this->render('LivretBundle:Default:consulterLivret.html.twig', array("livret" => $livret));
-    }
-
-    public function remplirQuinzaineAction()
-    {
-        return $this->render('LivretBundle:Default:remplirQuinzaine.html.twig');
     }
 
     /**

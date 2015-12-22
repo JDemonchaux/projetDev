@@ -14,6 +14,10 @@ livret_consulter:
     path:   /consulter
     defaults: { _controller: LivretBundle:Default:consulter }
 
-livret_remplir_quinzaine:
-    path:   /remplir-quinzaine
-    defaults: { _controller: LivretBundle:Default:remplirQuinzaine }
+livret_quinzaine:
+    path:   /quinzaine
+    defaults: { _controller: LivretBundle:Default:quinzaine }
+
+livret_quinzaine_ajouter:
+    path:   /quinzaine/ajouter
+    defaults: { _controller: LivretBundle:Default:quinzaineAjouter }

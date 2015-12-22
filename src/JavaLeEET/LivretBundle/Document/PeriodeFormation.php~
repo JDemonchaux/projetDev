@@ -82,14 +82,14 @@ class PeriodeFormation
     /**
      * @var collection $itemCours
      *
-     * @ODM\EmbedMany(targetDocument="ItemCours")
+     * @ODM\Field(name="itemCours", type="collection")
      */
     protected $itemCours;
 
     /**
      * @var collection $itemEntreprise
      *
-     * @ODM\EmbedMany(targetDocument="itemEntreprise")
+     * @ODM\Field(name="itemEntreprise", type="collection")
      */
     protected $itemEntreprise;
 

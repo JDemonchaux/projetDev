@@ -30,7 +30,7 @@
     </ul>
 
     <ul id="dropdown-consultation-Tuteur" class="dropdown-content">
-        <li><a href="#!">Livret Quinzaine</a></li>
+        <li><a href="{{ path('livret_quinzaine') }}">Livret Quinzaine</a></li>
         <li><a href="{{ path('livret_consulter') }}">Livret Apprenti</a></li>
         <li><a href="#!">Compétences validées</a></li>
     </ul>
@@ -61,7 +61,7 @@
                     {% if app.user %}
                         <ul class="right">
                             <li>
-                                <a href="#">Accueil</a>
+                                <a href="{{ path("utilisateur_homepage") }}">Accueil</a>
                             </li>
 
                             {% if is_granted('ROLE_RD') %}

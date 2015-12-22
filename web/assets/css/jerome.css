@@ -12,7 +12,7 @@ div#menu {
     text-align: left;
 }
 
-.categorie-title {
+.categorie-title, .periode-title {
     font-size: 2rem;
     padding-left: 5px;
     border-right: 1px solid #e0e0e0 !important;
@@ -21,11 +21,18 @@ div#menu {
     margin: 0 !important;
 }
 
+.periode-title {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 600;
+    padding-top: 0.6rem;
+}
+
 .border-top {
     border-top: 1px solid #e0e0e0 !important;
 }
 
-.sections {
+.sections, .periode-subtitle {
     cursor: pointer;
     padding-left: 10px;
     padding-top: 0.5rem;
@@ -59,7 +66,7 @@ div#menu {
 ** Style du livret
 **/
 
-.categories > h1 {
+.categories > h1, h1.quinzaineTitle {
     position: absolute;
     width: 58%;
     text-align: center;
@@ -106,19 +113,72 @@ img.fond-title {
     border-radius: 3rem;
     -moz-outline-radius: 3rem;
 
-    padding:0 5px 0 1rem;
+    padding: 0 5px 0 1rem;
 }
 
 .text {
-    width:1%;
-    white-space:nowrap;
+    width: 1%;
+    white-space: nowrap;
 }
 
 .aRemplir {
 
 }
 
-tr:not(:last-child) > td {
-    border:0;
+.item-tableau > tr:not(:last-child) > td {
+    border: 0;
     border-bottom: 1px solid rgb(178, 178, 178);
+}
+
+/**
+** Page quinzaine
+*/
+.ajouterQuinzaine {
+    margin: -1rem 0.3rem 1rem;
+}
+
+legend {
+    font-size: 2rem;
+}
+
+#ddf, #dff, #dde, #dfe {
+    width: auto !important;
+    margin-left: 1%;
+}
+
+.picker__clear {
+    padding: 0 5px 0 5px;
+}
+
+.rowQuinzaine {
+    margin-top: 1rem;
+}
+
+.signature-title {
+    font-weight: bold;
+}
+
+.tableQuinzaine {
+    margin-top: 1rem;
+}
+
+.tableQuinzaine > thead,
+.tableQuinzaine > tbody:not(.separator) {
+    border: 1px solid black;
+    outline: 1px solid black;
+    outline-offset: 0.2rem;
+}
+
+.tableQuinzaine > thead > tr > th,
+.tableQuinzaine > tbody:not(.separator) > tr > td {
+    border:1px solid black;
+    text-align: center;
+}
+
+tbody.separator > tr {
+    height: 40px;
+}
+
+.tooltipped {
+    cursor:pointer;
 }

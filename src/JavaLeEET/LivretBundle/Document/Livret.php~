@@ -45,7 +45,7 @@ class Livret
     /**
      * @var collection $periodeFormation
      *
-     * @ODM\EmbedMany(targetDocument="PeriodeFormation")
+     * @ODM\EmbedMany(name="periodeFormation", type="collection")
      */
     protected $periodeFormation;
 
@@ -71,8 +71,8 @@ class Livret
         $a = array();
         $a[] = $itemCour;
         $a[] = $itemCour2;
-        $p->setDateDebutF(new \MongoDate(strtotime("21-12-2015")));
-        $p->setDateFinF(new \MongoDate(strtotime("21-12-2015")));
+        $p->setDateDebutF(\DateTime::createFromFormat("d/m/y", "21/12/2015"));
+        $p->setDateFinF(\DateTime::createFromFormat("d/m/y", "21/12/2015"));
         $p->setItemCours($a);
 
         $itemEnt = new ItemEntreprise();
@@ -83,8 +83,8 @@ class Livret
         $itemEnt->setCompetencesUtil(array("C1-1", "C3-5"));
         $a = array();
         $a[] = $itemEnt;
-        $p->setDateDebutE(new \MongoDate(strtotime("21-12-2015")));
-        $p->setDateFinE(new \MongoDate(strtotime("21-12-2015")));
+        $p->setDateDebutE(\DateTime::createFromFormat("d/m/y", "21/12/2015"));
+        $p->setDateFinE(\DateTime::createFromFormat("d/m/y", "21/12/2015"));
         $p->setItemEntreprise($a);
 
         $periodes = array();
@@ -856,8 +856,9 @@ class Livret
         $categories[] = $c1;
 
 
+
         // LIVRET
-        $this->setPeriodeFormation($periodes);
+        $this->setPeriodeFormation($p);
         $this->setCategorie($categories);
         $this->setApprenti($apprenti);
     }

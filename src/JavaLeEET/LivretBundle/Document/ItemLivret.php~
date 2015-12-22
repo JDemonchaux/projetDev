@@ -5,12 +5,12 @@ namespace JavaLeEET\LivretBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
 /**
- * JavaLeEET\LivretBundle\Document\Categorie
+ * JavaLeEET\LivretBundle\Document\ItemLivret
  *
  * @ODM\Document
  * @ODM\ChangeTrackingPolicy("DEFERRED_IMPLICIT")
  */
-class Categorie
+class ItemLivret
 {
     /**
      * @var MongoId $id
@@ -27,11 +27,18 @@ class Categorie
     protected $nom;
 
     /**
-     * @var collection $sections
+     * @var string $typeVariable
      *
-     * @ODM\EmbedMany(targetDocument="Section")
+     * @ODM\Field(name="typeVariable", type="string")
      */
-    protected $sections;
+    protected $typeVariable;
+
+    /**
+     * @var array $valeurVariable
+     *
+     * @ODM\Hash
+     */
+    protected $valeurVariable;
 
 
     /**
@@ -45,7 +52,7 @@ class Categorie
     }
 
     /**
-     * Set nom
+     * Set Nom
      *
      * @param string $nom
      * @return self
@@ -67,48 +74,46 @@ class Categorie
     }
 
     /**
-     * Set sections
+     * Set typeVariable
      *
-     * @param collection $sections
+     * @param string $typeVariable
      * @return self
      */
-    public function setSections($sections)
+    public function setTypeVariable($typeVariable)
     {
-        $this->sections = $sections;
+        $this->typeVariable = $typeVariable;
         return $this;
     }
 
     /**
-     * Get sections
+     * Get typeVariable
      *
-     * @return collection $sections
+     * @return string $typeVariable
      */
-    public function getSections()
+    public function getTypeVariable()
     {
-        return $this->sections;
-    }
-    public function __construct()
-    {
-        $this->sections = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add section
-     *
-     * @param JavaLeEET\LivretBundle\Document\Section $section
-     */
-    public function addSection(\JavaLeEET\LivretBundle\Document\Section $section)
-    {
-        $this->sections[] = $section;
+        return $this->typeVariable;
     }
 
     /**
-     * Remove section
+     * Set valeurVariable
      *
-     * @param JavaLeEET\LivretBundle\Document\Section $section
+     * @param string $valeurVariable
+     * @return self
      */
-    public function removeSection(\JavaLeEET\LivretBundle\Document\Section $section)
+    public function setValeurVariable($valeurVariable)
     {
-        $this->sections->removeElement($section);
+        $this->valeurVariable = $valeurVariable;
+        return $this;
+    }
+
+    /**
+     * Get valeurVariable
+     *
+     * @return string $valeurVariable
+     */
+    public function getValeurVariable()
+    {
+        return $this->valeurVariable;
     }
 }

@@ -1,0 +1,309 @@
+{% extends 'LivretBundle::layout.html.twig' %}
+
+{% block body %}
+    {% for periodeFormation in livret.periodeFormation %}
+        <div class="periodes-livret p{{ loop.index }}">
+            <!-- Fiche période de formation -->
+            <div class="p{{ loop.index }} formation">
+                <h1 class="quinzaineTitle bleu-text">Modules de formation pendant la quinzaine</h1>
+                <img src="{{ asset('assets/img/fond-title.png') }}" class="fond-title"/>
+
+                <div class="row rowQuinzaine">
+                    <div class="col s6">
+                        Nom de l'apprenti : {{ app.user.username }}
+                    </div>
+                    <div class="col s6">
+                        Période d'évaluation du : {{ periodeFormation.dateDebutF|date("d/m/y") }} au
+                        : {{ periodeFormation.dateFinF|date("d/m/y") }}
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="tableQuinzaine">
+                        <thead>
+                        <tr>
+                            <th>Module de formation professionnelle</th>
+                            <th>Lien avec ce qui a déjà été fait en entreprise</th>
+                            <th>Difficultés rencontrées</th>
+                            <th>Ce qu'il faudrait expérimenter en entreprise</th>
+                        </tr>
+                        </thead>
+                        <tbody class="separator">
+                        <tr colspan="4"></tr>
+                        </tbody>
+                        <tbody>
+                        {% for item in periodeFormation.itemCours %}
+                            <tr>
+                                <td>{{ item.moduleFormation }}</td>
+                                <td>{{ item.liensEntreprise }}</td>
+                                <td>{{ item.difficulte }}</td>
+                                <td>{{ item.experimentationEntreprise }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tbody class="separator">
+                        <tr colspan="4"></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row rowSignature">
+                    <div class="row">
+                        <div class="col s4">
+                            <span class="signature-title">
+                                Signature du maître d'apprentissage
+                            </span>
+                        </div>
+                        <div class="col s4">
+                            <span class="signature-title">
+                                Signature de l'apprenti(e)
+                            </span>
+                        </div>
+                        <div class="col s4">
+                            <span class="signature-title">
+                                Signature du reponsable de dispositif
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s4">
+                            <span class="aRemplir"></span>
+                        </div>
+                        <div class="col s4">
+                            <span class="aRemplir"></span>
+                        </div>
+                        <div class="col s4">
+                            <span class="aRemplir"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fiche période d'entreprise -->
+            <div class="p{{ loop.index }} entreprise">
+                <h1 class="quinzaineTitle bleu-text">Activités Réalisées pendant la quinzaine en entreprise</h1>
+                <img src="{{ asset('assets/img/fond-title.png') }}" class="fond-title"/>
+
+                <div class="row rowQuinzaine">
+                    <div class="col s6">
+                        Nom de l'apprenti : {{ app.user.username }}
+                        <br/>
+                        Période d'évaluation du : {{ periodeFormation.dateDebutF|date("d/m/y") }} au
+                        : {{ periodeFormation.dateFinF|date("d/m/y") }}
+                    </div>
+                    <div class="col s6">
+                        Nom du maître d'apprentissage : <!-- @TODO: nom tuteur --> tuteurFictifN°1
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="tableQuinzaine">
+                        <thead>
+                        <tr>
+                            <th>Intitulé de l'Activité</th>
+                            <th>Description de l'activité</th>
+                            <th>Savoirs théorique ou pratique. Savoir faire</th>
+                            <th>Aptitude rellationnelles. Savoir être</th>
+                            <th>Compétences</th>
+                        </tr>
+                        </thead>
+                        <tbody class="separator">
+                        <tr colspan="5"></tr>
+                        </tbody>
+                        <tbody>
+                        {% for item in periodeFormation.itemEntreprise %}
+                            <tr>
+                                <td>{{ item.libelleActivite }}</td>
+                                <td>{{ item.descriptionActivite }}</td>
+                                <td>{{ item.savoirTheorique }}</td>
+                                <td>{{ item.aptitudeRelationnelle }}</td>
+                                <td>
+                                    {% for value in item.competencesUtil %}
+                                        {{ value }}
+                                    {% endfor %}
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                        <tbody class="separator">
+                        <tr colspan="5"></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row rowSignature">
+                    <div class="row">
+                        <div class="col s4">
+                            <span class="signature-title">
+                                Signature du maître d'apprentissage
+                            </span>
+                        </div>
+                        <div class="col s4">
+                            <span class="signature-title">
+                                Signature de l'apprenti(e)
+                            </span>
+                        </div>
+                        <div class="col s4">
+                            <span class="signature-title">
+                                Signature du reponsable de dispositif
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s4">
+                            <span class="aRemplir"></span>
+                        </div>
+                        <div class="col s4">
+                            <span class="aRemplir"></span>
+                        </div>
+                        <div class="col s4">
+                            <span class="aRemplir"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fiche evaluation tuteur -->
+            <div class="p{{ loop.index }} tuteur">
+                <h1 class="quinzaineTitle bleu-text">Evaluation des activités par le maitre d'apprentissage</h1>
+                <img src="{{ asset('assets/img/fond-title.png') }}" class="fond-title"/>
+
+                <div class="row rowQuinzaine">
+                    <div class="col s6">
+                        Nom de l'apprenti : {{ app.user.username }}
+                        <br/>
+                        Période d'évaluation du : {{ periodeFormation.dateDebutF|date("d/m/y") }} au
+                        : {{ periodeFormation.dateFinF|date("d/m/y") }}
+                    </div>
+                    <div class="col s6">
+                        Nom du maître d'apprentissage : <!-- @TODO: nom tuteur --> tuteurFictifN°1
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="tableQuinzaine">
+                        <thead>
+                        <tr>
+                            <th rowspan="2">Intitulé de l'Activité</th>
+                            <th rowspan="2">Compétences liées</th>
+                            <th colspan="4">Degré de maîtrise des compétences</th>
+                            <th rowspan="2">Validation des compétences. Acquise/Non Acquise</th>
+                        </tr>
+                        <tr>
+                            <th class="tooltipped" data-position="top"
+                                data-tooltip="1. En formation : le (la) salarié(e) découvre l'activité">
+                                1
+                            </th>
+                            <th class="tooltipped" data-position="top"
+                                data-tooltip="2. Autonomie : Il (elle) exécute correctement l'activité sans aide">
+                                2
+                            </th>
+                            <th class="tooltipped" data-position="top"
+                                data-tooltip="3. Maîtrise : il (elle) réussit et atteint les objectifs">
+                                3
+                            </th>
+                            <th class="tooltipped" data-position="top"
+                                data-tooltip="4. Innovation : il (elle) améliore l'activité et peut former quelqu'un d'autre">
+                                4
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="separator">
+                        <tr colspan="7"></tr>
+                        </tbody>
+                        <tbody>
+                        {% for item in periodeFormation.itemEntreprise %}
+                            <tr>
+                                <td rowspan="{{ item.competencesUtil|length + 1 }}">{{ item.libelleActivite }}</td>
+                            </tr>
+                            {% for comp in item.competencesUtil %}
+                                <tr>
+                                    <td>{{ comp }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            {% endfor %}
+                        {% endfor %}
+
+                        <tr>
+                            <td><strong>Conclusion de l'évaluation : </strong></td>
+                            <td colspan="6"></td>
+                        </tr>
+
+                        </tbody>
+                        <tbody class="separator">
+                        <tr colspan="7"></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row rowSignature">
+                    <div class="row">
+                        <div class="col s4">
+                            <span class="signature-title">
+                                Signature du maître d'apprentissage
+                            </span>
+                        </div>
+                        <div class="col s4">
+                            <span class="signature-title">
+                                Signature de l'apprenti(e)
+                            </span>
+                        </div>
+                        <div class="col s4">
+                            <span class="signature-title">
+                                Signature du reponsable de dispositif
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s4">
+                            <span class="aRemplir"></span>
+                        </div>
+                        <div class="col s4">
+                            <span class="aRemplir"></span>
+                        </div>
+                        <div class="col s4">
+                            <span class="aRemplir"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+
+
+    <!-- Formulaire d'ajout d'une période -->
+    <div id="formQuinzaine">
+        <h1 class="bleu-text quinzaineTitle">Ajouter une période</h1>
+        <img src="{{ asset('assets/img/fond-title.png') }}" class="fond-title"/>
+
+        <div class="form-content">
+            <form action="{{ path('livret_quinzaine_ajouter') }}" method="POST">
+                <div class="row">
+                    <div class="col s6">
+                        <fieldset>
+                            <legend class="bleu-text">Formation :</legend>
+                            <label for="ddf">Du : </label>
+                            <input id="ddf" name="ddf" type="date" class="datepicker"/>
+                            <label for="dff">Au : </label>
+                            <input id="dff" name="dff" type="date" class="datepicker"/>
+                        </fieldset>
+                    </div>
+                    <div class="col s6">
+                        <fieldset>
+                            <legend class="vert-text">Entreprise :</legend>
+                            <label for="dde">Du : </label>
+                            <input id="dde" name="dde" type="date" class="datepicker"/>
+                            <label for="dfe">Au : </label>
+                            <input id="dfe" name="dfe" type="date" class="datepicker"/>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="row center-align">
+                    <input type="submit" class="btn bleu"/>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

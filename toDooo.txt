@@ -1,6 +1,8 @@
 1 - donner le role approprié aux users importés (apprenti, tuteur ou rd)
 1.1 - Reflechir comment lier un MA a un apprenti. dans le csv directe ?
-1.1.1 - Si oui, demander à jean mi un csv de test, rapidement
+1.1.1 - demander à jean mi un csv de test, rapidement
+1.2 - Faire l'import!
+
 
 2 - Faire page mentions légales
 
@@ -8,7 +10,9 @@
 
 4 - Page accueil : systeme d'alerte sur les choses restantes à remplir / signer
 
-5 - 
+5 - Modifier / Ajouter une nouvelle classe pour gérer les fiches d'évaluation du tuteur
+
+6 - extension php php_fileinfo a activer sur serveur
 
 99 - (jerome) - input taille adaptable pour questions longues
 (function($){

@@ -3,22 +3,24 @@ $(document).ready(function () {
     $('.collapsible').collapsible({
         accordion: true
     });
-
-    $(".livret_section, .categories").hide();
-
-    $(".sections").on('click', function () {
-        $(".categories").hide();
-        var tmp = $(this).data("vue").split(" ");
-        var vueCategorie = "." + tmp[0];
-        var vueSection = "." + tmp[1];
-        console.log(vueCategorie);
-        console.log(vueSection);
-
-        $(vueCategorie).show();
-        $(".livret-section").hide();
-
-        $(vueCategorie + " " + vueSection).show("normal");
+    $('.datepicker').pickadate({
+        selectMonths: true,
+        selectYears: 3,
+        labelMonthNext: 'Mois prochain',
+        labelMonthPrev: 'Mois précédant',
+        labelMonthSelect: 'Choisir un mois',
+        labelYearSelect: 'choisir une année',
+        monthsFull: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+        monthsShort: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
+        weekdaysFull: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+        weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Veb', 'Sam'],
+        weekdaysLetter: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+        today: 'Maintenant',
+        clear: 'Vider',
+        close: 'Fermer',
+        format: 'dd/mm/yy'
     });
+    $('.tooltipped').tooltip({delay: 50});
 
 
     /**
@@ -26,35 +28,50 @@ $(document).ready(function () {
      */
     $(".categorie-title").first().addClass("border-top");
 
-
     /**
      * Affichage du livret en consultation
      */
+    $(".livret_section, .categories").hide();
+    $("#formQuinzaine").hide();
+    $('.periodes-livret').hide();
+
+    $(".sections").on('click', function () {
+        $(".categories").hide();
+        var tmp = $(this).data("vue").split(" ");
+        var vueCategorie = "." + tmp[0];
+        var vueSection = "." + tmp[1];
+
+        $(vueCategorie).show();
+        $(".livret-section").hide();
+
+        $(vueCategorie + " " + vueSection).show("normal");
+    });
+
+    $(".periode-subtitle").on('click', function() {
+        $('.periodes-livret').hide();
+        $("#formQuinzaine").hide();
+        var tmp = $(this).data("vue").split(" ");
+        var vuePeriode = "." + tmp[0];
+        var vueType = "." + tmp[1];
+
+        $(vuePeriode).show();
+        $('.entreprise, .formation, .tuteur').hide();
+
+        $(vuePeriode + " " + vueType).show("normal");
+
+    });
+
     $('.c1').show();
     $(".livret-section").hide();
     $('.i1').show();
+    $('.p1').show();
+    $('.entreprise, .formation, .tuteur').hide();
+    $('.p1 .formation').show();
 
-    var c = $("table").data("columns");
-    var l = $("table").data("rows");
-    var t = 0;
 
-    $(".item-tableau").each(function () {
-        t = $(this).find("tbody tr").length;
-        var arr = new Array();
-        $(this).find("tbody tr").each(function () {
-            arr.push($(this).find(".text").text());
-
-            // Si la taille est égale aux nb de ligne, on touche rien
-            if (t != l) {
-                // Sinon, on regarde si la taille est divisible par le nb de ligne (ainsi on aura pas de cases vides)
-                //if (t % l == 0) {
-                    console.log(t);
-                //}
-            }
-            else if ( t < l) {
-            }
-
-        });
-    });
+    $(".ajouterQuinzaine").on('click', function () {
+        $('.periodes-livret').hide();
+        $("#formQuinzaine").show();
+    })
 
 });

@@ -15,20 +15,34 @@
                     </li>
                 </ul>
             {% endfor %}
-            {#{% for categorie in livret.categorie %}#}
-            {#<ul class="collection with-header collapsible">#}
-            {#<li class="collection-header">#}
-            {#<h5>{{ categorie.nom }}</h5>#}
-            {#</li>#}
-            {#{% for section in categorie.sections %}#}
-            {#<li class="collection-item sections" data-vue="{{ categorie.id }} {{ section.id }}">{{ section.nom }}</li>#}
-            {#{% endfor %}#}
-            {#</ul>#}
-            {#{% endfor %}#}
         </div>
     {% endif %}
-    {% if app.request.attributes.get('_route') == 'livret_remplir_quinzaine' %}
+    {% if app.request.attributes.get('_route') == 'livret_quinzaine' %}
+        <div id="menu">
+            <a class="btn vert ajouterQuinzaine white-text" href="#!">Ajouter une période</a>
 
+            {% for periodeFormation in livret.periodeFormation %}
+                <ul class="periodes collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="periode-title collapsible-header bleu-text">
+                            Du {{ periodeFormation.dateDebutF|date('d/m/y') }} au {{ periodeFormation.dateFinE|date('d/m/y') }}
+                        </div>
+                        <div class="collapsible-body bleu-text periode-subtitle"
+                                data-vue="p{{ loop.index }} formation">
+                            Période formation
+                        </div>
+                        <div class="collapsible-body vert-text periode-subtitle"
+                             data-vue="p{{ loop.index }} entreprise">
+                            Période entreprise
+                        </div>
+                        <div class="collapsible-body bleu-text periode-subtitle"
+                             data-vue="p{{ loop.index }} tuteur">
+                            &Eacute;valuation tuteur
+                        </div>
+                    </li>
+                </ul>
+            {% endfor %}
+        </div>
     {% endif %}
 {% endblock %}
 

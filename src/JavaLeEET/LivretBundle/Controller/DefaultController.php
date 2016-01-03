@@ -6,6 +6,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations\ObjectId;
 use Doctrine\ODM\MongoDB\Types\ObjectIdType;
 use JavaLeEET\LivretBundle\Document\Categorie;
 use JavaLeEET\LivretBundle\Document\Livret;
+use JavaLeEET\LivretBundle\Document\PeriodeFormation;
 use JavaLeEET\LivretBundle\Document\Section;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,8 +37,24 @@ class DefaultController extends Controller
             $dff = \DateTime::createFromFormat('d/m/y', $request->request->get("dff"));
             $dde = \DateTime::createFromFormat('d/m/y', $request->request->get("dde"));
             $dfe = \DateTime::createFromFormat('d/m/y', $request->request->get("dfe"));
+            $p = new PeriodeFormation();
+            $p->setDateDebutE($dde);
+            $p->setDateDebutF($ddf);
+            $p->setDateFinE($dfe);
+            $p->setDateFinF($dff);
 
+            $odm = $this->get('doctrine_mongodb')->getManager();
+            $id = $this->getUser()->getId();
+            $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
 
+            $livret->setPeriodeFormation(array($p));
+
+            $odm->persist($livret);
+            $odm->flush();
+
+            return $this->render('LivretBundle:Default:quinzaine.html.twig', array("livret" => $livret));
+        } else {
+            return $this->quinzaineAction();
         }
     }
 
@@ -56,6 +73,7 @@ class DefaultController extends Controller
 
         $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
 
+//        var_dump($livret->getActivite());
         return $this->render('LivretBundle:Default:consulterLivret.html.twig', array("livret" => $livret));
     }
 

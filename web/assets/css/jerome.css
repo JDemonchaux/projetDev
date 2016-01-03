@@ -2,6 +2,10 @@
     padding-left: 240px;
 }
 
+.text-justify {
+    text-align: justify;
+}
+
 /*
 *       Menu de gauche
 */
@@ -143,7 +147,9 @@ legend {
 
 #ddf, #dff, #dde, #dfe {
     width: auto !important;
-    margin-left: 1%;
+    margin-left: 3%;
+    text-align: center;
+
 }
 
 .picker__clear {
@@ -181,4 +187,26 @@ tbody.separator > tr {
 
 .tooltipped {
     cursor: pointer;
+}
+
+.size25 {
+    width: 25%;
+}
+
+.siz75 {
+    width: 75%;
+}
+
+.competence-tableau {
+    margin-top: 2rem !important;
+}
+
+.entete {
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
 }

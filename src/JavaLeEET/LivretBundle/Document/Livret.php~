@@ -45,10 +45,24 @@ class Livret
     /**
      * @var collection $periodeFormation
      *
-     * @ODM\EmbedMany(name="periodeFormation", type="collection")
+     * @ODM\EmbedMany(targetDocument="PeriodeFormation")
      */
     protected $periodeFormation;
 
+    /**
+     * @var collection $activite
+     *
+     * @ODM\EmbedMany(targetDocument="Activite")
+     */
+    protected $activite;
+
+
+    public function __construct()
+    {
+        $this->categorie = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->periodeFormation = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->activite = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Méthode qui génére le livret de suivi
@@ -71,8 +85,8 @@ class Livret
         $a = array();
         $a[] = $itemCour;
         $a[] = $itemCour2;
-        $p->setDateDebutF(\DateTime::createFromFormat("d/m/y", "21/12/2015"));
-        $p->setDateFinF(\DateTime::createFromFormat("d/m/y", "21/12/2015"));
+        $p->setDateDebutF(new \MongoDate(strtotime("21-12-2015")));
+        $p->setDateFinF(new \MongoDate(strtotime("21-12-2015")));
         $p->setItemCours($a);
 
         $itemEnt = new ItemEntreprise();
@@ -83,8 +97,8 @@ class Livret
         $itemEnt->setCompetencesUtil(array("C1-1", "C3-5"));
         $a = array();
         $a[] = $itemEnt;
-        $p->setDateDebutE(\DateTime::createFromFormat("d/m/y", "21/12/2015"));
-        $p->setDateFinE(\DateTime::createFromFormat("d/m/y", "21/12/2015"));
+        $p->setDateDebutE(new \MongoDate(strtotime("21-12-2015")));
+        $p->setDateFinE(new \MongoDate(strtotime("21-12-2015")));
         $p->setItemEntreprise($a);
 
         $periodes = array();
@@ -406,7 +420,56 @@ class Livret
         $i27->setValeurVariable(array("Indiquer ici les objectifs, nombres d'heures..." => ""));
         $item12[] = $i27;
 
-//        $item13 = array();
+        $item13 = array();
+
+        $a1 = new Activite();
+        $a1->setTitre("Activite 1 : Communiquer");
+        $a1->setDescriptif(array("Obtenir les informations nécessaires à la conception et au développement",
+            "Auditer l'existant",
+            "Conduire un entretien",
+            "Animer une réunion de réflexion",
+            "Diffuser les conclusions et les décisions",
+            "Analyser un schéma directeur",
+            "Faire exprimer leur besoin à des utilisateurs",
+            "Analyser un cahier des charges"));
+        $a = array();
+        $c1 = new Competence();
+        $c1->setDescriptif("Identifier les besoins et les contraintes (notamment en terme de gestion et de fonctionnement) d'une organisation");
+        $c1->setCode("C1-1");
+        $c2 = new Competence();
+        $c2->setDescriptif("Comprendre le rôle du SI dans le fonctionnement de l'entreprise et l'organisation du traitement de l'information");
+        $c2->setCode("C1-2");
+        $c3 = new Competence();
+        $c3->setDescriptif("Analyser une situation, la décliner et la simplifier");
+        $c3->setCode("C1-3");
+        $c4 = new Competence();
+        $c4->setDescriptif("Identifier un cadre légal ou réglementaire");
+        $c4->setCode("C1-4");
+        $c5 = new Competence();
+        $c5->setDescriptif("Rechercher des solutions à un problème d'informatisation. Proposer des solutions");
+        $c5->setCode("C1-5");
+        $c6 = new Competence();
+        $c6->setDescriptif("Communiquer ses réflexions en français, en anglais");
+        $c6->setCode("C1-6");
+        $c7 = new Competence();
+        $c7->setDescriptif("Identifier les acteurs (experts et utilisateurs) du SI");
+        $c7->setCode("C1-7");
+        $c8 = new Competence();
+        $c8->setDescriptif("Recenser les fonctionnalités attendues");
+        $c8->setCode("C1-8");
+        $a[] = $c1;
+        $a[] = $c2;
+        $a[] = $c3;
+        $a[] = $c4;
+        $a[] = $c5;
+        $a[] = $c6;
+        $a[] = $c7;
+        $a[] = $c8;
+        $a1->setCompetences($a);
+
+        $item13[] = $a1;
+
+
 //        $i28 = new ItemLivret();
 //        $i28->setNom("Activite 1 : Communiquer");
 //        $i28->setTypeVariable("tableau");
@@ -856,11 +919,29 @@ class Livret
         $categories[] = $c1;
 
 
-
         // LIVRET
-        $this->setPeriodeFormation($p);
+        $this->setActivites($item13);
+        $this->setPeriodeFormation($periodes);
         $this->setCategorie($categories);
         $this->setApprenti($apprenti);
+    }
+
+    /**
+     * @return collection
+     */
+    public function getActivite()
+    {
+        return $this->activite;
+    }
+
+    /**
+     * @param collection $activite
+     * @return self
+     */
+    public function setActivite($activite)
+    {
+        $this->activite = $activite;
+        return $this;
     }
 
 
@@ -962,10 +1043,6 @@ class Livret
         return $this->periodeFormation;
     }
 
-    public function __construct()
-    {
-        $this->categorie = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add categorie
@@ -985,5 +1062,45 @@ class Livret
     public function removeCategorie(\JavaLeEET\LivretBundle\Document\Categorie $categorie)
     {
         $this->categorie->removeElement($categorie);
+    }
+
+    /**
+     * Add periodeFormation
+     *
+     * @param JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation
+     */
+    public function addPeriodeFormation(\JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation)
+    {
+        $this->periodeFormation[] = $periodeFormation;
+    }
+
+    /**
+     * Remove periodeFormation
+     *
+     * @param JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation
+     */
+    public function removePeriodeFormation(\JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation)
+    {
+        $this->periodeFormation->removeElement($periodeFormation);
+    }
+
+    /**
+     * Add activite
+     *
+     * @param JavaLeEET\LivretBundle\Document\Activite $activite
+     */
+    public function addActivite(\JavaLeEET\LivretBundle\Document\Activite $activite)
+    {
+        $this->activites[] = $activite;
+    }
+
+    /**
+     * Remove activite
+     *
+     * @param JavaLeEET\LivretBundle\Document\Activite $activite
+     */
+    public function removeActivite(\JavaLeEET\LivretBundle\Document\Activite $activite)
+    {
+        $this->activites->removeElement($activite);
     }
 }

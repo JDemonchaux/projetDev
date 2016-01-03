@@ -12,23 +12,55 @@
                     <img src="{{ asset('assets/img/fond-title.png') }}" class="fond-title"/>
 
                     <h3 class="section-title bleu-text">{{ section.nom }}</h3>
-                    {% for itemLivret in section.itemLivret %}
-                        <h3 class="item-title {% if loop.index % 2 %} bleu {% else %} vert {% endif %}">{{ itemLivret.nom }}</h3>
-                        {% if (itemLivret.typeVariable == "tableau") %}
-                            <div class="border">
-                                <table class="item-tableau" data-columns="4" data-rows="4">
-                                    {% for key, value in itemLivret.valeurVariable %}
+
+                    {# Si on est dans le referentiel d'activité, on affiche les compétences#}
+                    {% if section.nom == "Référentiel d'activité et de compétences professionnelles" %}
+                        {% for activite in livret.activite %}
+                            <div class="border competence-tableau">
+                                <table class="">
+                                    <thead>
+                                    <tr>
+                                        <th class="size25 entete">{{ activite.titre }}</th>
+                                        <th class="size75 entete">Compétences associées</th>
+                                    </tr>
+                                    </thead>
+                                    {% for i in 0..activite.competences|length %}
                                         <tr>
-                                            <td class="text">{{ key }}</td>
-                                            <td class="aRemplir">{{ value }}</td>
+                                            {% if activite.descriptif[i] is defined %}
+                                                <td class="bold">{{ activite.descriptif[i] }}</td>
+                                            {% else %}
+                                                <td></td>
+                                            {% endif %}
+                                            {% if activite.competences[i] is defined %}
+                                                <td class="text-justify">{{ activite.competences[i].code }} - {{ activite.competences[i].descriptif }}</td>
+                                            {% else %}
+                                                <td></td>
+                                            {% endif %}
                                         </tr>
                                     {% endfor %}
                                 </table>
                             </div>
-                        {% elseif (itemLivret.typeVariable == "texte") %}
-                            {{ itemLivret.valeurVariable[0] }}
-                        {% endif %}
-                    {% endfor %}
+                        {% endfor %}
+                        {# Sinon, on affiche les items du livret #}
+                    {% else %}
+                        {% for itemLivret in section.itemLivret %}
+                            <h3 class="item-title {% if loop.index % 2 %} bleu {% else %} vert {% endif %}">{{ itemLivret.nom }}</h3>
+                            {% if (itemLivret.typeVariable == "tableau") %}
+                                <div class="border">
+                                    <table class="item-tableau" data-columns="4" data-rows="4">
+                                        {% for key, value in itemLivret.valeurVariable %}
+                                            <tr>
+                                                <td class="text">{{ key }}</td>
+                                                <td class="aRemplir">{{ value }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            {% elseif (itemLivret.typeVariable == "texte") %}
+                                {{ itemLivret.valeurVariable[0] }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>

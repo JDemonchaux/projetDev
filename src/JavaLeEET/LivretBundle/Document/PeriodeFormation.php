@@ -89,7 +89,7 @@ class PeriodeFormation
     /**
      * @var collection $itemEntreprise
      *
-     * @ODM\EmbedMany(targetDocument="itemEntreprise")
+     * @ODM\EmbedMany(targetDocument="ItemEntreprise")
      */
     protected $itemEntreprise;
 
@@ -299,5 +299,50 @@ class PeriodeFormation
     public function getSignatureApprenti()
     {
         return $this->signatureApprenti;
+    }
+    public function __construct()
+    {
+        $this->itemCours = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->itemEntreprise = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add itemCour
+     *
+     * @param JavaLeEET\LivretBundle\Document\ItemCours $itemCour
+     */
+    public function addItemCour(\JavaLeEET\LivretBundle\Document\ItemCours $itemCour)
+    {
+        $this->itemCours[] = $itemCour;
+    }
+
+    /**
+     * Remove itemCour
+     *
+     * @param JavaLeEET\LivretBundle\Document\ItemCours $itemCour
+     */
+    public function removeItemCour(\JavaLeEET\LivretBundle\Document\ItemCours $itemCour)
+    {
+        $this->itemCours->removeElement($itemCour);
+    }
+
+    /**
+     * Add itemEntreprise
+     *
+     * @param JavaLeEET\LivretBundle\Document\ItemEntreprise $itemEntreprise
+     */
+    public function addItemEntreprise(\JavaLeEET\LivretBundle\Document\ItemEntreprise $itemEntreprise)
+    {
+        $this->itemEntreprise[] = $itemEntreprise;
+    }
+
+    /**
+     * Remove itemEntreprise
+     *
+     * @param JavaLeEET\LivretBundle\Document\ItemEntreprise $itemEntreprise
+     */
+    public function removeItemEntreprise(\JavaLeEET\LivretBundle\Document\ItemEntreprise $itemEntreprise)
+    {
+        $this->itemEntreprise->removeElement($itemEntreprise);
     }
 }

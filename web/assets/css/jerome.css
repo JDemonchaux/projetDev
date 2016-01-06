@@ -193,12 +193,33 @@ tbody.separator > tr {
     width: 25%;
 }
 
+.size33 {
+    width: 33%;
+}
+
+.size66 {
+    width: 66%;
+}
+
 .siz75 {
     width: 75%;
 }
 
 .competence-tableau {
     margin-top: 2rem !important;
+}
+
+.competence-tableau td {
+    border-left: 1px solid rgb(178, 178, 178);
+    border-right: 1px solid rgb(178, 178, 178);
+}
+
+.competence-tableau td:first-child {
+    border-left: none;
+}
+
+.competence-tableau td:last-child {
+    border-right: none;
 }
 
 .entete {

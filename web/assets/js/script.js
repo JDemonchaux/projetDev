@@ -71,6 +71,19 @@ $(document).ready(function () {
     $(".ajouterQuinzaine").on('click', function () {
         $('.periodes-livret').hide();
         $("#formQuinzaine").show();
-    })
+    });
+
+    $(".input-file").html(
+        ' <div class="file-field input-field">' +
+        '<div class="btn">' +
+        '<span>Insérer un fichier</span>' +
+        '<input type="file" class="green">' +
+        '</div>' +
+        '<div class="file-path-wrapper">' +
+        '<input class="file-path validate" type="text">' +
+        '</div>' +
+        '</div>'
+    )
+
 
 });

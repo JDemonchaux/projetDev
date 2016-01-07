@@ -20,6 +20,11 @@ class DefaultController extends Controller
         return $this->render('LivretBundle:Default:index.html.twig');
     }
 
+     public function aideAction()
+    {
+        return $this->render('LivretBundle:Default:aide.html.twig');
+    }
+    
     public function quinzaineAction()
     {
         $odm = $this->get('doctrine_mongodb')->getManager();

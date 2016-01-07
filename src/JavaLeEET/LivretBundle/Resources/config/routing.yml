@@ -21,3 +21,7 @@ livret_quinzaine:
 livret_quinzaine_ajouter:
     path:   /quinzaine/ajouter
     defaults: { _controller: LivretBundle:Default:quinzaineAjouter }
+    
+livret_aide:
+    path:   /aide
+    defaults: { _controller: LivretBundle:Default:aide }

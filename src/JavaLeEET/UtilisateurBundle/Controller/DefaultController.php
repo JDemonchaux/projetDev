@@ -9,6 +9,7 @@ use JavaLeEET\UtilisateurBundle\Form\SignatureType;
 use JavaLeEET\UtilisateurBundle\Document\CSVFile;
 use JavaLeEET\UtilisateurBundle\Form\CSVFileType;
 use JavaLeEET\UtilisateurBundle\Document\Utilisateur;
+use JavaLeEET\LivretBundle\Document\Livret;
 
 class DefaultController extends Controller
 {
@@ -124,11 +125,18 @@ class DefaultController extends Controller
                     //Persister l'utilisateur
                     $odm->persist($utilisateur);
                     $odm->flush();
+                    if ($data[3] == "ROLE_APPRENTI") {
+                        $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->findOneBy(array("email" => $data[2]));
+                        
+                        //Générer le livret de l'utilisateur
+                        $livret = new Livret();
+                        $livret->genererLivret($user->getId());
+                        $odm->persist($livret);
+                        $odm->flush();
+                    }
                 }
                 fclose($handle);
             }
-            //Générer le livret de l'utilisateur
-
             return $this->redirect($this->generateUrl("livret_homepage"));
         }
         return $this->render('UtilisateurBundle:Default:importCSV.html.twig', array(

@@ -74,4 +74,34 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         ));
     }
+
+
+    public function importCSVAction(){
+        $odm = $this->get('doctrine_mongodb')->getManager();
+        //Parser csv
+        if (($handle = fopen("/home/kohadon/GitProject/projetDev/web/uploads/csv/utilisateurTest.csv", "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                $num = count($data);
+
+                $utilisateur = new Utilisateur();
+                $utilisateur->setUsername($data[0].".".$data[1]);
+                $utilisateur->setPrenom($data[0]);
+                $utilisateur->setNom($data[1]);
+                $utilisateur->setEmail($data[2]);
+                $utilisateur->setRoles(array($data[3]));
+                $utilisateur->setPlainPassword($data[4]);
+                for ($i = 5; $i < $num; $i++) { 
+                    $utilisateur->addMailLink($data[$i]);
+                }
+                $utilisateur->setEnabled(true);
+                //Persister l'utilisateur
+                $odm->persist($utilisateur);
+                $odm->flush();
+            }
+            fclose($handle);
+        }
+        //Générer le livret de l'utilisateur
+
+        return $this->redirect($this->generateUrl("livret_homepage"));
+    }
 }

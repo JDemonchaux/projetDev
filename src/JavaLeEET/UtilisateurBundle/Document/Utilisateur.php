@@ -49,6 +49,11 @@ class Utilisateur extends BaseUser
     protected $signature;
 
     /**
+     * @MongoDB\Field(name="mailLink", type="collection")
+     */
+    protected $mailLink = array();
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -94,6 +99,22 @@ class Utilisateur extends BaseUser
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMailLink()
+    {
+        return $this->mailLink;
+    }
+
+    /**
+     * @param mixed $mail
+     */
+    public function addMailLink($mailLink)
+    {
+        $this->mailLink[] = $mailLink;
     }
 
     /**

@@ -93,4 +93,5 @@ class DefaultController extends Controller
 
         return $this->indexAction();
     }
+
 }

@@ -167,4 +167,16 @@ class Utilisateur extends BaseUser
 
 
 
+
+    /**
+     * Set mailLink
+     *
+     * @param collection $mailLink
+     * @return self
+     */
+    public function setMailLink($mailLink)
+    {
+        $this->mailLink = $mailLink;
+        return $this;
+    }
 }

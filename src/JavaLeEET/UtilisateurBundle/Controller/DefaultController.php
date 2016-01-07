@@ -6,13 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use JavaLeEET\UtilisateurBundle\Document\Signature;
 use JavaLeEET\UtilisateurBundle\Form\SignatureType;
+use JavaLeEET\UtilisateurBundle\Document\CSVFile;
+use JavaLeEET\UtilisateurBundle\Form\CSVFileType;
 use JavaLeEET\UtilisateurBundle\Document\Utilisateur;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
-        // Si l'utilisateur n'est pas connect�, on affiche la page de login
+        // Si l'utilisateur n'est pas connecté, on affiche la page de login
         if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $url = $this->generateUrl("fos_user_security_login");
         } else {
@@ -60,7 +62,7 @@ class DefaultController extends Controller
 //            $odm->persist($user);
 //            $odm->flush();
 
-            // Si l'utilisateur n'est pas connect�, on affiche la page de login
+            // Si l'utilisateur n'est pas connecté, on affiche la page de login
             if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
                 $url = $this->generateUrl("fos_user_security_login");
             } else {
@@ -76,32 +78,61 @@ class DefaultController extends Controller
     }
 
 
-    public function importCSVAction(){
-        $odm = $this->get('doctrine_mongodb')->getManager();
-        //Parser csv
-        if (($handle = fopen("/home/kohadon/GitProject/projetDev/web/uploads/csv/utilisateurTest.csv", "r")) !== FALSE) {
-            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                $num = count($data);
+    public function importCSVAction(Request $request){
 
-                $utilisateur = new Utilisateur();
-                $utilisateur->setUsername($data[0].".".$data[1]);
-                $utilisateur->setPrenom($data[0]);
-                $utilisateur->setNom($data[1]);
-                $utilisateur->setEmail($data[2]);
-                $utilisateur->setRoles(array($data[3]));
-                $utilisateur->setPlainPassword($data[4]);
-                for ($i = 5; $i < $num; $i++) { 
-                    $utilisateur->addMailLink($data[$i]);
-                }
-                $utilisateur->setEnabled(true);
-                //Persister l'utilisateur
-                $odm->persist($utilisateur);
-                $odm->flush();
+        $csvFile = new CSVFile();
+        $form = $this->createForm(new CSVFileType(), $csvFile);
+        $form->handleRequest($request);
+
+        if ($request->getMethod() == "POST") {
+            $file = $csvFile->getCsvFile();
+
+            if ($file->getClientOriginalExtension() != "csv") {
+                return $this->render('UtilisateurBundle:Default:importCSV.html.twig', array(
+                    'form' => $form->createView(),
+                ));
             }
-            fclose($handle);
-        }
-        //Générer le livret de l'utilisateur
 
-        return $this->redirect($this->generateUrl("livret_homepage"));
+            // Generate a unique name for the file before saving it
+            $fileName = 'Utilisateur.' . $file->getClientOriginalExtension();
+
+            // Move the file to the directory where signatures are stored
+            $csvDir = $this->container->getParameter('kernel.root_dir') . '/../web/uploads/csv';
+            $file->move($csvDir, $fileName);
+
+            // Update the 'signature' property to store the new file name
+            // instead of its contents
+            $csvFile->setCsvFile($fileName);
+
+            $odm = $this->get('doctrine_mongodb')->getManager();
+            //Parser csv
+            if (($handle = fopen($csvDir.'/'.$fileName, "r")) !== FALSE) {
+                while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                    $num = count($data);
+
+                    $utilisateur = new Utilisateur();
+                    $utilisateur->setUsername($data[0].".".$data[1]);
+                    $utilisateur->setPrenom($data[0]);
+                    $utilisateur->setNom($data[1]);
+                    $utilisateur->setEmail($data[2]);
+                    $utilisateur->setRoles(array($data[3]));
+                    $utilisateur->setPlainPassword($data[4]);
+                    for ($i = 5; $i < $num; $i++) { 
+                        $utilisateur->addMailLink($data[$i]);
+                    }
+                    $utilisateur->setEnabled(true);
+                    //Persister l'utilisateur
+                    $odm->persist($utilisateur);
+                    $odm->flush();
+                }
+                fclose($handle);
+            }
+            //Générer le livret de l'utilisateur
+
+            return $this->redirect($this->generateUrl("livret_homepage"));
+        }
+        return $this->render('UtilisateurBundle:Default:importCSV.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 }

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="card grey lighten-4">
+        <div class="card-content">
+
+            <div class="card-title center black-text">
+                <h3>Import des utilisateurs</h3>
+                (Fichier CSV)
+            </div>
+
+            </br>
+
+            <div class="row">
+
+                <form class="col s12" method="post" {{form_enctype(form)}} >
+
+                    <div class="file-field input-field">
+
+                        <div class="btn right">
+                            <span>Parcourir</span>
+                            <input id="javaleeet_utilisateurbundle_csvfiletype_csvFile" name="javaleeet_utilisateurbundle_csvfiletype[csvFile]" required="required" type="file">
+                        </div>
+
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+
+                    </div>
+
+                    <div class="center card-action">
+                        <button class="btn waves-effect waves-light" type="submit" id="_submit" name="_submit">
+                            Importer
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

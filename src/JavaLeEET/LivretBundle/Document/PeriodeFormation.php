@@ -170,28 +170,6 @@ class PeriodeFormation
     }
 
     /**
-     * Set dateFin
-     *
-     * @param date $dateFin
-     * @return self
-     */
-    public function setDateFin($dateFin)
-    {
-        $this->dateFin = $dateFin;
-        return $this;
-    }
-
-    /**
-     * Get dateFin
-     *
-     * @return date $dateFin
-     */
-    public function getDateFin()
-    {
-        return $this->dateFin;
-    }
-
-    /**
      * Set itemCours
      *
      * @param collection $itemCours

@@ -12,7 +12,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Validator\Constraints\DateTime;
-
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 class DefaultController extends Controller
 {
     public function indexAction()
@@ -97,6 +99,25 @@ class DefaultController extends Controller
         $odm->flush();
 
         return $this->indexAction();
+    }
+
+    public function exportAction(){
+        $odm = $this->get('doctrine_mongodb')->getManager();
+        $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy( array('_id' => "568f899f2a1cb3e2058b4568" ));
+        
+        $encoders = array(new XmlEncoder());
+        $normalizers = array(new ObjectNormalizer());
+        $serializer = new Serializer($normalizers, $encoders);
+
+        $livretXML = $serializer->serialize($livret, 'xml');
+        $livretXML = html_entity_decode($livretXML);
+        
+        $exportFile = $this->container->getParameter('kernel.root_dir') . '/../web/export/exportTest.xml';
+        $myfile = fopen( $exportFile, "w") or die("Unable to open file!");
+        fwrite($myfile, $livretXML);
+        fclose($myfile);
+        
+        return $this->render('LivretBundle:Default:exportLivret.html.twig', array("livretXML" => $livretXML));
     }
 
 }

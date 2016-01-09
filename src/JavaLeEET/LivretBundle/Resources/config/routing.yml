@@ -29,3 +29,7 @@ livret_quinzaine_ajouter:
 livret_aide:
     path:   /aide
     defaults: { _controller: LivretBundle:Default:aide }
+
+livret_choix_apprenti:
+    path:   /consulter/apprenti
+    defaults: { _controller: LivretBundle:Default:choisirApprenti }

@@ -22,6 +22,7 @@ class DefaultController extends Controller
     {
         $odm = $this->get("doctrine_mongodb")->getManager();
         $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($this->getUser()->getId());
+
         $signature = false;
 
         if (NULL !== $user->getSignature()) {
@@ -37,10 +38,43 @@ class DefaultController extends Controller
         return $this->render('LivretBundle:Default:aide.html.twig');
     }
 
-    public function quinzaineAction()
+    public function choisirApprentiAction()
+    {
+        // Vue pour le RD
+        // On affiche tous les apprentis
+        $odm = $this->get("doctrine_mongodb")->getManager();
+
+        $app = $odm->getRepository("UtilisateurBundle:Utilisateur")->findAll();
+        //@TODO : filter les apprentis dans la requetes
+        $apprentis = array();
+        foreach( $app as $apprenti) {
+            if ($apprenti->getRoles()[0] == "ROLE_APPRENTI") {
+                $apprentis[] = $apprenti;
+            }
+        }
+
+
+        return $this->render('LivretBundle:Default:choixApprentis.html.twig', array("apprentis" => $apprentis));
+    }
+
+    public function quinzaineAction(Request $req)
     {
         $odm = $this->get('doctrine_mongodb')->getManager();
-        $id = $this->getUser()->getId();
+
+        // Si c'est un apprenti, on choppe son livret
+        // Si c'est un tuteur, on choppe le livret de son apprenti
+        // Si c'est le RD, l'id de l'apprenti est passé en paramètre
+        if ($this->get('security.context')->isGranted('ROLE_TUTEUR')) {
+            $id = $this->getUser()->getId();
+            $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->find(new \MongoId($id));
+            $apprenti = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $tuteur->getApprentis()[0]));
+            $id = $apprenti[0]->getId();
+        } else if ($this->get('security.context')->isGranted('ROLE_APPRENTI')) {
+            $id = $this->getUser()->getId();
+        } else if ($this->get('security.context')->isGranted('ROLE_RD')) {
+            $id = $req->get('id');
+        }
+
 
         $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
 
@@ -83,14 +117,26 @@ class DefaultController extends Controller
         return $this->render('LivretBundle:Default:index.html.twig', array("livret" => $livret));
     }
 
-    public function consulterAction()
+    public function consulterAction(Request $req)
     {
         $odm = $this->get('doctrine_mongodb')->getManager();
-        $id = $this->getUser()->getId();
+
+        // Si c'est un apprenti, on choppe son livret
+        // Si c'est un tuteur, on choppe le livret de son apprenti
+        // Si c'est le RD, l'id de l'apprenti est passé en paramètre
+        if ($this->get('security.context')->isGranted('ROLE_TUTEUR')) {
+            $id = $this->getUser()->getId();
+            $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->find(new \MongoId($id));
+            $apprenti = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $tuteur->getApprentis()[0]));
+            $id = $apprenti[0]->getId();
+        } else if ($this->get('security.context')->isGranted('ROLE_APPRENTI')) {
+            $id = $this->getUser()->getId();
+        } else if ($this->get('security.context')->isGranted('ROLE_RD')) {
+            $id = $req->get('id');
+        }
 
         $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
 
-//        var_dump($livret->getActivite());
         return $this->render('LivretBundle:Default:consulterLivret.html.twig', array("livret" => $livret));
     }
 

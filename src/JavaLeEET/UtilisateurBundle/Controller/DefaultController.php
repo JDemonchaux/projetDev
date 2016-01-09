@@ -119,13 +119,18 @@ class DefaultController extends Controller
                     $utilisateur->setEmail($data[2]);
                     $utilisateur->setRoles(array($data[3]));
                     $utilisateur->setPlainPassword($data[4]);
-                    for ($i = 5; $i < $num; $i++) {
-                        $utilisateur->addMailLink($data[$i]);
+                    if ($data[3] !== "ROLE_RD") {
+                        if ($data[3] == "ROLE_TUTEUR") {
+                            for ($i = 5; $i < $num; $i++) {
+                                $utilisateur->setApprentis(array($data[$i]));
+                            }
+                        } else if ($data[3] == "ROLE_APPRENTI") {
+                            $utilisateur->setTuteur(array($data[5]));
+                            $utilisateur->setClasse($data[6]);
+                        }
                     }
                     $utilisateur->setEnabled(true);
                     //Persister l'utilisateur
-
-                    var_dump($utilisateur);
                     $odm->persist($utilisateur);
                     $odm->flush();
                     if ($data[3] == "ROLE_APPRENTI") {

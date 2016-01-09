@@ -20,8 +20,8 @@
                                 <table class="">
                                     <thead>
                                     <tr>
-                                        <th class="size25 entete">{{ activite.titre }}</th>
-                                        <th class="size75 entete">Compétences associées</th>
+                                        <th class="size33 entete">{{ activite.titre }}</th>
+                                        <th class="size66 entete">Compétences associées</th>
                                     </tr>
                                     </thead>
                                     {% for i in 0..activite.competences|length %}
@@ -32,7 +32,8 @@
                                                 <td></td>
                                             {% endif %}
                                             {% if activite.competences[i] is defined %}
-                                                <td class="text-justify">{{ activite.competences[i].code }} - {{ activite.competences[i].descriptif }}</td>
+                                                <td class="text-justify">{{ activite.competences[i].code }}
+                                                    - {{ activite.competences[i].descriptif }}</td>
                                             {% else %}
                                                 <td></td>
                                             {% endif %}
@@ -46,18 +47,74 @@
                         {% for itemLivret in section.itemLivret %}
                             <h3 class="item-title {% if loop.index % 2 %} bleu {% else %} vert {% endif %}">{{ itemLivret.nom }}</h3>
                             {% if (itemLivret.typeVariable == "tableau") %}
+                                {% if (itemLivret.nom == "Formateurs") %}
+                                    <div class="border">
+                                        <table class="item-tableau">
+                                            <thead>
+                                            <tr>
+                                                <th>Formateur</th>
+                                                <th>Matière</th>
+                                            </tr>
+                                            </thead>
+                                            {% for i in 0..9 %}
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                {% else %}
+                                    <div class="border">
+                                        <table class="item-tableau" data-columns="4" data-rows="4">
+                                            {% for key, value in itemLivret.valeurVariable %}
+                                                <tr>
+                                                    <td class="text">{{ key }}</td>
+                                                    <td class="aRemplir">{{ value }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                {% endif %}
+                            {% elseif (itemLivret.typeVariable == "tableau-signature") %}
                                 <div class="border">
                                     <table class="item-tableau" data-columns="4" data-rows="4">
                                         {% for key, value in itemLivret.valeurVariable %}
                                             <tr>
                                                 <td class="text">{{ key }}</td>
-                                                <td class="aRemplir">{{ value }}</td>
+                                                {% if (value == "") %}
+                                                    {% if is_granted("ROLE_APPRENTI") and key matches '(Apprenti)' %}
+                                                        <td class="aSigner">
+                                                            <button class="btn bleu btSignature center-align">Ajouter la
+                                                                signature
+                                                            </button>
+                                                        </td>
+                                                    {% elseif is_granted("ROLE_TUTEUR") and key matches '(maître)' %}
+                                                        <td class="aSigner">
+                                                            <button class="btn bleu btSignature center-align">Ajouter la
+                                                                signature
+                                                            </button>
+                                                        </td>
+                                                    {% elseif is_granted("ROLE_RD") and key matches '(CFA)' %}
+                                                        <td class="aSigner">
+                                                            <button class="btn bleu btSignature center-align">Ajouter la
+                                                                signature
+                                                            </button>
+                                                        </td>
+                                                    {% else %}
+                                                        <td class="aSigner">{{ value }}</td>
+                                                    {% endif %}
+                                                {% else %}
+                                                    <td class="aSigner">{{ value }}</td>
+                                                {% endif %}
                                             </tr>
                                         {% endfor %}
                                     </table>
                                 </div>
                             {% elseif (itemLivret.typeVariable == "texte") %}
                                 {{ itemLivret.valeurVariable[0] }}
+                            {% elseif (itemLivret.typeVariable == "fichier") %}
+                                <div class="input-file">fichier ici</div>
                             {% endif %}
                         {% endfor %}
                     {% endif %}

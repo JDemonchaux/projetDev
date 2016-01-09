@@ -42,26 +42,26 @@ class DefaultController extends Controller
                     'form' => $form->createView(),
                 ));
             }
-            // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
 
-            // Move the file to the directory where signatures are stored
+            // On get l'odm
+            $odm = $this->get('doctrine_mongodb')->getManager();
+
+            // On récupère l'user courant en base
+            $user = $this->getUser();
+            $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($user->getId());
+
+            // On nomme le fichier signature suivant l'username
+            $fileName = $this->getUser()->getUsername() . '.' . $file->guessExtension();
+
+            // Déplace le fichier signature de tmp aux assets
             $signaturesDir = $this->container->getParameter('kernel.root_dir') . '/../web/uploads/signatures';
             $file->move($signaturesDir, $fileName);
 
-            // Update the 'signature' property to store the new file name
-            // instead of its contents
-            $signature->setSignature($fileName);
+            // Enfin on rentre le nom du fichier dans notre objet utilisateur
+            $user->setSignature($fileName);
 
-            // ... persist the $signature variable if needed
-            $user = $this->getUser();
-            $user->setSignature($signature);
-
-//             Commenté pour l'instant car la mise a jour vide l'utilisateur en bdd.
-//            A voir donc une fois qu'on pourra importer les users.
-//            $odm = $this->get('doctrine_mongodb')->getManager();
-//            $odm->persist($user);
-//            $odm->flush();
+            // On update, vu qu'on a déjà recupéré l'user depuis la bdd il est déjà managé, un flush suffit
+            $odm->flush();
 
             // Si l'utilisateur n'est pas connecté, on affiche la page de login
             if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
@@ -69,7 +69,7 @@ class DefaultController extends Controller
             } else {
                 $url = $this->generateUrl("livret_homepage");
             }
-
+//
             return $this->redirect($url);
         }
 
@@ -79,7 +79,8 @@ class DefaultController extends Controller
     }
 
 
-    public function importCSVAction(Request $request){
+    public function importCSVAction(Request $request)
+    {
 
         $csvFile = new CSVFile();
         $form = $this->createForm(new CSVFileType(), $csvFile);
@@ -107,27 +108,29 @@ class DefaultController extends Controller
 
             $odm = $this->get('doctrine_mongodb')->getManager();
             //Parser csv
-            if (($handle = fopen($csvDir.'/'.$fileName, "r")) !== FALSE) {
+            if (($handle = fopen($csvDir . '/' . $fileName, "r")) !== FALSE) {
                 while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                     $num = count($data);
 
                     $utilisateur = new Utilisateur();
-                    $utilisateur->setUsername($data[0].".".$data[1]);
+                    $utilisateur->setUsername($data[0] . "." . $data[1]);
                     $utilisateur->setPrenom($data[0]);
                     $utilisateur->setNom($data[1]);
                     $utilisateur->setEmail($data[2]);
                     $utilisateur->setRoles(array($data[3]));
                     $utilisateur->setPlainPassword($data[4]);
-                    for ($i = 5; $i < $num; $i++) { 
+                    for ($i = 5; $i < $num; $i++) {
                         $utilisateur->addMailLink($data[$i]);
                     }
                     $utilisateur->setEnabled(true);
                     //Persister l'utilisateur
+
+                    var_dump($utilisateur);
                     $odm->persist($utilisateur);
                     $odm->flush();
                     if ($data[3] == "ROLE_APPRENTI") {
                         $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->findOneBy(array("email" => $data[2]));
-                        
+
                         //Générer le livret de l'utilisateur
                         $livret = new Livret();
                         $livret->genererLivret($user->getId());

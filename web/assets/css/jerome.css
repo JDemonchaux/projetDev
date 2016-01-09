@@ -51,19 +51,19 @@ div#menu {
 }
 
 .bleu {
-    background-color: rgb(21, 102, 173);
+    background-color: rgb(21, 102, 173) !important;
 }
 
 .bleu-text {
-    color: rgb(21, 102, 173);
+    color: rgb(21, 102, 173) !important;
 }
 
 .vert {
-    background-color: rgb(139, 184, 88);
+    background-color: rgb(139, 184, 88) !important;
 }
 
 .vert-text {
-    color: rgb(139, 184, 88);
+    color: rgb(139, 184, 88) !important;
 }
 
 /**

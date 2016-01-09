@@ -47,7 +47,7 @@ class DefaultController extends Controller
         $app = $odm->getRepository("UtilisateurBundle:Utilisateur")->findAll();
         //@TODO : filter les apprentis dans la requetes
         $apprentis = array();
-        foreach( $app as $apprenti) {
+        foreach ($app as $apprenti) {
             if ($apprenti->getRoles()[0] == "ROLE_APPRENTI") {
                 $apprentis[] = $apprenti;
             }
@@ -67,18 +67,25 @@ class DefaultController extends Controller
         if ($this->get('security.context')->isGranted('ROLE_TUTEUR')) {
             $id = $this->getUser()->getId();
             $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->find(new \MongoId($id));
-            $apprenti = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $tuteur->getApprentis()[0]));
-            $id = $apprenti[0]->getId();
+            $app = $tuteur->getApprentis();
+            $apprenti = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $app[0]));
+            $apprenti = $apprenti[0];
+            $id = $apprenti->getId();
         } else if ($this->get('security.context')->isGranted('ROLE_APPRENTI')) {
             $id = $this->getUser()->getId();
+            $apprenti = $odm->getRepository("UtilisateurBundle:Utilisateur")->find(new \MongoId($id));
+            $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $apprenti->getTuteur()[0]));
+            $tuteur = $tuteur[0];
         } else if ($this->get('security.context')->isGranted('ROLE_RD')) {
             $id = $req->get('id');
+            $apprenti = $odm->getRepository("UtilisateurBundle:Utilisateur")->find(new \MongoId($id));
+            $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $apprenti->getTuteur()[0]));
+            $tuteur = $tuteur[0];
         }
 
 
         $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
-
-        return $this->render('LivretBundle:Default:quinzaine.html.twig', array("livret" => $livret));
+        return $this->render('LivretBundle:Default:quinzaine.html.twig', array("livret" => $livret, "apprenti" => $apprenti, "tuteur" => $tuteur));
     }
 
     public function quinzaineAjouterAction(Request $request)

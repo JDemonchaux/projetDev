@@ -114,7 +114,15 @@
                             {% elseif (itemLivret.typeVariable == "texte") %}
                                 {{ itemLivret.valeurVariable[0] }}
                             {% elseif (itemLivret.typeVariable == "fichier") %}
-                                <div class="input-file">fichier ici</div>
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>Insérer ici</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                    </div>
+                                </div>
                             {% endif %}
                         {% endfor %}
                     {% endif %}

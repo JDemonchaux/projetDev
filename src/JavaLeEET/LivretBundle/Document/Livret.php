@@ -950,12 +950,12 @@ class Livret
         $categories[] = $c2;
         $categories[] = $c1;
 
-
         // LIVRET
         $this->setActivite($item13);
         $this->setPeriodeFormation($periodes);
         $this->setCategorie($categories);
         $this->setApprenti($apprenti);
+
     }
 
     /**

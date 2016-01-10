@@ -37,3 +37,11 @@ livret_choix_apprenti:
 livret_save_bdd:
     path:    /consulter/saveLivret
     defaults: { _controller: LivretBundle:Default:saveLivret }
+
+livret_signer:
+    path:    /consulter/signer
+    defaults: { _controller: LivretBundle:Default:signer }
+
+livret_ajouter_fichier:
+    path:   /consulter/fichier
+    defaults: { _controller: LivretBundle:Default:ajouterFichier }

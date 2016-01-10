@@ -106,10 +106,6 @@ $(document).ready(function () {
         var key = $(this).data("key");
         var value = $(this).val();
 
-        if (value == "") {
-            return false;
-        }
-
         // Serialization des data
         var json = JSON.stringify({
             "jsonrpc": "2.0",
@@ -126,7 +122,7 @@ $(document).ready(function () {
 
 
         // Construction de l'url, on enlève les éventuels #!
-        var url = window.location.href.replace("#!");
+        var url = window.location.href.replace("#!", "");
         url += "/saveLivret";
 
         $.ajax(
@@ -141,13 +137,103 @@ $(document).ready(function () {
                 success: function (data) {
                     toast('Enregistrement réussi!');
                 },
-                error: function() {
+                error: function () {
                     toast('Erreur lors de l\'enregistrement');
                 }
             }
         )
-    })
+    });
 
+    $('.btSigner').on('click', function () {
+        var item = $(this).data("item");
+        var livret = $(this).data("livret");
+        var categorie = $(this).data("categorie");
+        var section = $(this).data("section");
+        var key = $(this).data("key");
+
+        // Serialization des data
+        var json = JSON.stringify({
+            "jsonrpc": "2.0",
+            "method": "POST",
+            "data": {
+                "item": item,
+                "livret": livret,
+                "categorie": categorie,
+                "section": section,
+                "key": key
+            }
+        });
+
+        // Construction de l'url, on enlève les éventuels #!
+        var url = window.location.href.replace("#!", "");
+        url += "/signer";
+        console.log(window.location.href);
+        $.ajax(
+            {
+                url: url,
+                type: "POST",
+                dataType: "JSON",
+                data: json,
+                headers: {
+                    'content-type': "application/json; charset=utf-8"
+                },
+                success: function (data) {
+                    toast('Enregistrement réussi!');
+                },
+                error: function () {
+                    toast('Erreur lors de l\'enregistrement');
+                }
+            }
+        )
+
+
+    });
+
+    $("#formFile").on('submit', function() {
+        var filename = $(".insertFile").val();
+        var item = $(this).data("item");
+        var livret = $(this).data("livret");
+        var categorie = $(this).data("categorie");
+        var section = $(this).data("section");
+        var key = $(this).data("key");
+
+        var url = window.location.href.replace("#!", "");
+        var url = window.location.href.replace("_submit=", "");
+        var url = window.location.href.replace("?", "");
+        url += "/fichier";
+
+        var input = document.getElementsByClassName("insertFile");
+
+        var formData = new FormData();
+        formData.append("userfile", input[0].files[0]);
+        formData.append("item", item);
+        formData.append("livret", livret);
+        formData.append("categorie", categorie);
+        formData.append("section", section);
+        formData.append("key", key);
+        formData.append("value", filename);
+
+        console.log(url);
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            success: function (data) {
+                toast('Enregistrement réussi!');
+            },
+            error: function () {
+                toast('Erreur lors de l\'enregistrement');
+            },
+            // Form data
+            data: formData,
+            //Options to tell jQuery not to process data or worry about content-type.
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+
+        return false;
+    });
 });
 
 

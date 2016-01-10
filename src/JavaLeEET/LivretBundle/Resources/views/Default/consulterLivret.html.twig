@@ -72,7 +72,14 @@
                                                     <td class="text">{{ key }}</td>
 
                                                     <td class="aRemplir">
-                                                        <input type="text" class="saveLivret" data-livret="{{ livret.id }}" data-categorie="{{ categorie.id }}" data-section="{{ section.id }}" data-item="{{ itemLivret.id }}" data-key="{{ key }}"/>
+                                                        <input type="text" class="saveLivret"
+                                                               data-livret="{{ livret.id }}"
+                                                               data-categorie="{{ categorie.id }}"
+                                                               data-section="{{ section.id }}"
+                                                               data-item="{{ itemLivret.id }}"
+                                                               data-key="{{ key }}"
+                                                               value="{{ value }}"
+                                                        />
                                                     </td>
                                                 </tr>
                                             {% endfor %}
@@ -88,27 +95,50 @@
                                                 {% if (value == "") %}
                                                     {% if is_granted("ROLE_APPRENTI") and key matches '(Apprenti)' %}
                                                         <td class="aSigner">
-                                                            <button class="btn bleu btSignature center-align">Ajouter la
-                                                                signature
-                                                            </button>
+                                                            <a href="#!" class="btSigner" data-livret="{{ livret.id }}"
+                                                               data-categorie="{{ categorie.id }}"
+                                                               data-section="{{ section.id }}"
+                                                               data-item="{{ itemLivret.id }}"
+                                                               data-key="{{ key }}">
+                                                                <button class="btn bleu btSignature center-align">
+                                                                    Ajouter la
+                                                                    signature
+                                                                </button>
+                                                            </a>
                                                         </td>
                                                     {% elseif is_granted("ROLE_TUTEUR") and key matches '(maître)' %}
                                                         <td class="aSigner">
-                                                            <button class="btn bleu btSignature center-align">Ajouter la
-                                                                signature
-                                                            </button>
+                                                            <a href="#!" class="btSigner" data-livret="{{ livret.id }}"
+                                                               data-categorie="{{ categorie.id }}"
+                                                               data-section="{{ section.id }}"
+                                                               data-item="{{ itemLivret.id }}"
+                                                               data-key="{{ key }}">
+                                                                <button class="btn bleu btSignature center-align">
+                                                                    Ajouter la
+                                                                    signature
+                                                                </button>
+                                                            </a>
                                                         </td>
                                                     {% elseif is_granted("ROLE_RD") and key matches '(CFA)' %}
                                                         <td class="aSigner">
-                                                            <button class="btn bleu btSignature center-align">Ajouter la
-                                                                signature
-                                                            </button>
+                                                            <a href="#!" class="btSigner" data-livret="{{ livret.id }}"
+                                                               data-categorie="{{ categorie.id }}"
+                                                               data-section="{{ section.id }}"
+                                                               data-item="{{ itemLivret.id }}"
+                                                               data-key="{{ key }}">
+                                                                <button class="btn bleu btSignature center-align">
+                                                                    Ajouter la
+                                                                    signature
+                                                                </button>
+                                                            </a>
                                                         </td>
                                                     {% else %}
                                                         <td class="aSigner">{{ value }}</td>
                                                     {% endif %}
                                                 {% else %}
-                                                    <td class="aSigner">{{ value }}</td>
+                                                    <td class="aSigner"><img
+                                                                src="{{ asset("uploads/signatures/") }}{{ value }}"
+                                                                class="img-signature"/></td>
                                                 {% endif %}
                                             </tr>
                                         {% endfor %}
@@ -117,15 +147,27 @@
                             {% elseif (itemLivret.typeVariable == "texte") %}
                                 {{ itemLivret.valeurVariable[0] }}
                             {% elseif (itemLivret.typeVariable == "fichier") %}
-                                <div class="file-field input-field">
-                                    <div class="btn">
-                                        <span>Insérer ici</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text">
-                                    </div>
-                                </div>
+                                {% for key, value in itemLivret.valeurVariable %}
+                                    <form id="formFile" data-livret="{{ livret.id }}"
+                                          data-categorie="{{ categorie.id }}"
+                                          data-section="{{ section.id }}"
+                                          data-item="{{ itemLivret.id }}"
+                                          data-key="{{ key }}">
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>{{ key }}</span>
+                                                <input type="file" class="insertFile">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                            <button class="btn waves-effect waves-light" id="_submit" id="insertFile">
+                                                Ajouter
+                                                <i class="material-icons right">send</i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                {% endfor %}
                             {% endif %}
                         {% endfor %}
                     {% endif %}

@@ -961,6 +961,7 @@ class Livret
 
     public function updateItem($data)
     {
+        var_dump($data);
         $livret = $data->data->livret;
         $categorie = $data->data->categorie;
         $section = $data->data->section;
@@ -988,8 +989,6 @@ class Livret
                 }
             }
         }
-
-        return $this;
     }
 
 

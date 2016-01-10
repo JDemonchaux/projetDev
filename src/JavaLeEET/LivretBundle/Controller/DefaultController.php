@@ -39,6 +39,7 @@ class DefaultController extends Controller
         return $this->render('LivretBundle:Default:aide.html.twig');
     }
 
+
     public function choisirApprentiAction()
     {
         // Vue pour le RD
@@ -200,26 +201,102 @@ class DefaultController extends Controller
 
             $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("_id" => new \MongoId($data->data->livret)));
 
-            foreach ($livret as $l) {
-                if (is_object($l) && null !== $l) {
-                    // On est bien dans le livret
-                    // Alors on update l'item on lui passant les param
-                    $livret = $l->updateItem($data);
-                    $l->setTuteur(new \MongoId($this->getUser()->getId()));
+            // on delete le livret pour le recreer apres, l'update ne marche pas pour les document embedded
 
+            $l = $livret;
 
-                    $odm->detach($livret);
-                    $odm->persist($l);
-                    $odm->flush();
-                    break;
-                }
-            }
+            $odm->remove($livret);
+            $odm->flush();
+
+            // On est bien dans le livret
+            // Alors on update l'item on lui passant les param
+            $l->updateItem($data);
+
+            $odm->persist($l);
+            $odm->flush();
 
 
             $success = true;
         } catch (Exception $e) {
             $success = $e->getMessage();
         }
-        return $this->render('LivretBundle:Default/Ajax:action.html.twig', array("success" => $success));
+        return $this->render('LivretBundle:Default/Ajax:action.html.twig', array("success" => $success, "livret" => $livret));
     }
+
+    public function signerAction(Request $request)
+    {
+        try {
+            $data = $request->getContent();
+            $data = json_decode($data);
+            $odm = $this->get("doctrine_mongodb")->getManager();
+            $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($this->getUser()->getId());
+            $data->data->value = $user->getSignature();
+
+
+            $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("_id" => new \MongoId($data->data->livret)));
+
+            // on delete le livret pour le recreer apres, l'update ne marche pas pour les document embedded
+
+            $l = $livret;
+
+
+            $odm->remove($livret);
+            $odm->flush();
+            // On est bien dans le livret
+            // Alors on update l'item on lui passant les param
+            $l->updateItem($data);
+
+            $odm->persist($l);
+            $odm->flush();
+
+
+        } catch
+        (Exception $e) {
+            $success = $e->getMessage();
+        }
+
+        return $this->consulterAction($request);
+    }
+
+    public function ajouterFichierAction(Request $request)
+    {
+        $data["data"]["item"] = $request->get("item");
+        $data["data"]["livret"] = $request->get("livret");
+        $data["data"]["categorie"] = $request->get("categorie");
+        $data["data"]["section"] = $request->get("section");
+        $data["data"]["key"] = $request->get("key");
+        $file = $request->files->get('userfile');
+
+        $data["data"]["value"] = $this->getUser()->getUsername() . "_" . $file->getClientOriginalName();
+        $url = $this->container->getParameter('kernel.root_dir') . '/../web/uploads/itemlivret';;
+
+        $file->move($url, $data["data"]["value"]);
+
+        $data = json_encode($data);
+        $data = json_decode($data);
+        var_dump($data->data);
+
+        $odm = $this->get("doctrine_mongodb")->getManager();
+        $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($this->getUser()->getId());
+        $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("_id" => new \MongoId($data->data->livret)));
+
+        // on delete le livret pour le recreer apres, l'update ne marche pas pour les document embedded
+        $l = $livret;
+
+        $odm->remove($livret);
+        $odm->flush();
+        // On est bien dans le livret
+        // Alors on update l'item on lui passant les param
+        $l->updateItem($data);
+
+        $odm->persist($l);
+        $odm->flush();
+
+
+
+        return $this->consulterAction($request);
+
+
+    }
+
 }

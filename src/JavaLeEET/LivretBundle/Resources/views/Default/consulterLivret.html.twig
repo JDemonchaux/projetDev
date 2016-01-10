@@ -70,7 +70,10 @@
                                             {% for key, value in itemLivret.valeurVariable %}
                                                 <tr>
                                                     <td class="text">{{ key }}</td>
-                                                    <td class="aRemplir">{{ value }}</td>
+
+                                                    <td class="aRemplir">
+                                                        <input type="text" class="saveLivret" data-livret="{{ livret.id }}" data-categorie="{{ categorie.id }}" data-section="{{ section.id }}" data-item="{{ itemLivret.id }}" data-key="{{ key }}"/>
+                                                    </td>
                                                 </tr>
                                             {% endfor %}
                                         </table>
@@ -131,4 +134,7 @@
         </div>
     {% endfor %}
 
+
+    <div id="notifier">
+    </div>
 {% endblock %}

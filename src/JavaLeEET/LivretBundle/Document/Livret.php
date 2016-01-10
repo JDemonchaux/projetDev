@@ -309,7 +309,7 @@ class Livret
         $i19->setNom("Le context organisationnel");
         $i19->setTypeVariable("tableau");
         $a = array(
-            "Les différentes implantations géographiques (site, nombre, nature, effectif, lieux, organigramme...)" => "",
+            "Les différentes implantations géographiques (site, nombre, nature, effectif, lieux, organigramme)" => "",
             "L'organigramme de l'entreprise d'accueil" => "",
             "Détail des produits et des services" => "",
             "Les moyens techniques mis à sa disposition" => "",
@@ -355,17 +355,17 @@ class Livret
         $a = array(
             "L’organisation du SI est-elle basée sur une centralisation des données interne ou externe, pourquoi ?" => "",
             "Le SI est-il composé de plusieurs sites et comment sont-ils reliés ? Est-il intégré à un WAN ?" => "",
-            "Séparer et identifier les différents flux, notamment en matière de données et de traitements. " => "",
+            "Séparer et identifier les différents flux, notamment en matière de données et de traitements " => "",
             "Une charte/documentation d'utilisation et de sécurité est-elle disponible ?" => "",
             "Quelle est la topologie du réseau (physique et logique) ?" => "",
-            "Quel type de matériel est utilisé (le nombre de postes clients, serveurs…….) ?" => "",
-            "Recensez et caractérisez les serveurs de données, et les serveurs d’application." => "",
+            "Quel type de matériel est utilisé (le nombre de postes clients, serveurs……) ?" => "",
+            "Recensez et caractérisez les serveurs de données, et les serveurs d’application" => "",
             "Utilisez-vous la virtualisation ou l’hypervision, ?  Si oui dans quels buts et avec quels outils ?" => "",
-            "Quels sont les différents logiciels utilisés (payant, open source ... ) ?" => "",
+            "Quels sont les différents logiciels utilisés (payant, open source, etc) ?" => "",
             "Quels sont les différents progiciels mis en œuvre (logiciels applicatifs, libres ou propriétaires…) ?" => "",
             "Y a- t-il un pôle développement ?  Quels sont les différents langages utilisés ? Pourquoi ce(s) choix ?" => "",
-            "Quels types d’applications peut-on trouver ? (solutions intégrées, développement interne, applications métier, propriétaire ou open source ?)." => "",
-            "Décrivez la politique de Sécurité des données et du réseau (solutions logicielles, matérielles, réplication des données ? P.R.A. ?" => "",
+            "Quels types d’applications peut-on trouver ? (solutions intégrées, développement interne, applications métier, propriétaire ou open source ?)" => "",
+            "Décrivez la politique de Sécurité des données et du réseau (solutions logicielles, matérielles, réplication des données ? PRA ?" => "",
             "Quelles sont les personnes et les organisations concernées par l’utilisation des outils de Gestion de la Relation Client ?" => "",
             "Quelles sont les personnes et les organisations concernées par l’utilisation des outils de Gestion de la chaîne logistique ?" => "",
             "Quelles sont les fonctions de l’ERP de l’entreprise ? Quelles sont les fonctions des personnes concernées ?" => "",
@@ -375,8 +375,8 @@ class Livret
         $i24->setNom("L'évolution future du SI");
         $i24->setTypeVariable("tableau");
         $a = array(
-            "L’Evolution souhaitées ou imposées dans tous les domaines (organisation, sécurité….). " => "",
-            "Quels sont les objectifs à court terme et à long terme et quelles stratégies et tactiques seront employées pour les atteindre." => ""
+            "L’Evolution souhaitées ou imposées dans tous les domaines (organisation, sécurité…) " => "",
+            "Quels sont les objectifs à court terme et à long terme et quelles stratégies et tactiques seront employées pour les atteindre" => ""
         );
         $i24->setValeurVariable($a);
         $item9[] = $i20;
@@ -417,7 +417,7 @@ class Livret
         $i27 = new ItemLivret();
         $i27->setNom("Formation Interne");
         $i27->setTypeVariable("tableau");
-        $i27->setValeurVariable(array("Indiquer ici les objectifs, nombres d'heures..." => ""));
+        $i27->setValeurVariable(array("Indiquer ici les objectifs, nombres d'heures, etc" => ""));
         $item12[] = $i27;
 
         $item13 = array();
@@ -446,7 +446,7 @@ class Livret
         $c4->setDescriptif("Identifier un cadre légal ou réglementaire");
         $c4->setCode("C1-4");
         $c5 = new Competence();
-        $c5->setDescriptif("Rechercher des solutions à un problème d'informatisation. Proposer des solutions");
+        $c5->setDescriptif("Rechercher des solutions à un problème d'informatisation Proposer des solutions");
         $c5->setCode("C1-5");
         $c6 = new Competence();
         $c6->setDescriptif("Communiquer ses réflexions en français, en anglais");
@@ -473,33 +473,33 @@ class Livret
             "Modéliser une architecture",
             "Evaluer une faisabilité",
             "Respecter des contraintes",
-            "Réaliser le contenu d'un dossier de spécifications.",
-            "Suivre les innovations concernant les technologies mises en place pour en proposer leur intégration."
+            "Réaliser le contenu d'un dossier de spécifications",
+            "Suivre les innovations concernant les technologies mises en place pour en proposer leur intégration"
         ));
         $a = array();
         $c9 = new Competence();
         $c9->setDescriptif("Représenter les flux caractérisant l'activité d'un système d'information");
         $c9->setCode("C2-1");
         $c10 = new Competence();
-        $c10->setDescriptif("Modéliser une structure SI et/ou synthétiser un domaine virtuel.");
+        $c10->setDescriptif("Modéliser une structure SI et/ou synthétiser un domaine virtuel");
         $c10->setCode("C2-2");
         $c11 = new Competence();
-        $c11->setDescriptif("Représenter les données et les traitements d'un système d'information.");
+        $c11->setDescriptif("Représenter les données et les traitements d'un système d'information");
         $c11->setCode("C2-3");
         $c12 = new Competence();
-        $c12->setDescriptif("Représenter un système réparti.");
+        $c12->setDescriptif("Représenter un système réparti");
         $c12->setCode("C2-4");
         $c13 = new Competence();
-        $c13->setDescriptif("Faire preuve d'efficacité, de créativité.");
+        $c13->setDescriptif("Faire preuve d'efficacité, de créativité");
         $c13->setCode("C2-5");
         $c14 = new Competence();
-        $c14->setDescriptif("Connaître et respecter la propriété intellectuelle.");
+        $c14->setDescriptif("Connaître et respecter la propriété intellectuelle");
         $c14->setCode("C2-6");
         $c15 = new Competence();
-        $c15->setDescriptif("Définir un mode opératoire technologique (matériel, logiciel) et organisationnel (procédure).");
+        $c15->setDescriptif("Définir un mode opératoire technologique (matériel, logiciel) et organisationnel (procédure)");
         $c15->setCode("C2-7");
         $c16 = new Competence();
-        $c16->setDescriptif("Présenter l’offre de solutions techniques disponibles sur le marché, sélectionner le propositions les mieux adaptées.");
+        $c16->setDescriptif("Présenter l’offre de solutions techniques disponibles sur le marché, sélectionner le propositions les mieux adaptées");
         $c16->setCode("C2-8");
         $a[] = $c9;
         $a[] = $c10;
@@ -514,39 +514,39 @@ class Livret
         $a3 = new Activite();
         $a3->setTitre("Activite 3 : Anticipier la mise en oeuvre d'un Système d'Information");
         $a3->setDescriptif(array(
-            "Organiser la mise en place du SI.",
+            "Organiser la mise en place du SI",
             "Anticiper les besoins",
-            "Garantir des conditions d'efficacité du développement.",
-            "Communiquer ses conclusions.",
-            "Faire une analyse organisationnelle.",
-            "Exécuter une analyse fonctionnelle.",
-            "Rédiger un dossier de choix de solution technique.",
-            "Soutenir les spécifications techniques d'une solution."
+            "Garantir des conditions d'efficacité du développement",
+            "Communiquer ses conclusions",
+            "Faire une analyse organisationnelle",
+            "Exécuter une analyse fonctionnelle",
+            "Rédiger un dossier de choix de solution technique",
+            "Soutenir les spécifications techniques d'une solution"
         ));
         $a = array();
         $c17 = new Competence();
-        $c17->setDescriptif("Exploiter les ressources et les potentialités d'un réseau étendu, en particulier en matière de services intranet, extranet, internet.");
+        $c17->setDescriptif("Exploiter les ressources et les potentialités d'un réseau étendu, en particulier en matière de services intranet, extranet, internet");
         $c17->setCode("C3-1");
         $c18 = new Competence();
-        $c18->setDescriptif("Définir des besoins en ressources dans un environnement de réseau local.");
+        $c18->setDescriptif("Définir des besoins en ressources dans un environnement de réseau local");
         $c18->setCode("C3-2");
         $c19 = new Competence();
-        $c19->setDescriptif("Déterminer les besoins, les contraintes liés à la sécurité.");
+        $c19->setDescriptif("Déterminer les besoins, les contraintes liés à la sécurité");
         $c19->setCode("C3-3");
         $c20 = new Competence();
-        $c20->setDescriptif("Déterminer les contraintes de confidentialité.");
+        $c20->setDescriptif("Déterminer les contraintes de confidentialité");
         $c20->setCode("C3-4");
         $c21 = new Competence();
-        $c21->setDescriptif("Assurer l'interface avec les prestataires.");
+        $c21->setDescriptif("Assurer l'interface avec les prestataires");
         $c21->setCode("C3-5");
         $c22 = new Competence();
-        $c22->setDescriptif("S'adapter aux exigences de qualité.");
+        $c22->setDescriptif("S'adapter aux exigences de qualité");
         $c22->setCode("C3-6");
         $c23 = new Competence();
-        $c23->setDescriptif("Rédiger un cahier des charges fonctionnel, une étude d'opportunité, un argumentaire technique.");
+        $c23->setDescriptif("Rédiger un cahier des charges fonctionnel, une étude d'opportunité, un argumentaire technique");
         $c23->setCode("C3-7");
         $c24 = new Competence();
-        $c24->setDescriptif("Inventorier les risques liés à un dysfonctionnement.");
+        $c24->setDescriptif("Inventorier les risques liés à un dysfonctionnement");
         $c24->setCode("C3-8");
         $a[] = $c17;
         $a[] = $c18;
@@ -561,30 +561,30 @@ class Livret
         $a4 = new Activite();
         $a4->setTitre("Activite 4 : Conduire un projet");
         $a4->setDescriptif(array(
-            "Conduire un projet S.I.",
+            "Conduire un projet SI",
             "Gérer des ressources humaines",
-            "Optimiser des matériels.",
-            "Maîtriser la consommation d'une enveloppe temps.",
+            "Optimiser des matériels",
+            "Maîtriser la consommation d'une enveloppe temps",
             "Créer et gérer un tableau de bord"
         ));
         $a = array();
         $c25 = new Competence();
-        $c25->setDescriptif("Scinder le projet en étape.");
+        $c25->setDescriptif("Scinder le projet en étape");
         $c25->setCode("C4-1");
         $c26 = new Competence();
-        $c26->setDescriptif("Estimer la charge d'un projet.");
+        $c26->setDescriptif("Estimer la charge d'un projet");
         $c26->setCode("C4-2");
         $c27 = new Competence();
-        $c27->setDescriptif("Planifier. Gérer le capital temps/ressources.");
+        $c27->setDescriptif("Planifier Gérer le capital temps/ressources");
         $c27->setCode("C4-3");
         $c28 = new Competence();
-        $c28->setDescriptif("Organiser le travail en équipe Piloter le projet.");
+        $c28->setDescriptif("Organiser le travail en équipe Piloter le projet");
         $c28->setCode("C4-4");
         $c29 = new Competence();
-        $c29->setDescriptif("Mettre en œuvre un plan qualité.");
+        $c29->setDescriptif("Mettre en œuvre un plan qualité");
         $c29->setCode("C4-5");
         $c30 = new Competence();
-        $c30->setDescriptif("Estimer le coût d’un projet.");
+        $c30->setDescriptif("Estimer le coût d’un projet");
         $c30->setCode("C4-6");
         $a[] = $c25;
         $a[] = $c26;
@@ -597,36 +597,36 @@ class Livret
         $a5 = new Activite();
         $a5->setTitre("Activite 5 : Réaliser");
         $a5->setDescriptif(array(
-            "Décliner le cahier des charges fonctionnel en méthodes de développement (algo, MCD...).",
-            "Rédiger un cahier des charges réalisationnel.",
-            "Développer des applications dans un environnement matériel et logiciel répandu dans le milieu professionnel.",
-            "Mettre en oeuvre des normes.",
-            "Elaborer les cahier des tests."
+            "Décliner le cahier des charges fonctionnel en méthodes de développement (algo, MCD)",
+            "Rédiger un cahier des charges réalisationnel",
+            "Développer des applications dans un environnement matériel et logiciel répandu dans le milieu professionnel",
+            "Mettre en oeuvre des normes",
+            "Elaborer les cahier des tests"
         ));
         $a = array();
         $c31 = new Competence();
-        $c31->setDescriptif("Assurer le suivi  de développement logiciel et/ou réseau.");
+        $c31->setDescriptif("Assurer le suivi  de développement logiciel et/ou réseau");
         $c31->setCode("C5-1");
         $c32 = new Competence();
-        $c32->setDescriptif("Développer en utilisant un langage procédural, événementiel ou objet.");
+        $c32->setDescriptif("Développer en utilisant un langage procédural, événementiel ou objet");
         $c32->setCode("C5-2");
         $c33 = new Competence();
-        $c33->setDescriptif("Développer une application autour d'une base de données relationnelle et/ou objet.");
+        $c33->setDescriptif("Développer une application autour d'une base de données relationnelle et/ou objet");
         $c33->setCode("C5-3");
         $c34 = new Competence();
-        $c34->setDescriptif("Développer des solutions en utilisant les technologies de l'internet : portail d'entreprise, intranet, extranet.");
+        $c34->setDescriptif("Développer des solutions en utilisant les technologies de l'internet : portail d'entreprise, intranet, extranet");
         $c34->setCode("C5-4");
         $c35 = new Competence();
-        $c35->setDescriptif("Développer une application autour d'un réseau et/ou d’un système.");
+        $c35->setDescriptif("Développer une application autour d'un réseau et/ou d’un système");
         $c35->setCode("C5-5");
         $c36 = new Competence();
-        $c36->setDescriptif("Mettre au point et maintenir une application à ses différentes étapes de  réalisation.");
+        $c36->setDescriptif("Mettre au point et maintenir une application à ses différentes étapes de  réalisation");
         $c36->setCode("C5-6");
         $c37 = new Competence();
-        $c37->setDescriptif("Concevoir des tests.");
+        $c37->setDescriptif("Concevoir des tests");
         $c37->setCode("C5-7");
         $c38 = new Competence();
-        $c38->setDescriptif("Valider un système.");
+        $c38->setDescriptif("Valider un système");
         $c38->setCode("C5-8");
         $a[] = $c31;
         $a[] = $c32;
@@ -644,25 +644,25 @@ class Livret
             "Administrer le système",
             "Effectuer la réception",
             "Valider la recette",
-            "Participer à la prise en main du SI.",
+            "Participer à la prise en main du SI",
             "Déployer la solution",
             "Elaborer les cahiers de tests"
         ));
         $a = array();
         $c39 = new Competence();
-        $c39->setDescriptif("Assurer l'assistance de premier niveau.");
+        $c39->setDescriptif("Assurer l'assistance de premier niveau");
         $c39->setCode("C6-1");
         $c40 = new Competence();
-        $c40->setDescriptif("Mettre un logiciel à la disposition des utilisateurs.");
+        $c40->setDescriptif("Mettre un logiciel à la disposition des utilisateurs");
         $c40->setCode("C6-2");
         $c41 = new Competence();
-        $c41->setDescriptif("Créer une documentation technique en français ou en anglais.");
+        $c41->setDescriptif("Créer une documentation technique en français ou en anglais");
         $c41->setCode("C6-3");
         $c42 = new Competence();
-        $c42->setDescriptif("Former les utilisateurs.");
+        $c42->setDescriptif("Former les utilisateurs");
         $c42->setCode("C6-4");
         $c43 = new Competence();
-        $c43->setDescriptif("Rédiger une notice d'utilisation ou un mode opératoire d'installation.");
+        $c43->setDescriptif("Rédiger une notice d'utilisation ou un mode opératoire d'installation");
         $c43->setCode("C6-5");
         $a[] = $c39;
         $a[] = $c40;
@@ -675,7 +675,7 @@ class Livret
         $a7->setTitre("Activité 7 : Pérenniser le système d'information");
         $a7->setDescriptif(array(
             "Pérenniser",
-            "Assurer la veille technologique.",
+            "Assurer la veille technologique",
             "Administrer le système",
             "Assurer la maintenance corrective et évolutive",
             "Effectuer le suivi des incidents",
@@ -685,31 +685,31 @@ class Livret
         ));
         $a = array();
         $c44 = new Competence();
-        $c44->setDescriptif("Assurer la sécurité du SI.");
+        $c44->setDescriptif("Assurer la sécurité du SI");
         $c44->setCode("C7-1");
         $c45 = new Competence();
-        $c45->setDescriptif("Surveiller et optimiser le trafic sur le SI.");
+        $c45->setDescriptif("Surveiller et optimiser le trafic sur le SI");
         $c45->setCode("C7-2");
         $c46 = new Competence();
-        $c46->setDescriptif("Gérer l'hétérogénéité des technologies mises en œuvre à travers le SI.");
+        $c46->setDescriptif("Gérer l'hétérogénéité des technologies mises en œuvre à travers le SI");
         $c46->setCode("C7-3");
         $c47 = new Competence();
-        $c47->setDescriptif("Sélectionner des sources d'information adaptées et actualisées en français/anglais.");
+        $c47->setDescriptif("Sélectionner des sources d'information adaptées et actualisées en français/anglais");
         $c47->setCode("C7-4");
         $c48 = new Competence();
-        $c48->setDescriptif("Identifier les évolutions technologiques ayant des conséquences pour l'entreprise.");
+        $c48->setDescriptif("Identifier les évolutions technologiques ayant des conséquences pour l'entreprise");
         $c48->setCode("C7-5");
         $c49 = new Competence();
-        $c49->setDescriptif("Constituer et mettre à jour la documentation technique en français/anglais.");
+        $c49->setDescriptif("Constituer et mettre à jour la documentation technique en français/anglais");
         $c49->setCode("C7-6");
         $c50 = new Competence();
-        $c50->setDescriptif("Rédiger un compte rendu d’incidents, un rapport d’expertise.");
+        $c50->setDescriptif("Rédiger un compte rendu d’incidents, un rapport d’expertise");
         $c50->setCode("C7-7");
         $c51 = new Competence();
-        $c51->setDescriptif("Recenser les impacts techniques et organisationnels consécutif à une évolution du SI.");
+        $c51->setDescriptif("Recenser les impacts techniques et organisationnels consécutif à une évolution du SI");
         $c51->setCode("C7-8");
         $c52 = new Competence();
-        $c52->setDescriptif("Développer des tableaux de bord de performances du réseau.");
+        $c52->setDescriptif("Développer des tableaux de bord de performances du réseau");
         $c52->setCode("C7-9");
         $a[] = $c44;
         $a[] = $c45;
@@ -725,34 +725,34 @@ class Livret
         $a8 = new Activite();
         $a8->setTitre("Activite 8 : Management 1");
         $a8->setDescriptif(array(
-            "Rechercher des idées et des financements.",
+            "Rechercher des idées et des financements",
             "Communiquer et Ordonnancer",
-            "Chiffrer et budgétiser.",
+            "Chiffrer et budgétiser",
             "Organiser et Finaliser",
             "Présenter le projet et recruter les ressources",
             "Présenter un dossier"
         ));
         $a = array();
         $c53 = new Competence();
-        $c53->setDescriptif("Construire le plan de communication.");
+        $c53->setDescriptif("Construire le plan de communication");
         $c53->setCode("C8-1");
         $c54 = new Competence();
-        $c54->setDescriptif("Rechercher des financements. Chiffrer les dépenses et les recettes.");
+        $c54->setDescriptif("Rechercher des financements Chiffrer les dépenses et les recettes");
         $c54->setCode("C8-2");
         $c55 = new Competence();
-        $c55->setDescriptif("Construire un budget prévisionnel. Déterminer le seuil de rentabilité.");
+        $c55->setDescriptif("Construire un budget prévisionnel Déterminer le seuil de rentabilité");
         $c55->setCode("C8-3");
         $c56 = new Competence();
-        $c56->setDescriptif("Evaluer la charge, construire un outil d’ordonnancement et de suivi.");
+        $c56->setDescriptif("Evaluer la charge, construire un outil d’ordonnancement et de suivi");
         $c56->setCode("C8-4");
         $c57 = new Competence();
-        $c57->setDescriptif("Vérifier la faisabilité du projet et le modifier éventuellement.");
+        $c57->setDescriptif("Vérifier la faisabilité du projet et le modifier éventuellement");
         $c57->setCode("C8-5");
         $c58 = new Competence();
-        $c58->setDescriptif("Redéfinir les besoins, identifier de nouvelles contraintes.");
+        $c58->setDescriptif("Redéfinir les besoins, identifier de nouvelles contraintes");
         $c58->setCode("C8-6");
         $c59 = new Competence();
-        $c59->setDescriptif("Rédiger un cahier des charges.");
+        $c59->setDescriptif("Rédiger un cahier des charges");
         $c59->setCode("C8-7");
         $a[] = $c53;
         $a[] = $c54;
@@ -768,25 +768,25 @@ class Livret
         $a9->setDescriptif(array(
             "Par une méthode appropriée, trouver une idée de création d'entreprise",
             "Etudier la faisabilité commerciale",
-            "Budgétiser et trouver des financements.",
+            "Budgétiser et trouver des financements",
             "Choisir le statu juridique et assurer le suivi de l'entreprise",
             "Présenter le projet de création d'entreprise"
         ));
         $a = array();
         $c60 = new Competence();
-        $c60->setDescriptif("Savoir utiliser différentes méthodes d’animation de réunion.");
+        $c60->setDescriptif("Savoir utiliser différentes méthodes d’animation de réunion");
         $c60->setCode("C9-1");
         $c61 = new Competence();
-        $c61->setDescriptif("Rechercher des financements pour la gestion future de l'entreprise.");
+        $c61->setDescriptif("Rechercher des financements pour la gestion future de l'entreprise");
         $c61->setCode("C9-2");
         $c62 = new Competence();
-        $c62->setDescriptif("Construire un budget prévisionnel. Déterminer le seuil de rentabilité.");
+        $c62->setDescriptif("Construire un budget prévisionnel Déterminer le seuil de rentabilité");
         $c62->setCode("C9-3");
         $c63 = new Competence();
-        $c63->setDescriptif("Evaluer la charge, construire un outil d’ordonnancement et de suivi.");
+        $c63->setDescriptif("Evaluer la charge, construire un outil d’ordonnancement et de suivi");
         $c63->setCode("C9-4");
         $c64 = new Competence();
-        $c64->setDescriptif("Vérifier la faisabilité du projet et le modifier éventuellement.");
+        $c64->setDescriptif("Vérifier la faisabilité du projet et le modifier éventuellement");
         $c64->setCode("C9-5");
         $a[] = $c60;
         $a[] = $c61;
@@ -958,6 +958,41 @@ class Livret
 
     }
 
+
+    public function updateItem($data)
+    {
+        $livret = $data->data->livret;
+        $categorie = $data->data->categorie;
+        $section = $data->data->section;
+        $item = $data->data->item;
+        $key = $data->data->key;
+        $value = $data->data->value;
+
+        foreach ($this->getCategorie() as $c) {
+            if ($c->getId() == new \MongoId($categorie)) {
+                foreach ($c->getSections() as $s) {
+                    if ($s->getId() == new \MongoId($section)) {
+                        foreach ($s->getItemLivret() as $i) {
+                            if ($i->getId() == new \MongoId($data->data->item)) {
+                                // C'est bon on est dans le bon item
+                                $a = $i->getValeurVariable();
+                                $a[$key] = $value;
+                                $i->setValeurVariable($a);
+
+                                $s->replaceItemLivret($i);
+                                $c->replaceSection($s);
+                                $this->replaceCategorie($c);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return $this;
+    }
+
+
     /**
      * @return collection
      */
@@ -1086,6 +1121,15 @@ class Livret
         $this->categorie[] = $categorie;
     }
 
+    public function replaceCategorie($categorie)
+    {
+        for ($i = 0; $i < count($this->categorie); $i++) {
+            if ($this->categorie[$i]->getId() == $categorie->getId()) {
+                $this->categorie[$i] = $categorie;
+            }
+        }
+    }
+
     /**
      * Remove categorie
      *
@@ -1135,4 +1179,6 @@ class Livret
     {
         $this->activites->removeElement($activite);
     }
+
+
 }

@@ -33,3 +33,7 @@ livret_aide:
 livret_choix_apprenti:
     path:   /consulter/apprenti
     defaults: { _controller: LivretBundle:Default:choisirApprenti }
+
+livret_save_bdd:
+    path:    /consulter/saveLivret
+    defaults: { _controller: LivretBundle:Default:saveLivret }

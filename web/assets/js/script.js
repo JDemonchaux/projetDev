@@ -23,24 +23,24 @@ $(document).ready(function () {
     $('.tooltipped').tooltip({delay: 50});
     $('.choixApprenti').dataTable({
         language: {
-            processing:     "Traitement en cours...",
-            search:         "Rechercher&nbsp;:",
-            lengthMenu:    "Afficher _MENU_ &eacute;l&eacute;ments",
-            info:           "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
-            infoEmpty:      "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
-            infoFiltered:   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
-            infoPostFix:    "",
+            processing: "Traitement en cours...",
+            search: "Rechercher&nbsp;:",
+            lengthMenu: "Afficher _MENU_ &eacute;l&eacute;ments",
+            info: "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+            infoEmpty: "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+            infoFiltered: "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+            infoPostFix: "",
             loadingRecords: "Chargement en cours...",
-            zeroRecords:    "Aucun &eacute;l&eacute;ment &agrave; afficher",
-            emptyTable:     "Aucune donnée disponible dans le tableau",
+            zeroRecords: "Aucun &eacute;l&eacute;ment &agrave; afficher",
+            emptyTable: "Aucune donnée disponible dans le tableau",
             paginate: {
-                first:      "Premier",
-                previous:   "Pr&eacute;c&eacute;dent",
-                next:       "Suivant",
-                last:       "Dernier"
+                first: "Premier",
+                previous: "Pr&eacute;c&eacute;dent",
+                next: "Suivant",
+                last: "Dernier"
             },
             aria: {
-                sortAscending:  ": activer pour trier la colonne par ordre croissant",
+                sortAscending: ": activer pour trier la colonne par ordre croissant",
                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
             }
         }
@@ -98,4 +98,59 @@ $(document).ready(function () {
         $("#formQuinzaine").show();
     })
 
+    $('.saveLivret').on('focusout', function () {
+        var item = $(this).data("item");
+        var livret = $(this).data("livret");
+        var categorie = $(this).data("categorie");
+        var section = $(this).data("section");
+        var key = $(this).data("key");
+        var value = $(this).val();
+
+        if (value == "") {
+            return false;
+        }
+
+        // Serialization des data
+        var json = JSON.stringify({
+            "jsonrpc": "2.0",
+            "method": "POST",
+            "data": {
+                "item": item,
+                "livret": livret,
+                "categorie": categorie,
+                "section": section,
+                "key": key,
+                "value": value
+            }
+        });
+
+
+        // Construction de l'url, on enlève les éventuels #!
+        var url = window.location.href.replace("#!");
+        url += "/saveLivret";
+
+        $.ajax(
+            {
+                url: url,
+                type: "POST",
+                dataType: "JSON",
+                data: json,
+                headers: {
+                    'content-type': "application/json; charset=utf-8"
+                },
+                success: function (data) {
+                    toast('Enregistrement réussi!');
+                },
+                error: function() {
+                    toast('Erreur lors de l\'enregistrement');
+                }
+            }
+        )
+    })
+
 });
+
+
+function toast(msg) {
+    return Materialize.toast(msg, 4000);
+}

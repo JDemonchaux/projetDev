@@ -9,6 +9,7 @@ use JavaLeEET\LivretBundle\Document\Livret;
 use JavaLeEET\LivretBundle\Document\PeriodeFormation;
 use JavaLeEET\LivretBundle\Document\Section;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Validator\Constraints\DateTime;
@@ -184,4 +185,41 @@ class DefaultController extends Controller
         return $this->render('LivretBundle:Default:exportLivret.html.twig', array("livretXML" => $livretXML));
     }
 
+    public function saveLivretAction(Request $request)
+    {
+        $success = "";
+        try {
+            $data = $request->getContent();
+            $data = json_decode($data);
+
+
+            // On récupère l'item de la bdd qu'on souhaite modifier
+            $odm = $this->get("doctrine_mongodb")->getManager();
+//            $qb = $odm->createQueryBuilder('LivretBundle:Livret');
+//            $livret = $qb->field("categorie.sections.itemLivret._id")->equals(new \MongoId($data->data->item))->getQuery()->execute();
+
+            $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("_id" => new \MongoId($data->data->livret)));
+
+            foreach ($livret as $l) {
+                if (is_object($l) && null !== $l) {
+                    // On est bien dans le livret
+                    // Alors on update l'item on lui passant les param
+                    $livret = $l->updateItem($data);
+                    $l->setTuteur(new \MongoId($this->getUser()->getId()));
+
+
+                    $odm->detach($livret);
+                    $odm->persist($l);
+                    $odm->flush();
+                    break;
+                }
+            }
+
+
+            $success = true;
+        } catch (Exception $e) {
+            $success = $e->getMessage();
+        }
+        return $this->render('LivretBundle:Default/Ajax:action.html.twig', array("success" => $success));
+    }
 }

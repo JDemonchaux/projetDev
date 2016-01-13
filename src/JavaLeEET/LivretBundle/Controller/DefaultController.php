@@ -105,14 +105,15 @@ class DefaultController extends Controller
 
             $odm = $this->get('doctrine_mongodb')->getManager();
             $id = $this->getUser()->getId();
+            $apprenti = $this->getUser();
             $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
-
+            $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->findOneBy(array("_id" => new \MongoId($livret->getTuteur())));
             $livret->setPeriodeFormation(array($p));
 
             $odm->persist($livret);
             $odm->flush();
 
-            return $this->render('LivretBundle:Default:quinzaine.html.twig', array("livret" => $livret));
+            return $this->render('LivretBundle:Default:quinzaine.html.twig', array("livret" => $livret, 'apprenti' => $apprenti, 'tuteur' => $tuteur));
         } else {
             return $this->quinzaineAction();
         }

@@ -112,6 +112,9 @@ class DefaultController extends Controller
                 while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                     $num = count($data);
 
+                    $data[0] = ucwords($data[0]);
+                    $data[1] = ucwords($data[1]);
+
                     $utilisateur = new Utilisateur();
                     $utilisateur->setUsername($data[0] . "." . $data[1]);
                     $utilisateur->setPrenom($data[0]);
@@ -139,16 +142,36 @@ class DefaultController extends Controller
                         //Générer le livret de l'utilisateur
                         $livret = new Livret();
                         $livret->genererLivret($user->getId());
+
+                        //Persister le livret
                         $odm->persist($livret);
                         $odm->flush();
                     }
                 }
                 fclose($handle);
             }
+            $this->associerTuteur();
             return $this->redirect($this->generateUrl("livret_homepage"));
         }
         return $this->render('UtilisateurBundle:Default:importCSV.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+    public function associerTuteur(){
+        $odm = $this->get('doctrine_mongodb')->getManager();
+        $apprentis = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("roles" => "ROLE_APPRENTI"));
+        foreach ($apprentis as $apprenti) {
+            $tuteur = $apprenti->getTuteur();
+            $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->findOneBy(array("email" => $tuteur[0]));
+            $tuteur = $tuteur->getId();
+
+            $apprentiId = $apprenti->getId();
+            $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($apprentiId)));
+            
+            $livret->setTuteur($tuteur);
+            $odm->persist($livret);
+            $odm->flush();
+        }
     }
 }

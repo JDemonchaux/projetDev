@@ -19,10 +19,11 @@
     "sensio/distribution-bundle": "~4.0",
     "sensio/framework-extra-bundle": "^3.0.2",
     "incenteev/composer-parameter-handler": "~2.0",
-    "doctrine/mongodb-odm": "~1.2",
+    "doctrine/mongodb-odm": "^1.0",
     "doctrine/mongodb-odm-bundle": "^3.0",
     "friendsofsymfony/user-bundle": "~2.0@dev",
-    "ismaambrosi/generator-bundle": "^2.4"
+    "ismaambrosi/generator-bundle": "^2.4",
+    "goetas/apache-fop": "^1.0"
   },
   "require-dev": {
     "sensio/generator-bundle": "~2.3"

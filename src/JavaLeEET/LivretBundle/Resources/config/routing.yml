@@ -2,6 +2,10 @@ livret_generer:
     path:   /generer
     defaults: { _controller: LivretBundle:Default:generer }
 
+livret_export:
+    path:   /export
+    defaults: { _controller: LivretBundle:Default:export }
+
 livret_homepage:
     path:     /
     defaults: { _controller: LivretBundle:Default:index }
@@ -25,3 +29,23 @@ livret_quinzaine_ajouter:
 livret_mentions:
     path:   /mentions
     defaults: { _controller: LivretBundle:Default:mentions }
+
+livret_aide:
+    path:   /aide
+    defaults: { _controller: LivretBundle:Default:aide }
+
+livret_choix_apprenti:
+    path:   /consulter/apprenti
+    defaults: { _controller: LivretBundle:Default:choisirApprenti }
+
+livret_save_bdd:
+    path:    /consulter/saveLivret
+    defaults: { _controller: LivretBundle:Default:saveLivret }
+
+livret_signer:
+    path:    /consulter/signer
+    defaults: { _controller: LivretBundle:Default:signer }
+
+livret_ajouter_fichier:
+    path:   /consulter/fichier
+    defaults: { _controller: LivretBundle:Default:ajouterFichier }

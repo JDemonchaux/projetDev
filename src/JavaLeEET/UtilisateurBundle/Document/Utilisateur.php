@@ -44,9 +44,24 @@ class Utilisateur extends BaseUser
     protected $motDePasse;
 
     /**
-     * @MongoDB\File
+     * @MongoDB\String
      */
     protected $signature;
+
+    /**
+     * @MongoDB\Field(name="apprentis", type="collection")
+     */
+    protected $apprentis;
+
+    /**
+     * @MongoDB\Field(name="tuteur", type="collection")
+     */
+    protected $tuteur;
+
+    /**
+     * @MongoDB\Field(name="classe", type="string")
+     */
+    protected $classe;
 
     /**
      * @return mixed
@@ -99,6 +114,22 @@ class Utilisateur extends BaseUser
     /**
      * @return mixed
      */
+    public function getMailLink()
+    {
+        return $this->mailLink;
+    }
+
+    /**
+     * @param mixed $mail
+     */
+    public function addMailLink($mailLink)
+    {
+        $this->mailLink[] = $mailLink;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getMail()
     {
         return $this->mail;
@@ -142,6 +173,54 @@ class Utilisateur extends BaseUser
     public function setSignature($signature)
     {
         $this->signature = $signature;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getApprentis()
+    {
+        return $this->apprentis;
+    }
+
+    /**
+     * @param mixed $apprentis
+     */
+    public function setApprentis($apprentis)
+    {
+        $this->apprentis = $apprentis;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTuteur()
+    {
+        return $this->tuteur;
+    }
+
+    /**
+     * @param mixed $tuteur
+     */
+    public function setTuteur($tuteur)
+    {
+        $this->tuteur = $tuteur;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClasse()
+    {
+        return $this->classe;
+    }
+
+    /**
+     * @param mixed $classe
+     */
+    public function setClasse($classe)
+    {
+        $this->classe = $classe;
     }
 
 

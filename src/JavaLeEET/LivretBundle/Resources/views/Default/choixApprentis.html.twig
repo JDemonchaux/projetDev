@@ -1,0 +1,35 @@
+{% extends 'LivretBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="border listApprenti">
+        <table class="item-tableau choixApprenti">
+            <thead>
+            <tr>
+                <th>Classe</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            {% for apprenti in apprentis %}
+                <tr>
+                    <td>{{ apprenti.classe }}</td>
+                    <td>{{ apprenti.nom }}</td>
+                    <td>{{ apprenti.prenom }}</td>
+                    <td>
+                        <a href="{{ path("livret_consulter", {"id": apprenti.id}) }}">
+                            <button class="btn small bleu white-text">Voir le livret</button>
+                        </a>
+                        <a href="{{ path("livret_quinzaine", {"id": apprenti.id}) }}">
+                            <button class="btn small vert white-text">
+                                Voir les quinzaines
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
+

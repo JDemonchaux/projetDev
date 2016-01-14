@@ -19,16 +19,18 @@
     {% endif %}
     {% if app.request.attributes.get('_route') == 'livret_quinzaine' %}
         <div id="menu">
-            <a class="btn vert ajouterQuinzaine white-text" href="#!">Ajouter une période</a>
-
+            {% if is_granted('ROLE_APPRENTI') %}
+                <a class="btn vert ajouterQuinzaine white-text" href="#!">Ajouter une période</a>
+            {% endif %}
             {% for periodeFormation in livret.periodeFormation %}
                 <ul class="periodes collapsible" data-collapsible="accordion">
                     <li>
                         <div class="periode-title collapsible-header bleu-text">
-                            Du {{ periodeFormation.dateDebutF|date('d/m/y') }} au {{ periodeFormation.dateFinE|date('d/m/y') }}
+                            Du {{ periodeFormation.dateDebutF|date('d/m/y') }}
+                            au {{ periodeFormation.dateFinE|date('d/m/y') }}
                         </div>
                         <div class="collapsible-body bleu-text periode-subtitle"
-                                data-vue="p{{ loop.index }} formation">
+                             data-vue="p{{ loop.index }} formation">
                             Période formation
                         </div>
                         <div class="collapsible-body vert-text periode-subtitle"

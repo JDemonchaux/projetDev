@@ -10,7 +10,7 @@
 
                 <div class="row rowQuinzaine">
                     <div class="col s6">
-                        Nom de l'apprenti : {{ app.user.username }}
+                        Nom de l'apprenti : {{ apprenti.username }}
                     </div>
                     <div class="col s6">
                         Période d'évaluation du : {{ periodeFormation.dateDebutF|date("d/m/y") }} au
@@ -65,13 +65,37 @@
                     </div>
                     <div class="row">
                         <div class="col s4">
-                            <span class="aRemplir"></span>
+                            <span class="aRemplir">
+                                {% if is_granted("ROLE_TUTEUR") %}
+                                    <button class="btn bleu btSignature center-align">
+                                        Ajouter la signature
+                                    </button>
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </span>
                         </div>
                         <div class="col s4">
-                            <span class="aRemplir"></span>
+                            <span class="aRemplir">
+                                {% if is_granted("ROLE_APPRENTI") %}
+                                    <button class="btn bleu btSignature center-align">
+                                        Ajouter la signature
+                                    </button>
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </span>
                         </div>
                         <div class="col s4">
-                            <span class="aRemplir"></span>
+                            <span class="aRemplir">
+                                {% if is_granted("ROLE_RD") %}
+                                    <button class="btn bleu btSignature center-align">
+                                        Ajouter la signature
+                                    </button>
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -84,13 +108,13 @@
 
                 <div class="row rowQuinzaine">
                     <div class="col s6">
-                        Nom de l'apprenti : {{ app.user.username }}
+                        Nom de l'apprenti : {{ apprenti.username }}
                         <br/>
                         Période d'évaluation du : {{ periodeFormation.dateDebutF|date("d/m/y") }} au
                         : {{ periodeFormation.dateFinF|date("d/m/y") }}
                     </div>
                     <div class="col s6">
-                        Nom du maître d'apprentissage : <!-- @TODO: nom tuteur --> tuteurFictifN°1
+                        Nom du maître d'apprentissage : {{ tuteur.username }}
                     </div>
                 </div>
                 <div class="row">
@@ -149,13 +173,37 @@
                     </div>
                     <div class="row">
                         <div class="col s4">
-                            <span class="aRemplir"></span>
+                            <span class="aRemplir">
+                                {% if is_granted("ROLE_TUTEUR") %}
+                                    <button class="btn bleu btSignature center-align">
+                                        Ajouter la signature
+                                    </button>
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </span>
                         </div>
                         <div class="col s4">
-                            <span class="aRemplir"></span>
+                            <span class="aRemplir">
+                                {% if is_granted("ROLE_APPRENTI") %}
+                                    <button class="btn bleu btSignature center-align">
+                                        Ajouter la signature
+                                    </button>
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </span>
                         </div>
                         <div class="col s4">
-                            <span class="aRemplir"></span>
+                            <span class="aRemplir">
+                                {% if is_granted("ROLE_RD") %}
+                                    <button class="btn bleu btSignature center-align">
+                                        Ajouter la signature
+                                    </button>
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -168,13 +216,13 @@
 
                 <div class="row rowQuinzaine">
                     <div class="col s6">
-                        Nom de l'apprenti : {{ app.user.username }}
+                        Nom de l'apprenti : {{ apprenti.username }}
                         <br/>
                         Période d'évaluation du : {{ periodeFormation.dateDebutF|date("d/m/y") }} au
                         : {{ periodeFormation.dateFinF|date("d/m/y") }}
                     </div>
                     <div class="col s6">
-                        Nom du maître d'apprentissage : <!-- @TODO: nom tuteur --> tuteurFictifN°1
+                        Nom du maître d'apprentissage : {{ tuteur.username }}
                     </div>
                 </div>
                 <div class="row">
@@ -256,13 +304,37 @@
                     </div>
                     <div class="row">
                         <div class="col s4">
-                            <span class="aRemplir"></span>
+                            <span class="aRemplir">
+                                {% if is_granted("ROLE_TUTEUR") %}
+                                    <button class="btn bleu btSignature center-align">
+                                        Ajouter la signature
+                                    </button>
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </span>
                         </div>
                         <div class="col s4">
-                            <span class="aRemplir"></span>
+                            <span class="aRemplir">
+                                {% if is_granted("ROLE_APPRENTI") %}
+                                    <button class="btn bleu btSignature center-align">
+                                        Ajouter la signature
+                                    </button>
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </span>
                         </div>
                         <div class="col s4">
-                            <span class="aRemplir"></span>
+                            <span class="aRemplir">
+                                {% if is_granted("ROLE_RD") %}
+                                    <button class="btn bleu btSignature center-align">
+                                        Ajouter la signature
+                                    </button>
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </span>
                         </div>
                     </div>
                 </div>

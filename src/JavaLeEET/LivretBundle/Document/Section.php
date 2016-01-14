@@ -87,11 +87,12 @@ class Section
     {
         return $this->itemLivret;
     }
+
     public function __construct()
     {
         $this->itemLivret = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add itemLivret
      *
@@ -100,6 +101,21 @@ class Section
     public function addItemLivret(\JavaLeEET\LivretBundle\Document\ItemLivret $itemLivret)
     {
         $this->itemLivret[] = $itemLivret;
+    }
+
+    /**
+     * Replace itemLivret
+     *
+     * @param JavaLeEET\LivretBundle\Document\ItemLivret $itemLivret
+     */
+    public function replaceItemLivret(\JavaLeEET\LivretBundle\Document\ItemLivret $itemLivret)
+    {
+        $num = count($this->itemLivret);
+        for ($i = 0; $i < $num; $i++) {
+            if ($this->itemLivret[$i]->getId() == $itemLivret->getId()) {
+                $this->itemLivret[$i] = $itemLivret;
+            }
+        }
     }
 
     /**

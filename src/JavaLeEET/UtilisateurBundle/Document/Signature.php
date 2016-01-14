@@ -82,4 +82,62 @@ class Signature
     {
         return $this->uploadDate;
     }
+
+    /**
+     * Get id
+     *
+     * @return id $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set uploadDate
+     *
+     * @param date $uploadDate
+     * @return self
+     */
+    public function setUploadDate($uploadDate)
+    {
+        $this->uploadDate = $uploadDate;
+        return $this;
+    }
+
+    /**
+     * Set length
+     *
+     * @param int $length
+     * @return self
+     */
+    public function setLength($length)
+    {
+        $this->length = $length;
+        return $this;
+    }
+
+    /**
+     * Set chunkSize
+     *
+     * @param int $chunkSize
+     * @return self
+     */
+    public function setChunkSize($chunkSize)
+    {
+        $this->chunkSize = $chunkSize;
+        return $this;
+    }
+
+    /**
+     * Set md5
+     *
+     * @param string $md5
+     * @return self
+     */
+    public function setMd5($md5)
+    {
+        $this->md5 = $md5;
+        return $this;
+    }
 }

@@ -1,0 +1,6 @@
+"jeremie", "pillot", "jeremie.pillot@gmail.com", "ROLE_APPRENTI", "azer", "tuteur@gmail.com", "ASI 2",
+"slimane", "mahamdi", "slimane.mahamdi@gmail.com", "ROLE_APPRENTI", "azer", "tuteur@gmail.com", "ASI 2",
+"tuteur1", "test", "tuteur@gmail.com", "ROLE_TUTEUR", "azer", "jeremie.pillot@gmail.com", "slimane.mahamdi@gmail.com"
+"Jerome", "Demonchaux", "jerome.demonchaux@gmail.com", "ROLE_APPRENTI", "azer", "vsv@gmail.com", "ASI 2",
+"Vincent", "Saint-Voirin", "vsv@gmail.com", "ROLE_TUTEUR", "azer", "jerome.demonchaux@gmail.com"
+"Jean-Michel", "Gavignet", "jeanmi@gmail.com", "ROLE_RD", "azer"

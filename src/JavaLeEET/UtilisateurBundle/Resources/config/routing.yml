@@ -6,3 +6,7 @@ utilisateur_homepage:
 utilisateur_importSign:
     path:    /importSign
     defaults: { _controller: UtilisateurBundle:Default:importSign }
+
+utilisateur_importCSV:
+    path:    /importCSV
+    defaults: { _controller: UtilisateurBundle:Default:importCSV }

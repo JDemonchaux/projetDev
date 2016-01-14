@@ -2,6 +2,21 @@
 
 {% block body %}
     <div class="row">
-
+        {% if (FALSE == signature) %}
+            <div class="col s6">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="card-title bleu-text">Signature<i class="material-icons right red-text shake-slow shake-constant">warning</i></p>
+                        <p>Vous n'avez pas encore importé votre signature.</p>
+                        <p>Cliquer sur le lien ci-dessous pour importer votre signature au format png</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ path('utilisateur_importSign') }}" class="vert-text">
+                            Importer votre signature
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

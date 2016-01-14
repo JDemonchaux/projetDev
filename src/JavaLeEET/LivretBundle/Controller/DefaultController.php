@@ -76,6 +76,11 @@ class DefaultController extends Controller
 //        var_dump($livret->getActivite());
         return $this->render('LivretBundle:Default:consulterLivret.html.twig', array("livret" => $livret));
     }
+    
+    public function mentionsAction()
+    {
+        return $this->render('LivretBundle:Default:mentions.html.twig');
+    }
 
     /**
      * Route qui génére le livret en bdd

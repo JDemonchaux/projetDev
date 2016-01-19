@@ -220,3 +220,7 @@ tbody.separator > tr {
 .img-signature {
     max-width: 100px;
 }
+
+#formFile {
+    margin-bottom: 5rem !important;
+}

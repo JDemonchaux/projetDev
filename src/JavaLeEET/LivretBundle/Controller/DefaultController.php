@@ -66,19 +66,20 @@ class DefaultController extends Controller
         // Si c'est un apprenti, on choppe son livret
         // Si c'est un tuteur, on choppe le livret de son apprenti
         // Si c'est le RD, l'id de l'apprenti est passé en paramètre
-        if ($this->get('security.context')->isGranted('ROLE_TUTEUR')) {
+        $securityContext = $this->container->get('security.authorization_checker');
+        if ($securityContext->isGranted('ROLE_TUTEUR')) {
             $id = $this->getUser()->getId();
             $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->find(new \MongoId($id));
             $app = $tuteur->getApprentis();
             $apprenti = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $app[0]));
             $apprenti = $apprenti[0];
             $id = $apprenti->getId();
-        } else if ($this->get('security.context')->isGranted('ROLE_APPRENTI')) {
+        } else if ($securityContext->isGranted('ROLE_APPRENTI')) {
             $id = $this->getUser()->getId();
             $apprenti = $odm->getRepository("UtilisateurBundle:Utilisateur")->find(new \MongoId($id));
             $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $apprenti->getTuteur()[0]));
             $tuteur = $tuteur[0];
-        } else if ($this->get('security.context')->isGranted('ROLE_RD')) {
+        } else if ($securityContext->isGranted('ROLE_RD')) {
             $id = $req->get('id');
             $apprenti = $odm->getRepository("UtilisateurBundle:Utilisateur")->find(new \MongoId($id));
             $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $apprenti->getTuteur()[0]));

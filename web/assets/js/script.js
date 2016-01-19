@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var isChanged = "";
+
     $('.dropdown-button').dropdown();
     $('.collapsible').collapsible({
         accordion: true
@@ -45,7 +47,6 @@ $(document).ready(function () {
             }
         }
     });
-
 
     /**
      * Style du menu
@@ -96,7 +97,11 @@ $(document).ready(function () {
     $(".ajouterQuinzaine").on('click', function () {
         $('.periodes-livret').hide();
         $("#formQuinzaine").show();
-    })
+    });
+
+    $('.saveLivret').on('focus', function() {
+        isChanged = $(this).val();
+    });
 
     $('.saveLivret').on('focusout', function () {
         var item = $(this).data("item");
@@ -105,6 +110,10 @@ $(document).ready(function () {
         var section = $(this).data("section");
         var key = $(this).data("key");
         var value = $(this).val();
+
+        if (value == isChanged) {
+            return false;
+        }
 
         // Serialization des data
         var json = JSON.stringify({

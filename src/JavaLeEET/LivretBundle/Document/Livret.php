@@ -286,7 +286,7 @@ class Livret
         $item8 = array();
         $i17 = new ItemLivret();
         $i17->setNom("Le contexte historique de l'entreprise");
-        $i17->setTypeVariable("tableau");
+        $i17->setTypeVariable("tableau-long");
         $a = array(
             "L'historique de l'entreprise" => "",
             "L'historique des produits et services" => ""
@@ -294,7 +294,7 @@ class Livret
         $i17->setValeurVariable($a);
         $i18 = new ItemLivret();
         $i18->setNom("Le contexte commercial");
-        $i18->setTypeVariable("tableau");
+        $i18->setTypeVariable("tableau-long");
         $a = array(
             "Le chiffre d'affaire et l'analyse de son évolution" => "",
             "Les principaux clients" => "",
@@ -307,7 +307,7 @@ class Livret
         $i18->setValeurVariable($a);
         $i19 = new ItemLivret();
         $i19->setNom("Le context organisationnel");
-        $i19->setTypeVariable("tableau");
+        $i19->setTypeVariable("tableau-long");
         $a = array(
             "Les différentes implantations géographiques (site, nombre, nature, effectif, lieux, organigramme)" => "",
             "L'organigramme de l'entreprise d'accueil" => "",
@@ -323,14 +323,14 @@ class Livret
         $item9 = array();
         $i20 = new ItemLivret();
         $i20->setNom("L'histoire du système d'information");
-        $i20->setTypeVariable("tableau");
+        $i20->setTypeVariable("tableau-long");
         $a = array(
             "Comment s'est-il intégré dans l'entreprise ? Quels ont été ses grandes évolutions et leurs impacts sur l'entreprise" => "",
         );
         $i20->setValeurVariable($a);
         $i21 = new ItemLivret();
         $i21->setNom("Les acteurs du Système d'Information");
-        $i21->setTypeVariable("tableau");
+        $i21->setTypeVariable("tableau-long");
         $a = array(
             "Le rôle des acteurs et des entités et leurs fonctions au sein du SI (direction, chef de service)" => "",
             "Les principaux services du SI" => "",
@@ -339,7 +339,7 @@ class Livret
         $i21->setValeurVariable($a);
         $i22 = new ItemLivret();
         $i22->setNom("Le Fonctionnement du service Informatique");
-        $i22->setTypeVariable("tableau");
+        $i22->setTypeVariable("tableau-long");
         $a = array(
             "Les activités et les responsabilits du service informatique" => "",
             "Le service informatique réalise des tâches n'ayant aucun rapport avec l'informatique ?" => "",
@@ -351,7 +351,7 @@ class Livret
         $i22->setValeurVariable($a);
         $i23 = new ItemLivret();
         $i23->setNom("Description du Système d'Information");
-        $i23->setTypeVariable("tableau");
+        $i23->setTypeVariable("tableau-long");
         $a = array(
             "L’organisation du SI est-elle basée sur une centralisation des données interne ou externe, pourquoi ?" => "",
             "Le SI est-il composé de plusieurs sites et comment sont-ils reliés ? Est-il intégré à un WAN ?" => "",
@@ -373,7 +373,7 @@ class Livret
         $i23->setValeurVariable($a);
         $i24 = new ItemLivret();
         $i24->setNom("L'évolution future du SI");
-        $i24->setTypeVariable("tableau");
+        $i24->setTypeVariable("tableau-long");
         $a = array(
             "L’Evolution souhaitées ou imposées dans tous les domaines (organisation, sécurité…) " => "",
             "Quels sont les objectifs à court terme et à long terme et quelles stratégies et tactiques seront employées pour les atteindre" => ""
@@ -411,7 +411,47 @@ class Livret
         $item10[] = $i25;
         $item10[] = $i26;
 
-        // $item11 = array() --> previsionnel des missions à l'apprenti, à reflechir
+        $item11 = array();
+        $i42 = new ItemLivret();
+        $i42->setNom("Dans les 3 premiers mois");
+        $i42->setTypeVariable("tableau-double");
+        $i42->setValeurVariable(
+            array("1 - " => "",
+                "2 - " => "",
+                "3 - " => "",
+                "4 - " => "",
+                "5 - " => "",
+                "6 - " => "",)
+        );
+        $i43 = new ItemLivret();
+        $i43->setNom("Dans les 9 mois qui suivent");
+        $i43->setTypeVariable("tableau-double");
+        $i43->setValeurVariable(
+            array("1 - " => "",
+                "2 - " => "",
+                "3 - " => "",
+                "4 - " => "",
+                "5 - " => "",
+                "6 - " => "",
+                "7 - " => "",
+                "8 - " => "",
+                "9 - " => "",
+                "10 - " => "",)
+        );
+        $i44 = new ItemLivret();
+        $i44->setNom("Dans les 6 derniers mois");
+        $i44->setTypeVariable("tableau-double");
+        $i44->setValeurVariable(
+            array("1 - " => "",
+                "2 - " => "",
+                "3 - " => "",
+                "4 - " => "",
+                "5 - " => "",
+                "6 - " => "",)
+        );
+        $item11[] = $i42;
+        $item11[] = $i43;
+        $item11[] = $i44;
 
         $item12 = array();
         $i27 = new ItemLivret();
@@ -826,8 +866,19 @@ class Livret
         $i37->setValeurVariable($a);
         $i38 = new ItemLivret();
         $i38->setNom("Formateurs");
-        $i38->setTypeVariable("tableau");
-        $a = array();
+        $i38->setTypeVariable("tableau-double");
+        $a = array(
+            "1 - " => "",
+            "2 - " => "",
+            "3 - " => "",
+            "4 - " => "",
+            "5 - " => "",
+            "6 - " => "",
+            "7 - " => "",
+            "8 - " => "",
+            "9 - " => "",
+            "10 - " => "",
+        );
         $i38->setValeurVariable($a);
         $item16[] = $i37;
         $item16[] = $i38;
@@ -890,16 +941,13 @@ class Livret
         $s10->setItemLivret($item10);
         $s11 = new Section();
         $s11->setNom("Prévisionnel des missions confiées à l'apprenti");
+        $s11->setItemLivret($item11);
         $s12 = new Section();
         $s12->setNom("Formation interne");
         $s12->setItemLivret($item12);
         $s13 = new Section();
         $s13->setNom("Référentiel d'activité et de compétences professionnelles");
 //        $s13->setItemLivret($item13);
-        $s14 = new Section();
-        $s14->setNom("Activités réalisées en entreprise");
-        $s15 = new Section();
-        $s15->setNom("Evaluation ds activités par le MA");
         $section3[] = $s7;
         $section3[] = $s8;
         $section3[] = $s9;
@@ -907,15 +955,11 @@ class Livret
         $section3[] = $s11;
         $section3[] = $s12;
         $section3[] = $s13;
-        $section3[] = $s14;
-        $section3[] = $s15;
 
         $section4 = array();
         $s16 = new Section();
         $s16->setNom("Cadre de la formation");
         $s16->setItemLivret($item16);
-        $s17 = new Section();
-        $s17->setNom("Module de formation");
         $s18 = new Section();
         $s18->setNom("Règlement Intérieur");
         $s18->setItemLivret($item18);
@@ -923,7 +967,6 @@ class Livret
         $s19->setNom("Plan de formation");
         $s19->setItemLivret($item19);
         $section4[] = $s16;
-        $section4[] = $s17;
         $section4[] = $s18;
         $section4[] = $s19;
 
@@ -961,7 +1004,6 @@ class Livret
 
     public function updateItem($data)
     {
-        var_dump($data);
         $livret = $data->data->livret;
         $categorie = $data->data->categorie;
         $section = $data->data->section;

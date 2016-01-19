@@ -47,45 +47,71 @@
                         {% for itemLivret in section.itemLivret %}
                             <h3 class="item-title {% if loop.index % 2 %} bleu {% else %} vert {% endif %}">{{ itemLivret.nom }}</h3>
                             {% if (itemLivret.typeVariable == "tableau") %}
-                                {% if (itemLivret.nom == "Formateurs") %}
-                                    <div class="border">
-                                        <table class="item-tableau">
-                                            <thead>
+                                <div class="border">
+                                    <table class="item-tableau" data-columns="4" data-rows="4">
+                                        {% for key, value in itemLivret.valeurVariable %}
                                             <tr>
-                                                <th>Formateur</th>
-                                                <th>Matière</th>
-                                            </tr>
-                                            </thead>
-                                            {% for i in 0..9 %}
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            {% endfor %}
-                                        </table>
-                                    </div>
-                                {% else %}
-                                    <div class="border">
-                                        <table class="item-tableau" data-columns="4" data-rows="4">
-                                            {% for key, value in itemLivret.valeurVariable %}
-                                                <tr>
-                                                    <td class="text">{{ key }}</td>
+                                                <td class="text">{{ key }}</td>
 
-                                                    <td class="aRemplir">
-                                                        <input type="text" class="saveLivret"
-                                                               data-livret="{{ livret.id }}"
-                                                               data-categorie="{{ categorie.id }}"
-                                                               data-section="{{ section.id }}"
-                                                               data-item="{{ itemLivret.id }}"
-                                                               data-key="{{ key }}"
-                                                               value="{{ value }}"
-                                                        />
-                                                    </td>
-                                                </tr>
-                                            {% endfor %}
-                                        </table>
-                                    </div>
-                                {% endif %}
+                                                <td class="aRemplir">
+                                                    <input type="text" class="saveLivret"
+                                                           data-livret="{{ livret.id }}"
+                                                           data-categorie="{{ categorie.id }}"
+                                                           data-section="{{ section.id }}"
+                                                           data-item="{{ itemLivret.id }}"
+                                                           data-key="{{ key }}"
+                                                           value="{{ value }}"
+                                                    />
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            {% elseif (itemLivret.typeVariable == "tableau-long") %}
+                                <div class="border">
+                                    <table class="item-tableau" data-columns="4" data-rows="4">
+                                        {% for key, value in itemLivret.valeurVariable %}
+                                            <tr>
+                                                <td class="text" colspan="2">{{ key }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="aRemplir" rowspan="2">
+                                                    <input type="text" class="saveLivret"
+                                                           data-livret="{{ livret.id }}"
+                                                           data-categorie="{{ categorie.id }}"
+                                                           data-section="{{ section.id }}"
+                                                           data-item="{{ itemLivret.id }}"
+                                                           data-key="{{ key }}"
+                                                           value="{{ value }}"
+                                                    />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            {% elseif (itemLivret.typeVariable == "tableau-double") %}
+                                <div class="border">
+                                    <table class="item-tableau" data-columns="4" data-rows="4">
+                                        {% for key, value in itemLivret.valeurVariable %}
+                                            <tr>
+                                                <td class="text">{{ key }}</td>
+
+                                                <td class="aRemplir">
+                                                    <input type="text" class="saveLivret"
+                                                           data-livret="{{ livret.id }}"
+                                                           data-categorie="{{ categorie.id }}"
+                                                           data-section="{{ section.id }}"
+                                                           data-item="{{ itemLivret.id }}"
+                                                           data-key="{{ key }}"
+                                                           value="{{ value }}"
+                                                    />
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
                             {% elseif (itemLivret.typeVariable == "tableau-signature") %}
                                 <div class="border">
                                     <table class="item-tableau" data-columns="4" data-rows="4">

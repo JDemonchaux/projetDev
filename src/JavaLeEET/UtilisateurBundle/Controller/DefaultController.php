@@ -16,7 +16,8 @@ class DefaultController extends Controller
     public function indexAction()
     {
         // Si l'utilisateur n'est pas connecté, on affiche la page de login
-        if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+        $securityContext = $this->container->get('security.authorization_checker');
+        if (!$securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $url = $this->generateUrl("fos_user_security_login");
         } else {
             $url = $this->generateUrl("livret_homepage");
@@ -27,6 +28,7 @@ class DefaultController extends Controller
 
     public function importSignAction(Request $request)
     {
+        $securityContext = $this->container->get('security.authorization_checker');
         $signature = new Signature();
         $form = $this->createForm(new SignatureType(), $signature);
         $form->handleRequest($request);
@@ -41,7 +43,7 @@ class DefaultController extends Controller
                 return $this->render('UtilisateurBundle:Default:importSign.html.twig', array(
                     'form' => $form->createView(),
                 ));
-            }
+        }
 
             // On get l'odm
             $odm = $this->get('doctrine_mongodb')->getManager();
@@ -64,7 +66,7 @@ class DefaultController extends Controller
             $odm->flush();
 
             // Si l'utilisateur n'est pas connecté, on affiche la page de login
-            if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            if (!$securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
                 $url = $this->generateUrl("fos_user_security_login");
             } else {
                 $url = $this->generateUrl("livret_homepage");

@@ -29,7 +29,6 @@ class DefaultController extends Controller
         if (NULL !== $user->getSignature()) {
             $signature = true;
         }
-
         return $this->render('LivretBundle:Default:index.html.twig', array("signature" => $signature));
     }
 
@@ -116,7 +115,7 @@ class DefaultController extends Controller
 
             return $this->render('LivretBundle:Default:quinzaine.html.twig', array("livret" => $livret, 'apprenti' => $apprenti, 'tuteur' => $tuteur));
         } else {
-            return $this->quinzaineAction();
+            return $this->quinzaineAction($request);
         }
     }
 
@@ -131,18 +130,19 @@ class DefaultController extends Controller
     public function consulterAction(Request $req)
     {
         $odm = $this->get('doctrine_mongodb')->getManager();
+        $securityContext = $this->container->get('security.authorization_checker');
 
         // Si c'est un apprenti, on choppe son livret
         // Si c'est un tuteur, on choppe le livret de son apprenti
         // Si c'est le RD, l'id de l'apprenti est passé en paramètre
-        if ($this->get('security.context')->isGranted('ROLE_TUTEUR')) {
+        if ($securityContext->isGranted('ROLE_TUTEUR')) {
             $id = $this->getUser()->getId();
             $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->find(new \MongoId($id));
             $apprenti = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $tuteur->getApprentis()[0]));
             $id = $apprenti[0]->getId();
-        } else if ($this->get('security.context')->isGranted('ROLE_APPRENTI')) {
+        } else if ($securityContext->isGranted('ROLE_APPRENTI')) {
             $id = $this->getUser()->getId();
-        } else if ($this->get('security.context')->isGranted('ROLE_RD')) {
+        } else if ($securityContext->isGranted('ROLE_RD')) {
             $id = $req->get('id');
         }
 
@@ -239,6 +239,10 @@ class DefaultController extends Controller
             $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($this->getUser()->getId());
             $data->data->value = $user->getSignature();
 
+            if (!$user->getSignature()) {
+                // Renvoie sur la consult du livret, permet de mettre la requête ajax en err
+                return $this->consulterAction($request);
+            }
 
             $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("_id" => new \MongoId($data->data->livret)));
 
@@ -261,8 +265,7 @@ class DefaultController extends Controller
         (Exception $e) {
             $success = $e->getMessage();
         }
-
-        return $this->consulterAction($request);
+        return $this->render('LivretBundle:Default/Ajax:action.html.twig', array("success" => $success));
     }
 
     public function ajouterFichierAction(Request $request)

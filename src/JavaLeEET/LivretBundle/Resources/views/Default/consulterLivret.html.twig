@@ -52,17 +52,22 @@
                                         {% for key, value in itemLivret.valeurVariable %}
                                             <tr>
                                                 <td class="text">{{ key }}</td>
-
-                                                <td class="aRemplir">
-                                                    <input type="text" class="saveLivret"
-                                                           data-livret="{{ livret.id }}"
-                                                           data-categorie="{{ categorie.id }}"
-                                                           data-section="{{ section.id }}"
-                                                           data-item="{{ itemLivret.id }}"
-                                                           data-key="{{ key }}"
-                                                           value="{{ value }}"
-                                                    />
-                                                </td>
+                                                {% if is_granted("ROLE_APPRENTI") %}
+                                                    <td class="aRemplir">
+                                                        <input type="text" class="saveLivret"
+                                                               data-livret="{{ livret.id }}"
+                                                               data-categorie="{{ categorie.id }}"
+                                                               data-section="{{ section.id }}"
+                                                               data-item="{{ itemLivret.id }}"
+                                                               data-key="{{ key }}"
+                                                               value="{{ value }}"
+                                                        />
+                                                    </td>
+                                                {% else %}
+                                                    <td class="value">
+                                                        {{ value }}
+                                                    </td>
+                                                {% endif %}
                                             </tr>
                                         {% endfor %}
                                     </table>
@@ -75,16 +80,22 @@
                                                 <td class="text" colspan="2">{{ key }}</td>
                                             </tr>
                                             <tr>
-                                                <td class="aRemplir" rowspan="2">
-                                                    <input type="text" class="saveLivret"
-                                                           data-livret="{{ livret.id }}"
-                                                           data-categorie="{{ categorie.id }}"
-                                                           data-section="{{ section.id }}"
-                                                           data-item="{{ itemLivret.id }}"
-                                                           data-key="{{ key }}"
-                                                           value="{{ value }}"
-                                                    />
-                                                </td>
+                                                {% if is_granted("ROLE_APPRENTI") %}
+                                                    <td class="aRemplir">
+                                                        <input type="text" class="saveLivret"
+                                                               data-livret="{{ livret.id }}"
+                                                               data-categorie="{{ categorie.id }}"
+                                                               data-section="{{ section.id }}"
+                                                               data-item="{{ itemLivret.id }}"
+                                                               data-key="{{ key }}"
+                                                               value="{{ value }}"
+                                                        />
+                                                    </td>
+                                                {% else %}
+                                                    <td class="value">
+                                                        {{ value }}
+                                                    </td>
+                                                {% endif %}
                                             </tr>
                                             <tr>
                                             </tr>
@@ -98,16 +109,22 @@
                                             <tr>
                                                 <td class="text">{{ key }}</td>
 
-                                                <td class="aRemplir">
-                                                    <input type="text" class="saveLivret"
-                                                           data-livret="{{ livret.id }}"
-                                                           data-categorie="{{ categorie.id }}"
-                                                           data-section="{{ section.id }}"
-                                                           data-item="{{ itemLivret.id }}"
-                                                           data-key="{{ key }}"
-                                                           value="{{ value }}"
-                                                    />
-                                                </td>
+                                                {% if is_granted("ROLE_APPRENTI") %}
+                                                    <td class="aRemplir">
+                                                        <input type="text" class="saveLivret"
+                                                               data-livret="{{ livret.id }}"
+                                                               data-categorie="{{ categorie.id }}"
+                                                               data-section="{{ section.id }}"
+                                                               data-item="{{ itemLivret.id }}"
+                                                               data-key="{{ key }}"
+                                                               value="{{ value }}"
+                                                        />
+                                                    </td>
+                                                {% else %}
+                                                    <td class="value">
+                                                        {{ value }}
+                                                    </td>
+                                                {% endif %}
                                             </tr>
                                         {% endfor %}
                                     </table>

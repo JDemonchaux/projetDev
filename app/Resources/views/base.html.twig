@@ -43,6 +43,31 @@
         {% endif %}
     </ul>
 
+    <!-- dropdown pour mobile -->
+    <ul id="dropdown-modification-RD-mobile" class="dropdown-content">
+        <li><a href="#!">Livret</a></li>
+        <li><a href="#!">Activités / Compétences</a></li>
+    </ul>
+
+    <ul id="dropdown-consultation-RD-mobile" class="dropdown-content">
+        <li><a href="#!">Modèle Livret</a></li>
+        <li><a href="{{ path('livret_choix_apprenti') }}">Livret des apprentis</a></li>
+        <li><a href="#!">Compétences Validées</a></li>
+    </ul>
+
+    <ul id="dropdown-consultation-Tuteur-mobile" class="dropdown-content">
+        <li><a href="{{ path('livret_quinzaine') }}">Livret Quinzaine</a></li>
+        <li><a href="{{ path('livret_consulter') }}">Livret Apprenti</a></li>
+        <li><a href="#!">Compétences validées</a></li>
+    </ul>
+
+    <ul id="dropdown-utilisateur-mobile" class="dropdown-content">
+        <li><a href="{{ path("utilisateur_importSign") }}">Importer signature</a></li>
+        {% if (is_granted('ROLE_RD')) %}
+            <li><a href="{{ path("utilisateur_importCSV") }}">Importer les élèves</a></li>
+        {% endif %}
+    </ul>
+
     <div class="left">
         <ul id="slide-out" class="side-nav fixed center">
             <a id="logo-container" href="{{ path("utilisateur_homepage") }}" class="brand-logo">
@@ -126,14 +151,14 @@
 
                             {% if is_granted('ROLE_RD') %}
                                 <li>
-                                    <a class="dropdown-button" href="#!" data-activates="dropdown-modification-RD"
+                                    <a class="dropdown-button" href="#!" data-activates="dropdown-modification-RD-mobile"
                                        data-beloworigin="true" data-hover="true">
                                         Modification
                                         <i class="material-icons right">arrow_drop_down</i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-button" href="#!" data-activates="dropdown-consultation-RD"
+                                    <a class="dropdown-button" href="#!" data-activates="dropdown-consultation-RD-mobile"
                                        data-beloworigin="true" data-hover="true">
                                         Consultation
                                         <i class="material-icons right">arrow_drop_down</i>
@@ -142,7 +167,7 @@
 
                             {% elseif is_granted('ROLE_TUTEUR') or is_granted('ROLE_APPRENTI') %}
                                 <li>
-                                    <a class="dropdown-button" href="#!" data-activates="dropdown-consultation-Tuteur"
+                                    <a class="dropdown-button" href="#!" data-activates="dropdown-consultation-Tuteur-mobile"
                                        data-beloworigin="true" data-hover="true">
                                         Consultation
                                         <i class="material-icons right">arrow_drop_down</i>
@@ -158,7 +183,7 @@
                             </li>
 
                             <li>
-                                <a class="dropdown-button white-text" href="#!" data-activates="dropdown-utilisateur"
+                                <a class="dropdown-button white-text" href="#!" data-activates="dropdown-utilisateur-mobile"
                                    data-beloworigin="true" data-hover="true">
                                     {{ app.user }}
                                     <i class="material-icons right">arrow_drop_down</i>

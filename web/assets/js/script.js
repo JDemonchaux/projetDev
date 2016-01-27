@@ -5,6 +5,7 @@ $(document).ready(function () {
     $('.collapsible').collapsible({
         accordion: true
     });
+    $(".button-collapse").sideNav();
     $('.datepicker').pickadate({
         selectMonths: true,
         selectYears: 3,

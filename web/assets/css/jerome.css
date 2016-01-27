@@ -216,11 +216,25 @@ tbody.separator > tr {
     padding-top: 2rem !important;
 }
 
-
 .img-signature {
     max-width: 100px;
 }
 
 #formFile {
     margin-bottom: 5rem !important;
+}
+
+.button-collapse {
+    padding-right:1rem;
+}
+
+ul.side-nav>li>a {
+    color:black !important;
+}
+
+@media only screen and (max-width: 992px) {
+    .side-nav.fixed {
+        left: 0px;
+    }
+
 }

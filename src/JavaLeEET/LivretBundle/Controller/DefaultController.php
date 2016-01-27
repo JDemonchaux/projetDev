@@ -102,6 +102,8 @@ class DefaultController extends Controller
             $p->setDateDebutF($ddf);
             $p->setDateFinE($dfe);
             $p->setDateFinF($dff);
+            $p->setItemCours(null);
+            $p->setItemEntreprise(null);
 
             $odm = $this->get('doctrine_mongodb')->getManager();
             $id = $this->getUser()->getId();
@@ -109,14 +111,11 @@ class DefaultController extends Controller
             $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
             $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->findOneBy(array("_id" => new \MongoId($livret->getTuteur())));
             $livret->setPeriodeFormation(array($p));
-
-            $odm->persist($livret);
             $odm->flush();
 
-            return $this->render('LivretBundle:Default:quinzaine.html.twig', array("livret" => $livret, 'apprenti' => $apprenti, 'tuteur' => $tuteur));
-        } else {
-            return $this->quinzaineAction($request);
         }
+        $url = $this->generateUrl("livret_quinzaine");
+        return $this->redirect($url);
     }
 
     public function remplirAction()
@@ -150,7 +149,7 @@ class DefaultController extends Controller
 
         return $this->render('LivretBundle:Default:consulterLivret.html.twig', array("livret" => $livret));
     }
-    
+
     public function mentionsAction()
     {
         return $this->render('LivretBundle:Default:mentions.html.twig');
@@ -301,7 +300,6 @@ class DefaultController extends Controller
 
         $odm->persist($l);
         $odm->flush();
-
 
 
         return $this->consulterAction($request);

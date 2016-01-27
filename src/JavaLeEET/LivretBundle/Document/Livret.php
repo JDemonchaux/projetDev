@@ -47,7 +47,7 @@ class Livret
      *
      * @ODM\EmbedMany(targetDocument="PeriodeFormation")
      */
-    protected $periodeFormation;
+    protected $periodeFormation = array();
 
     /**
      * @var collection $activite
@@ -1188,7 +1188,8 @@ class Livret
      */
     public function addPeriodeFormation(\JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation)
     {
-        $this->periodeFormation[] = $periodeFormation;
+       $this->periodeFormation[] = $periodeFormation;
+        $this->cleanPeriode();
     }
 
     /**
@@ -1221,5 +1222,17 @@ class Livret
         $this->activites->removeElement($activite);
     }
 
+
+
+
+    /***
+     * Correction bug periode formation
+     *
+     */
+
+    public function cleanPeriode()
+    {
+
+    }
 
 }

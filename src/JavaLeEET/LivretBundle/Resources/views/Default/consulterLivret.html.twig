@@ -188,7 +188,7 @@
                                     </table>
                                 </div>
                             {% elseif (itemLivret.typeVariable == "texte") %}
-                                {{ itemLivret.valeurVariable[0] }}
+                                {{ itemLivret.valeurVariable[0]|raw }}
                             {% elseif (itemLivret.typeVariable == "fichier") %}
                                 {% for key, value in itemLivret.valeurVariable %}
                                     <form id="formFile" data-livret="{{ livret.id }}"

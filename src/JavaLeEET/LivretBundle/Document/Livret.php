@@ -174,22 +174,51 @@ class Livret
         $i6 = new ItemLivret();
         $i6->setNom("Le contrat d'apprentissage");
         $i6->setTypeVariable("texte");
-        $a = array("Est une forme de contrat blablabla");
+        $a = array("Est une forme de contrat qui a pour but de donner à un jeune entre 16 et 26 ans (ou un adulte demandeur d’emploi de plus de 26 ans), une formation en vue de l’obtention d’un diplôme, d’un titre homologué ou d’une qualification professionnelle.
+<br /> Cette formation  est assurée en alternance:
+<li>dans une Entreprise (agricole, artisanale, industrielle, commerciale)</li>
+<li>dans une administration</li>
+<li>dans un Centre de formation à l’Apprentissage</li>
+La réussite de cette formation suppose donc qu’une coordination étroite soit établie entre le centre de formation et l’entreprise afin que le salarié puisse bénéficier d’une formation cohérente et efficace.
+");
         $i6->setValeurVariable($a);
         $i7 = new ItemLivret();
         $i7->setNom("Engagement de l'entreprise");
         $i7->setTypeVariable("texte");
-        $a = array("Assurer au salarié blablabla");
+        $a = array("<li>Assurer au salarié une formation méthodique et complète, pour le métier prévu au contrat. Pour cela, le chef d’entreprise s’engage notamment à faire exécuter, sous sa responsabilité directe ou celle d’un salarié agréé comme tuteur, les travaux faisant partie de la progression arrêtée d’un commun accord avec le centre de formation.</li>
+<li>Organiser le temps de travail en relation avec le plan de formation.</li>
+<li>L’employer conformément à la législation en vigueur.</li>
+<li>Lui faire suivre toutes les formations et activités pédagogiques du centre de formation.</li>
+<li>Communiquer avec le centre de formation par le livret de suivi, et y porter les appréciations et remarques du tuteur.</li>
+<li>Veiller à ce que l’apprenti(e) se présente à l’examen prévu, et lui apporter le concours nécessaire pour la réalisation de son mémoire.</li>
+<li>Accompagner, évaluer les différentes activités.</li>
+<li>Participer aux réunions pédagogiques organisées par le< centre de formation.</li>
+<li>Informer le Centre de formation (le responsable de dispositif) de toute information susceptible de contribuer à la réussite de l’apprenti(e)</li>
+");
         $i7->setValeurVariable($a);
         $i8 = new ItemLivret();
         $i8->setNom("Engagement du centre de formation");
         $i8->setTypeVariable("texte");
-        $a = array("Elaborer le plan de formation");
+        $a = array("<li>Elaborer le plan de formation.</li>
+<li>Assurer à l’apprenti(e) une formation générale et technique, correspondant au référentiel de l’examen ou de la qualification préparés.</li>
+<li>Arrêter d’un commun accord avec l’entreprise et dans le cadre de ce référentiel, la progression de la formation dans l’entreprise.</li>
+<li>Prendre les dispositions nécessaires pour assurer la coordination entre le responsable de dispositif et le maître d’apprentissage.</li>
+<li>Diffuser à l’entreprise tous les documents pédagogiques pouvant aider celle-ci à assurer une bonne formation.</li>
+<li>Fournir, notamment grâce au livret de suivi, tous les renseignements permettant à l’entreprise et à l’apprenti(e) de suivre l’assiduité, le travail et la progression des compétences.</li>
+<li>Veiller à ce que l’apprenti(e) soit inscrit(e) à l’examen prévu en fin de contrat, et lui fournir les moyens nécessaires pour s’y préparer.</li>
+");
         $i8->setValeurVariable($a);
         $i9 = new ItemLivret();
         $i9->setNom("Engagement de l'apprenti");
         $i9->setTypeVariable("texte");
-        $a = array("Travailler pour son employeur");
+        $a = array("<li>Travailler pour son employeur, et notamment, effectuer les travaux prévus dans la progression de la formation en vue d’obtenir la qualification professionnelle.</li>
+<li>Poursuivre les objectifs du référentiel de l’examen en vue d’obtenir le diplôme ou la qualification visé</li>
+<li>Respecter le règlement intérieur de l’entreprise et celui du centre de formation.</li>
+<li>S’investir dans un travail régulier au centre de formation en respectant le calendrier et les échéances fixées.</li>
+<li>Tenir à jour  le livret de suivi et veiller à ce qu’il soit rempli et visé régulièrement par les formateurs du centre de formation et son maître d’apprentissage.</li>
+<li>Etre actif en entreprise et au centre de formation.</li>
+<li>Réaliser les activités demandées soit par le responsable désigné dans l’entreprise, soit par le responsable de promotion au centre.</li>
+");
         $i9->setValeurVariable($a);
         $i41 = new ItemLivret();
         $i41->setNom("Signature");
@@ -401,7 +430,7 @@ class Livret
         $i25->setValeurVariable($a);
         $i26 = new ItemLivret();
         $i26->setNom("Le profil de l'apprenti");
-        $i26->setTypeVariable("tableau");
+        $i26->setTypeVariable("tableau-long");
         $a = array(
             "Comportement professionnel attendu" => "",
             "Qualités attendu" => "",
@@ -1188,7 +1217,7 @@ class Livret
      */
     public function addPeriodeFormation(\JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation)
     {
-       $this->periodeFormation[] = $periodeFormation;
+        $this->periodeFormation[] = $periodeFormation;
         $this->cleanPeriode();
     }
 
@@ -1221,8 +1250,6 @@ class Livret
     {
         $this->activites->removeElement($activite);
     }
-
-
 
 
     /***

@@ -153,7 +153,7 @@ class DefaultController extends Controller
                 fclose($handle);
             }
             $this->associerTuteur();
-            return $this->redirect($this->generateUrl("livret_homepage"));
+            return $this->redirect($this->generateUrl("utilisateur_homepage"));
         }
         return $this->render('UtilisateurBundle:Default:importCSV.html.twig', array(
             'form' => $form->createView(),

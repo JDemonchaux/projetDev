@@ -346,4 +346,22 @@ class DefaultController extends Controller
 //
     }
 
+    public function removeItemFormationAction(Request $request) {
+        $idItem = new \MongoId($request->get("idItem"));
+        $odm = $this->get("doctrine_mongodb")->getManager();
+        $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($this->getUser()->getId());
+        $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($this->getUser()->getId())));
+        $l = $livret;
+
+        $odm->remove($livret);
+        $odm->flush();
+
+        $l->removeItemCours($idItem);
+
+        $odm->persist($l);
+        $odm->flush();
+
+        return $this->redirect($this->generateUrl("livret_quinzaine"));
+    }
+
 }

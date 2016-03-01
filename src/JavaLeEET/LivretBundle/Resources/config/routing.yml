@@ -54,4 +54,6 @@ livret_quinzaine_formation_ajouter:
     path:   /quinzaine/formation/ajouter
     defaults: { _controller: LivretBundle:Default:addItemFormation }
 
-
+livret_quinzaine_formation_item_delete:
+    path:   /quinzaine/formation/supprimer
+    defaults: { _controller: LivretBundle:Default:removeItemFormation }

@@ -49,9 +49,12 @@
                                 <td>{{ item.experimentationEntreprise }}</td>
                                 <td>
                                     <div class="removeLine">
-                                        <button class="btn btn-floating red waves-effect waves-light" data-line="f{{ loop.index }}" data-item="{{ item.id }}">
-                                            X
-                                        </button>
+                                        <a href="{{ path('livret_quinzaine_formation_item_delete', {'idItem' : item.id }) }}">
+                                            <button class="btn btn-floating red waves-effect waves-light"
+                                                    data-line="f{{ loop.index }}" data-item="{{ item.id }}">
+                                                X
+                                            </button>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

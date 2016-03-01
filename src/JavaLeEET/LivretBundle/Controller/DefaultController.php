@@ -8,6 +8,7 @@ use JavaLeEET\LivretBundle\Document\Categorie;
 use JavaLeEET\LivretBundle\Document\Livret;
 use JavaLeEET\LivretBundle\Document\PeriodeFormation;
 use JavaLeEET\LivretBundle\Document\Section;
+use MongoDBODMProxies\__CG__\JavaLeEET\LivretBundle\Document\ItemCours;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -303,8 +304,46 @@ class DefaultController extends Controller
 
 
         return $this->consulterAction($request);
+    }
 
 
+    public function addItemFormationAction(Request $request)
+    {
+        $module = $request->request->get("module");
+        $lien = $request->request->get("lienEntreprise");
+        $difficulte = $request->request->get("difficulte");
+        $exp = $request->request->get("experimenter");
+
+        $item = new ItemCours();
+        $item->setModuleFormation($module);
+        $item->setExperimentationEntreprise($exp);
+        $item->setDifficulte($difficulte);
+        $item->setLiensEntreprise($lien);
+
+
+        $odm = $this->get("doctrine_mongodb")->getManager();
+        $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($this->getUser()->getId());
+//        $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($this->getUser()->getId())));
+        $qb = $odm->createQueryBuilder("LivretBundle:Livret")
+            ->field("apprenti")->equals(new \MongoId($this->getUser()->getId()))
+            ->hydrate(true)->getQuery();
+        $livret = $qb->getSingleResult();
+        $l = $livret;
+
+        $odm->remove($livret);
+        $odm->flush();
+
+
+        $l->getPeriodeFormation()->first()->addItemCour($item);
+
+//        var_dump($l['periodeFormation'][0]['itemCours']);
+//        array_push($l['periodeFormation'][0]['itemCours'], $item);
+
+        $odm->persist($l);
+        $odm->flush();
+
+        return $this->redirect($this->generateUrl("livret_quinzaine"));
+//
     }
 
 }

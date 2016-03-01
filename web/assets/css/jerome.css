@@ -225,11 +225,11 @@ tbody.separator > tr {
 }
 
 .button-collapse {
-    padding-right:1rem;
+    padding-right: 1rem;
 }
 
-ul.side-nav>li>a {
-    color:black !important;
+ul.side-nav > li > a {
+    color: black !important;
 }
 
 @media only screen and (max-width: 992px) {
@@ -237,4 +237,10 @@ ul.side-nav>li>a {
         left: 0px;
     }
 
+}
+
+.addLine-formation {
+    position: absolute;
+    margin-top: 16rem;
+    margin-left: -4rem;
 }

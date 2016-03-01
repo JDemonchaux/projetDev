@@ -71,38 +71,38 @@ class Livret
     public function genererLivret($apprenti)
     {
 
-        $p = new PeriodeFormation();
-        $itemCour = new ItemCours();
-        $itemCour->setModuleFormation("XML : partiel transformation xml->html");
-        $itemCour->setDifficulte("aucune");
-        $itemCour->setExperimentationEntreprise("xsl-fo pour génération pdf");
-        $itemCour->setLiensEntreprise("projet entreprise");
-        $itemCour2 = new ItemCours();
-        $itemCour2->setModuleFormation("Droit : partiel droit commerce en ligne");
-        $itemCour2->setDifficulte("aucune");
-        $itemCour2->setExperimentationEntreprise("mentions legales");
-        $itemCour2->setLiensEntreprise("projet entreprise");
-        $a = array();
-        $a[] = $itemCour;
-        $a[] = $itemCour2;
-        $p->setDateDebutF(new \MongoDate(strtotime("21-12-2015")));
-        $p->setDateFinF(new \MongoDate(strtotime("21-12-2015")));
-        $p->setItemCours($a);
-
-        $itemEnt = new ItemEntreprise();
-        $itemEnt->setLibelleActivite("Developpement");
-        $itemEnt->setDescriptionActivite("Developpement du lot 1 du projet");
-        $itemEnt->setSavoirTheorique("Gestion de projet");
-        $itemEnt->setAptitudeRelationnelle("Communiquer avec son client");
-        $itemEnt->setCompetencesUtil(array("C1-1", "C3-5"));
-        $a = array();
-        $a[] = $itemEnt;
-        $p->setDateDebutE(new \MongoDate(strtotime("21-12-2015")));
-        $p->setDateFinE(new \MongoDate(strtotime("21-12-2015")));
-        $p->setItemEntreprise($a);
-
-        $periodes = array();
-        $periodes[] = $p;
+//        $p = new PeriodeFormation();
+//        $itemCour = new ItemCours();
+//        $itemCour->setModuleFormation("XML : partiel transformation xml->html");
+//        $itemCour->setDifficulte("aucune");
+//        $itemCour->setExperimentationEntreprise("xsl-fo pour génération pdf");
+//        $itemCour->setLiensEntreprise("projet entreprise");
+//        $itemCour2 = new ItemCours();
+//        $itemCour2->setModuleFormation("Droit : partiel droit commerce en ligne");
+//        $itemCour2->setDifficulte("aucune");
+//        $itemCour2->setExperimentationEntreprise("mentions legales");
+//        $itemCour2->setLiensEntreprise("projet entreprise");
+//        $a = array();
+//        $a[] = $itemCour;
+//        $a[] = $itemCour2;
+//        $p->setDateDebutF(new \MongoDate(strtotime("21-12-2015")));
+//        $p->setDateFinF(new \MongoDate(strtotime("21-12-2015")));
+//        $p->setItemCours($a);
+//
+//        $itemEnt = new ItemEntreprise();
+//        $itemEnt->setLibelleActivite("Developpement");
+//        $itemEnt->setDescriptionActivite("Developpement du lot 1 du projet");
+//        $itemEnt->setSavoirTheorique("Gestion de projet");
+//        $itemEnt->setAptitudeRelationnelle("Communiquer avec son client");
+//        $itemEnt->setCompetencesUtil(array("C1-1", "C3-5"));
+//        $a = array();
+//        $a[] = $itemEnt;
+//        $p->setDateDebutE(new \MongoDate(strtotime("21-12-2015")));
+//        $p->setDateFinE(new \MongoDate(strtotime("21-12-2015")));
+//        $p->setItemEntreprise($a);
+//
+//        $periodes = array();
+//        $periodes[] = $p;
 
         //ITEMS DU LIVRET
         $item1 = array();
@@ -1024,7 +1024,7 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
 
         // LIVRET
         $this->setActivite($item13);
-        $this->setPeriodeFormation($periodes);
+//        $this->setPeriodeFormation($periodes);
         $this->setCategorie($categories);
         $this->setApprenti($apprenti);
 

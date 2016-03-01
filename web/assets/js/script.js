@@ -60,6 +60,7 @@ $(document).ready(function () {
     $(".livret_section, .categories").hide();
     $("#formQuinzaine").hide();
     $('.periodes-livret').hide();
+    $('#formAddItemFormation').hide();
 
     $(".sections").on('click', function () {
         $(".categories").hide();
@@ -76,6 +77,7 @@ $(document).ready(function () {
     $(".periode-subtitle").on('click', function () {
         $('.periodes-livret').hide();
         $("#formQuinzaine").hide();
+        $("#formAddItemFormation").hide();
         var tmp = $(this).data("vue").split(" ");
         var vuePeriode = "." + tmp[0];
         var vueType = "." + tmp[1];
@@ -97,10 +99,11 @@ $(document).ready(function () {
 
     $(".ajouterQuinzaine").on('click', function () {
         $('.periodes-livret').hide();
+        $('#formAddItemFormation').hide();
         $("#formQuinzaine").show();
     });
 
-    $('.saveLivret').on('focus', function() {
+    $('.saveLivret').on('focus', function () {
         isChanged = $(this).val();
     });
 
@@ -199,7 +202,7 @@ $(document).ready(function () {
 
     });
 
-    $("#formFile").on('submit', function() {
+    $("#formFile").on('submit', function () {
         var filename = $(".insertFile").val();
         var item = $(this).data("item");
         var livret = $(this).data("livret");
@@ -244,6 +247,26 @@ $(document).ready(function () {
 
         return false;
     });
+
+
+    // Bouton ajout de ligne dans les fiches de quinzaines
+    $(".addLine-formation > button").on("click", function () {
+        $(".periodes-livret").hide();
+        $("#formAddItemFormation").show();
+    });
+
+    // Bouton retirer une ligne
+    $(".removeLine > button").on('click', function () {
+        /*
+         var l = $(this).data("line");
+         $("."+l).remove();
+         */
+    });
+
+    $('.formationAdd').on('submit', function () {
+
+    });
+
 });
 
 

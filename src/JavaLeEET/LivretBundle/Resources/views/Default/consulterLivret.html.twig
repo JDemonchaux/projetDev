@@ -191,25 +191,30 @@
                                 {{ itemLivret.valeurVariable[0]|raw }}
                             {% elseif (itemLivret.typeVariable == "fichier") %}
                                 {% for key, value in itemLivret.valeurVariable %}
-                                    <form id="formFile" data-livret="{{ livret.id }}"
-                                          data-categorie="{{ categorie.id }}"
-                                          data-section="{{ section.id }}"
-                                          data-item="{{ itemLivret.id }}"
-                                          data-key="{{ key }}">
-                                        <div class="file-field input-field">
-                                            <div class="btn">
-                                                <span>{{ key }}</span>
-                                                <input type="file" class="insertFile">
+                                    {% if is_granted("ROLE_APPRENTI") %}
+                                        <form id="formFile" data-livret="{{ livret.id }}"
+                                              data-categorie="{{ categorie.id }}"
+                                              data-section="{{ section.id }}"
+                                              data-item="{{ itemLivret.id }}"
+                                              data-key="{{ key }}">
+                                            <div class="file-field input-field">
+                                                <div class="btn">
+                                                    <span>{{ key }}</span>
+                                                    <input type="file" class="insertFile">
+                                                </div>
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" type="text">
+                                                </div>
+                                                <button class="btn waves-effect waves-light" id="_submit"
+                                                        id="insertFile">
+                                                    Ajouter
+                                                    <i class="material-icons right">send</i>
+                                                </button>
                                             </div>
-                                            <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text">
-                                            </div>
-                                            <button class="btn waves-effect waves-light" id="_submit" id="insertFile">
-                                                Ajouter
-                                                <i class="material-icons right">send</i>
-                                            </button>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    {% else %}
+                                        {{ value }}
+                                    {% endif %}
                                 {% endfor %}
                             {% endif %}
                         {% endfor %}

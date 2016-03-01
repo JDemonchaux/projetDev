@@ -3,8 +3,17 @@
 {% block body %}
     {% for periodeFormation in livret.periodeFormation %}
         <div class="periodes-livret p{{ loop.index }}">
+
+
             <!-- Fiche période de formation -->
             <div class="p{{ loop.index }} formation">
+                <!-- bouton ajout d'une ligne -->
+                <div class="addLine-formation">
+                    <button class="btn btn-floating bleu waves-effect waves-light">
+                        +
+                    </button>
+                </div>
+
                 <h1 class="quinzaineTitle bleu-text">Modules de formation pendant la quinzaine</h1>
                 <img src="{{ asset('assets/img/fond-title.png') }}" class="fond-title"/>
 
@@ -25,22 +34,30 @@
                             <th>Lien avec ce qui a déjà été fait en entreprise</th>
                             <th>Difficultés rencontrées</th>
                             <th>Ce qu'il faudrait expérimenter en entreprise</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody class="separator">
                         <tr colspan="4"></tr>
                         </tbody>
-                        <tbody>
+                        <tbody class="tbody-formation" data-url="{{ path('livret_quinzaine_formation_ajouter') }}">
                         {% for item in periodeFormation.itemCours %}
-                            <tr>
+                            <tr class="f{{ loop.index }}">
                                 <td>{{ item.moduleFormation }}</td>
                                 <td>{{ item.liensEntreprise }}</td>
                                 <td>{{ item.difficulte }}</td>
                                 <td>{{ item.experimentationEntreprise }}</td>
+                                <td>
+                                    <div class="removeLine">
+                                        <button class="btn btn-floating red waves-effect waves-light" data-line="f{{ loop.index }}" data-item="{{ item.id }}">
+                                            X
+                                        </button>
+                                    </div>
+                                </td>
                             </tr>
                         {% endfor %}
                         </tbody>
-                        <tbody class="separator">
+                        <tbody class="separator ">
                         <tr colspan="4"></tr>
                         </tbody>
                     </table>
@@ -222,7 +239,7 @@
                         : {{ periodeFormation.dateFinF|date("d/m/y") }}
                     </div>
                     <div class="col s6">
-                        Nom du maître d'apprentissage : {{  tuteur.username }}
+                        Nom du maître d'apprentissage : {{ tuteur.username }}
                     </div>
                 </div>
                 <div class="row">
@@ -343,7 +360,33 @@
 
     {% endfor %}
 
+    <!-- Formulaire d'ajout d'une ligne de quinzaine -->
+    <div id="formAddItemFormation">
+        <h1 class="bleu-text quinzaineTitle">Module de formation</h1>
+        <br/><br/>
+        <br/><br/>
+        <br/><br/>
+        <div class="form-content">
+            <form action="{{ path('livret_quinzaine_formation_ajouter') }}" method="POST">
+                <div class="row">
 
+                    <label for="module">Module de formation : </label>
+                    <input id="module" type="text" name="module"/>
+
+                    <label for="lien">Lien avec ce qui a &eacute;t&eacute; fait en entreprise : </label>
+                    <input id="lien" type="text" name="lienEntreprise"/>
+
+                    <label for="difficulte">Difficult&eacute;s rencontr&eacute;es : </label>
+                    <input id="difficulte" type="text" name="difficulte"/>
+
+                    <label for="experimenter">Ce qu'il faudrait expérimenter en entreprise : </label>
+                    <input id="experimenter" type="text" name="experimenter"/>
+
+                    <button class="btn vert" type="submit">Valider</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Formulaire d'ajout d'une période -->
     <div id="formQuinzaine">

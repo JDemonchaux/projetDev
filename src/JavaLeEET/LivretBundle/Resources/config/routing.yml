@@ -49,3 +49,9 @@ livret_signer:
 livret_ajouter_fichier:
     path:   /consulter/fichier
     defaults: { _controller: LivretBundle:Default:ajouterFichier }
+
+livret_quinzaine_formation_ajouter:
+    path:   /quinzaine/formation/ajouter
+    defaults: { _controller: LivretBundle:Default:addItemFormation }
+
+

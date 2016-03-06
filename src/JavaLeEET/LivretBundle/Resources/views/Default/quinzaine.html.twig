@@ -8,11 +8,13 @@
             <!-- Fiche période de formation -->
             <div class="p{{ loop.index }} formation">
                 <!-- bouton ajout d'une ligne -->
-                <div class="addLine-formation">
-                    <button class="btn btn-floating bleu waves-effect waves-light">
-                        +
-                    </button>
-                </div>
+                {% if is_granted("ROLE_APPRENTI") %}
+                    <div class="addLine-formation">
+                        <button class="btn btn-floating bleu waves-effect waves-light">
+                            +
+                        </button>
+                    </div>
+                {% endif %}
 
                 <h1 class="quinzaineTitle bleu-text">Modules de formation pendant la quinzaine</h1>
                 <img src="{{ asset('assets/img/fond-title.png') }}" class="fond-title"/>
@@ -34,7 +36,9 @@
                             <th>Lien avec ce qui a déjà été fait en entreprise</th>
                             <th>Difficultés rencontrées</th>
                             <th>Ce qu'il faudrait expérimenter en entreprise</th>
-                            <th>Action</th>
+                            {% if is_granted("ROLE_APPRENTI") %}
+                                <th>Action</th>
+                            {% endif %}
                         </tr>
                         </thead>
                         <tbody class="separator">
@@ -47,16 +51,18 @@
                                 <td>{{ item.liensEntreprise }}</td>
                                 <td>{{ item.difficulte }}</td>
                                 <td>{{ item.experimentationEntreprise }}</td>
-                                <td>
-                                    <div class="removeLine">
-                                        <a href="{{ path('livret_quinzaine_formation_item_delete', {'idItem' : item.id }) }}">
-                                            <button class="btn btn-floating red waves-effect waves-light"
-                                                    data-line="f{{ loop.index }}" data-item="{{ item.id }}">
-                                                X
-                                            </button>
-                                        </a>
-                                    </div>
-                                </td>
+                                {% if is_granted("ROLE_APPRENTI") %}
+                                    <td>
+                                        <div class="removeLine">
+                                            <a href="{{ path('livret_quinzaine_formation_item_delete', {'idItem' : item.id }) }}">
+                                                <button class="btn btn-floating red waves-effect waves-light"
+                                                        data-line="f{{ loop.index }}" data-item="{{ item.id }}">
+                                                    X
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                {% endif %}
                             </tr>
                         {% endfor %}
                         </tbody>
@@ -123,6 +129,16 @@
 
             <!-- Fiche période d'entreprise -->
             <div class="p{{ loop.index }} entreprise">
+                <!-- bouton pour ajouter une ligne -->
+
+                {% if is_granted("ROLE_APPRENTI") %}
+                    <div class="addLine-entreprise">
+                        <button class="btn btn-floating bleu waves-effect waves-light">
+                            +
+                        </button>
+                    </div>
+                {% endif %}
+
                 <h1 class="quinzaineTitle bleu-text">Activités Réalisées pendant la quinzaine en entreprise</h1>
                 <img src="{{ asset('assets/img/fond-title.png') }}" class="fond-title"/>
 
@@ -146,6 +162,9 @@
                             <th>Savoirs théorique ou pratique. Savoir faire</th>
                             <th>Aptitude rellationnelles. Savoir être</th>
                             <th>Compétences</th>
+                            {% if is_granted("ROLE_APPRENTI") %}
+                                <th>Action</th>
+                            {% endif %}
                         </tr>
                         </thead>
                         <tbody class="separator">
@@ -159,11 +178,24 @@
                                 <td>{{ item.savoirTheorique }}</td>
                                 <td>{{ item.aptitudeRelationnelle }}</td>
                                 <td>
-                                    {% for value in item.competencesUtil %}
-                                        {{ value }}
+                                    {% for c in item.competencesUtil %}
+                                        {% for competence in c.competence %}
+                                            {{ competence }}
+                                        {% endfor %}
                                     {% endfor %}
                                 </td>
-
+                                {% if is_granted("ROLE_APPRENTI") %}
+                                    <td>
+                                        <div class="removeLine">
+                                            <a href="{{ path('livret_quinzaine_entreprise_item_delete', {'idItem' : item.id }) }}">
+                                                <button class="btn btn-floating red waves-effect waves-light"
+                                                        data-line="f{{ loop.index }}" data-item="{{ item.id }}">
+                                                    X
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                {% endif %}
                             </tr>
                         {% endfor %}
 
@@ -282,14 +314,32 @@
                                 <td rowspan="{{ item.competencesUtil|length + 1 }}">{{ item.libelleActivite }}</td>
                             </tr>
                             {% for comp in item.competencesUtil %}
-                                <tr>
-                                    <td>{{ comp }}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                {% for c in comp.competence %}
+                                    <tr data-url="{{ path('livret_quinzaine_tuteur_maitrise') }}"
+                                        data-idcomp="{{ comp.id }}" data-idlivret="{{ livret.id }}"
+                                        class="{% if is_granted("ROLE_TUTEUR") %} element-checkable {% endif %} {% if loop.parent.loop.index is divisibleby(2) %} odd {% else %} even {% endif %}">
+                                        <td>{{ c }}</td>
+                                        <td data-maitrise="1"
+                                            class="checkable {% if comp.degreMaitrise == 1 %} checked {% endif %}"></td>
+                                        <td data-maitrise="2"
+                                            class="checkable {% if comp.degreMaitrise == 2 %} checked {% endif %}"></td>
+                                        <td data-maitrise="3"
+                                            class="checkable {% if comp.degreMaitrise == 3 %} checked {% endif %}"></td>
+                                        <td data-maitrise="4"
+                                            class="checkable {% if comp.degreMaitrise == 4 %} checked {% endif %}"></td>
+                                        <td class="description aRemplir">
+                                            {% if is_granted("ROLE_TUTEUR") %}
+                                                <input type="text" name="description{{ loop.index }}"
+                                                       class="saveDescriptionComp"
+                                                       data-url="{{ path('livret_quinzaine_tuteur_description') }}"
+                                                       data-idcomp="{{ comp.id }}" data-idlivret="{{ livret.id }}"
+                                                       value="{{ comp.description }}"/>
+                                            {% else %}
+                                                {{ comp.description }}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
                             {% endfor %}
                         {% endfor %}
 
@@ -302,6 +352,7 @@
                         <tbody class="separator">
                         <tr colspan="7"></tr>
                         </tbody>
+
                     </table>
                 </div>
                 <div class="row rowSignature">
@@ -363,7 +414,7 @@
 
     {% endfor %}
 
-    <!-- Formulaire d'ajout d'une ligne de quinzaine -->
+    <!-- Formulaire d'ajout d'une ligne de quinzaine formation -->
     <div id="formAddItemFormation">
         <h1 class="bleu-text quinzaineTitle">Module de formation</h1>
         <br/><br/>
@@ -374,20 +425,101 @@
                 <div class="row">
 
                     <label for="module">Module de formation : </label>
-                    <input id="module" type="text" name="module"/>
+                    <input id="module" type="text" name="module" required/>
 
                     <label for="lien">Lien avec ce qui a &eacute;t&eacute; fait en entreprise : </label>
-                    <input id="lien" type="text" name="lienEntreprise"/>
+                    <input id="lien" type="text" name="lienEntreprise" required/>
 
                     <label for="difficulte">Difficult&eacute;s rencontr&eacute;es : </label>
-                    <input id="difficulte" type="text" name="difficulte"/>
+                    <input id="difficulte" type="text" name="difficulte" required/>
 
                     <label for="experimenter">Ce qu'il faudrait expérimenter en entreprise : </label>
-                    <input id="experimenter" type="text" name="experimenter"/>
+                    <input id="experimenter" type="text" name="experimenter" required/>
 
                     <button class="btn vert" type="submit">Valider</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- formulaire d'ajout d'une ligne de période d'entreprise -->
+    <div id="formAddItemEntreprise">
+        <h1 class="bleu-text quinzaineTitle">Activité réalisée en entreprise</h1>
+        <br/><br/>
+        <br/><br/>
+        <br/><br/>
+        <div class="form-content">
+            <form action="{{ path('livret_quinzaine_entreprise_ajouter') }}" method="POST">
+                <div class="row">
+                    <div class="row">
+                        <label for="intitule">Intitulé de l'activité : </label>
+                        <input id="intitule" type="text" name="intitule" required/>
+
+                        <label for="description">Description de l'activité : </label>
+                        <input id="description" type="text" name="description" required/>
+
+                        <label for="savoirfaire">Savoirs théorique ou pratique : </label>
+                        <input id="savoirfaire" type="text" name="savoirfaire" required/>
+
+                        <label for="savoiretre">Aptitude relationnelles, savoir être : </label>
+                        <input id="savoiretre" type="text" name="savoiretre" required/>
+                        <div class="inputHidden">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s5">
+                            <a class="modal-trigger" href="#modalCompetences">
+                                <button class="btn bleu">Ajouter des compétences</button>
+                            </a>
+                        </div>
+                        <div class="col s7">
+                            <table class="competence-ajoutee">
+                                <thead>
+                                <tr>
+                                    <th>Competence ajoutées</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <button class="btn vert" type="submit">Valider</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalCompetences" class="modal">
+        <div class="modal-content">
+            <h4>liste des compétences</h4>
+            <table id="tableCompetences" data-page-length="5">
+                <thead>
+                <tr>
+                    <th>Activité</th>
+                    <th>Compétence</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for a in livret.activite %}
+                    {% for c in a.competences %}
+                        <tr class="competence-element">
+                            <td>{{ a.titre }}</td>
+                            <td class="comp">{{ c.code }} - {{ c.descriptif }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <a href="#!"
+               class="btn-ajout-competence modal-action modal-close waves-effect waves-green btn-flat">Valider</a>
         </div>
     </div>
 

@@ -54,6 +54,26 @@ livret_quinzaine_formation_ajouter:
     path:   /quinzaine/formation/ajouter
     defaults: { _controller: LivretBundle:Default:addItemFormation }
 
+livret_quinzaine_entreprise_ajouter:
+    path:   /quinzaine/entreprise/ajouter
+    defaults: { _controller: LivretBundle:Default:addItemEntreprise }
+
 livret_quinzaine_formation_item_delete:
     path:   /quinzaine/formation/supprimer
     defaults: { _controller: LivretBundle:Default:removeItemFormation }
+
+livret_quinzaine_entreprise_item_delete:
+    path:   /quinzaine/entreprise/supprimer
+    defaults: { _controller: LivretBundle:Default:removeItemEntreprise }
+
+livret_quinzaine_tuteur_item_ajouter:
+    path:   /quinzaine/tuteur/ajouter
+    defaults: { _controller: LivretBundle:Default:addItemTuteur }
+
+livret_quinzaine_tuteur_maitrise:
+    path:   /quinzaine/tuteur/maitrise
+    defaults: { _controller: LivretBundle:Default:addMaitriseComp }
+
+livret_quinzaine_tuteur_description:
+    path:   /quinzaine/tuteur/description
+    defaults: { _controller: LivretBundle:Default:addDescriptionComp }

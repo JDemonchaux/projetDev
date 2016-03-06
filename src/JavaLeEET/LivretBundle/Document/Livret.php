@@ -1074,6 +1074,17 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
         }
     }
 
+    public function removeItemEntreprise($idItem) {
+        foreach ($this->getPeriodeFormation() as $p) {
+            foreach ($p->getItemEntreprise() as $i) {
+                if ($i->getId() == $idItem) {
+                    $p->removeItemEntreprise($i);
+                }
+
+            }
+        }
+    }
+
     /**
      * @return collection
      */

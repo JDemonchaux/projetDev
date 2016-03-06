@@ -239,8 +239,32 @@ ul.side-nav > li > a {
 
 }
 
-.addLine-formation {
+.addLine-formation, .addLine-entreprise {
     position: absolute;
     margin-top: 16rem;
     margin-left: -4rem;
+}
+
+.competence-element {
+    cursor:pointer;
+}
+
+.competence-selected {
+    background-color: rgba(222, 255, 0, 0.35) !important;
+}
+
+.element-checkable>.checkable {
+    cursor:pointer;
+}
+
+.odd > .checked {
+    background-color: rgb(21, 102, 173) !important;
+    -moz-transition: background-color 300ms ease-in;
+    -webkit-transition: background-color 300ms ease-in;
+}
+
+.even > .checked {
+    background-color: rgb(139, 184, 88) !important;
+    -moz-transition: background-color 300ms ease-in;
+    -webkit-transition: background-color 300ms ease-in;
 }

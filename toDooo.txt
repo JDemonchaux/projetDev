@@ -1,9 +1,3 @@
-1 - donner le role approprié aux users importés (apprenti, tuteur ou rd)
-1.1 - Reflechir comment lier un MA a un apprenti. dans le csv directe ?
-1.1.1 - demander à jean mi un csv de test, rapidement
-1.2 - Faire l'import!
-
-
 2 - Faire page mentions légales
 
 3 - Faire page "utilisation du livret"
@@ -74,3 +68,9 @@ $.fn.autoGrowInput = function(o) {
 };
 
 })(jQuery);
+
+
+
+//////////
+- pouvoir ajouter deux periodes de formation
+

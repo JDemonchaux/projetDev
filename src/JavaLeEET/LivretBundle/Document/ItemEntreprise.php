@@ -50,7 +50,7 @@ class ItemEntreprise
     /**
      * @var collection $competencesUtil
      *
-     * @ODM\Field(name="competencesUtil", type="collection")
+     * @ODM\EmbedMany(targetDocument="CompetenceUtil")
      */
     protected $competencesUtil;
 
@@ -173,5 +173,9 @@ class ItemEntreprise
     public function getCompetencesUtil()
     {
         return $this->competencesUtil;
+    }
+
+    public function addCompetencesUtil(CompetenceUtil $c) {
+        $this->competencesUtil[] = $c;
     }
 }

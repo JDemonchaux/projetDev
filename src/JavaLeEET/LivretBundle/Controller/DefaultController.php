@@ -4,10 +4,14 @@ namespace JavaLeEET\LivretBundle\Controller;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations\ObjectId;
 use Doctrine\ODM\MongoDB\Types\ObjectIdType;
+use Hydrators\JavaLeEETLivretBundleDocumentItemEntrepriseHydrator;
 use JavaLeEET\LivretBundle\Document\Categorie;
+use JavaLeEET\LivretBundle\Document\Competence;
+use JavaLeEET\LivretBundle\Document\ItemEntreprise;
 use JavaLeEET\LivretBundle\Document\Livret;
 use JavaLeEET\LivretBundle\Document\PeriodeFormation;
 use JavaLeEET\LivretBundle\Document\Section;
+use MongoDBODMProxies\__CG__\JavaLeEET\LivretBundle\Document\CompetenceUtil;
 use MongoDBODMProxies\__CG__\JavaLeEET\LivretBundle\Document\ItemCours;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Config\Definition\Exception\Exception;
@@ -85,8 +89,6 @@ class DefaultController extends Controller
             $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $apprenti->getTuteur()[0]));
             $tuteur = $tuteur[0];
         }
-
-
         $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
         return $this->render('LivretBundle:Default:quinzaine.html.twig', array("livret" => $livret, "apprenti" => $apprenti, "tuteur" => $tuteur));
     }
@@ -260,7 +262,7 @@ class DefaultController extends Controller
             $odm->persist($l);
             $odm->flush();
 
-
+            $success = true;
         } catch
         (Exception $e) {
             $success = $e->getMessage();
@@ -346,7 +348,8 @@ class DefaultController extends Controller
 //
     }
 
-    public function removeItemFormationAction(Request $request) {
+    public function removeItemFormationAction(Request $request)
+    {
         $idItem = new \MongoId($request->get("idItem"));
         $odm = $this->get("doctrine_mongodb")->getManager();
         $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($this->getUser()->getId());
@@ -363,5 +366,145 @@ class DefaultController extends Controller
 
         return $this->redirect($this->generateUrl("livret_quinzaine"));
     }
+
+    public function addItemEntrepriseAction(Request $request)
+    {
+        $odm = $this->get("doctrine_mongodb")->getManager();
+        $intitule = $request->request->get("intitule");
+        $description = $request->request->get("description");
+        $savoirfaire = $request->request->get("savoirfaire");
+        $savoiretre = $request->request->get("savoiretre");
+        $competences = $request->request->get("comp");
+
+        $itemEntreprise = new ItemEntreprise();
+        $itemEntreprise->setLibelleActivite($intitule);
+        $itemEntreprise->setDescriptionActivite($description);
+        $itemEntreprise->setSavoirTheorique($savoirfaire);
+        $itemEntreprise->setAptitudeRelationnelle($savoiretre);
+
+        $a = array();
+        foreach ($competences as $c) {
+            $competenceUtil = new \JavaLeEET\LivretBundle\Document\CompetenceUtil();
+            $competenceUtil->setCompetence(array($c));
+            $competenceUtil->setDegreMaitrise(0);
+            array_push($a, $competenceUtil);
+        }
+        var_dump($a);
+        $itemEntreprise->setCompetencesUtil($a);
+
+
+        $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($this->getUser()->getId());
+        $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($this->getUser()->getId())));
+        $l = $livret;
+
+        $odm->remove($livret);
+        $odm->flush();
+
+
+        $l->getPeriodeFormation()->first()->addItemEntreprise($itemEntreprise);
+
+
+        $odm->persist($l);
+        $odm->flush();
+
+        return $this->redirect($this->generateUrl("livret_quinzaine"));
+
+    }
+
+    public function removeItemEntrepriseAction(Request $request)
+    {
+        $idItem = new \MongoId($request->get("idItem"));
+        $odm = $this->get("doctrine_mongodb")->getManager();
+        $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($this->getUser()->getId());
+        $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($this->getUser()->getId())));
+        $l = $livret;
+
+        $odm->remove($livret);
+        $odm->flush();
+
+        $l->removeItemEntreprise($idItem);
+
+        $odm->persist($l);
+        $odm->flush();
+
+        return $this->redirect($this->generateUrl("livret_quinzaine"));
+    }
+
+    public function addItemTuteurAction(Request $request)
+    {
+
+    }
+
+    public function addMaitriseCompAction(Request $request)
+    {
+        try {
+            $data = $request->getContent();
+            $data = json_decode($data);
+
+            $idLivret = $data->data->idLivret;
+            $idComp = $data->data->idComp;
+            $degreMaitrise = $data->data->degreMaitrise;
+
+            $odm = $this->get("doctrine_mongodb")->getManager();
+            $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("id" => new \MongoId($idLivret)));
+            $l = $livret;
+
+            $odm->remove($livret);
+            $odm->flush();
+
+            foreach ($l->getPeriodeFormation()->first()->getItemEntreprise()->first()->getCompetencesUtil() as $c) {
+                if ($c->getId() == $idComp) {
+                    $c->setDegreMaitrise($degreMaitrise);
+                }
+            }
+
+            $odm->persist($l);
+            $odm->flush();
+
+            $success = true;
+        } catch
+        (Exception $e) {
+            $success = $e->getMessage();
+        }
+
+        return $this->render('LivretBundle:Default/Ajax:action.html.twig', array("success" => $success));
+    }
+
+
+    public function addDescriptionCompAction(Request $request)
+    {
+        try {
+            $data = $request->getContent();
+            $data = json_decode($data);
+
+            $idLivret = $data->data->idLivret;
+            $idComp = $data->data->idComp;
+            $desc = $data->data->description;
+
+            $odm = $this->get("doctrine_mongodb")->getManager();
+            $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("id" => new \MongoId($idLivret)));
+            $l = $livret;
+
+            $odm->remove($livret);
+            $odm->flush();
+
+            foreach ($l->getPeriodeFormation()->first()->getItemEntreprise()->first()->getCompetencesUtil() as $c) {
+                if ($c->getId() == $idComp) {
+                    $c->setDescription($desc);
+                }
+            }
+
+            $odm->persist($l);
+            $odm->flush();
+
+            $success = true;
+        } catch
+        (Exception $e) {
+            $success = $e->getMessage();
+        }
+
+        return $this->render('LivretBundle:Default/Ajax:action.html.twig', array("success" => $success));
+    }
+
 
 }

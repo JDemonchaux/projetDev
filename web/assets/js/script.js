@@ -1,6 +1,8 @@
 $(document).ready(function () {
     var isChanged = "";
 
+    clickableCell();
+    $('.modal-trigger').leanModal();
     $('.dropdown-button').dropdown();
     $('.collapsible').collapsible({
         accordion: true
@@ -24,7 +26,7 @@ $(document).ready(function () {
         format: 'dd/mm/yy'
     });
     $('.tooltipped').tooltip({delay: 50});
-    $('.choixApprenti').dataTable({
+    $('.choixApprenti, #tableCompetences').dataTable({
         language: {
             processing: "Traitement en cours...",
             search: "Rechercher&nbsp;:",
@@ -61,6 +63,7 @@ $(document).ready(function () {
     $("#formQuinzaine").hide();
     $('.periodes-livret').hide();
     $('#formAddItemFormation').hide();
+    $('#formAddItemEntreprise').hide();
 
     $(".sections").on('click', function () {
         $(".categories").hide();
@@ -78,6 +81,7 @@ $(document).ready(function () {
         $('.periodes-livret').hide();
         $("#formQuinzaine").hide();
         $("#formAddItemFormation").hide();
+        $("#formAddItemEntreprise").hide();
         var tmp = $(this).data("vue").split(" ");
         var vuePeriode = "." + tmp[0];
         var vueType = "." + tmp[1];
@@ -254,6 +258,11 @@ $(document).ready(function () {
         $(".periodes-livret").hide();
         $("#formAddItemFormation").show();
     });
+    $(".addLine-entreprise > button").on("click", function () {
+        $(".periodes-livret").hide();
+        $("#formAddItemEntreprise").show();
+    });
+
 
     // Bouton retirer une ligne
     $(".removeLine > button").on('click', function () {
@@ -267,9 +276,127 @@ $(document).ready(function () {
 
     });
 
+
+
+    $('.btn-ajout-competence').on('click', function () {
+        console.log("ici");
+        var c = [];
+        $('.competence-selected').each(function () {
+            var item = $(this).find(".comp").html();
+            var comp = item.split(" - ");
+            $('.competence-ajoutee>tbody').append('<tr>' +
+                '<td>' + comp +
+                '</td>' +
+                '</tr>');
+            $(".inputHidden").append('<input type="hidden" name="comp[]" value="' + comp[0] + '" />');
+        });
+
+    });
+
+    $(".paginate-button").on('click', function() {
+       clickableCell();
+    });
+
+    $(".element-checkable>.checkable").on('click', function() {
+        $(this).parent().children().each(function() {
+            if ($(this).hasClass("checked")) {
+                $(this).removeClass("checked");
+            }
+        });
+        $(this).addClass("checked");
+
+        var degreMaitrise = $(this).data("maitrise");
+        var idComp = $(this).parent().data("idcomp");
+        var idLivret = $(this).parent().data("idlivret");
+        var url = $(this).parent().data("url");
+
+        var json = JSON.stringify({
+            "jsonrpc": "2.0",
+            "method": "POST",
+            "data": {
+                "degreMaitrise": degreMaitrise,
+                "idComp": idComp,
+                "idLivret": idLivret
+            }
+        });
+
+        $.ajax(
+            {
+                url: url,
+                type: "POST",
+                dataType: "JSON",
+                data: json,
+                headers: {
+                    'content-type': "application/json; charset=utf-8"
+                },
+                success: function (data) {
+                    toast('Enregistrement réussi!');
+                },
+                error: function () {
+                    toast('Erreur lors de l\'enregistrement');
+                }
+            }
+        )
+    });
+
+    $('.saveDescriptionComp').on('focus', function() {
+        isChanged = $(this).val();
+    });
+
+    $(".saveDescriptionComp").on("focusout", function() {
+        var description = $(this).val();
+
+        if (description == isChanged) {
+            return false;
+        }
+
+        var idComp = $(this).data("idcomp");
+        var idLivret = $(this).data("idlivret");
+        var url = $(this).data("url");
+
+        var json = JSON.stringify({
+            "jsonrpc": "2.0",
+            "method": "POST",
+            "data": {
+                "description": description,
+                "idComp": idComp,
+                "idLivret": idLivret
+            }
+        });
+
+        $.ajax(
+            {
+                url: url,
+                type: "POST",
+                dataType: "JSON",
+                data: json,
+                headers: {
+                    'content-type': "application/json; charset=utf-8"
+                },
+                success: function (data) {
+                    toast('Enregistrement réussi!');
+                },
+                error: function () {
+                    toast('Erreur lors de l\'enregistrement');
+                }
+            }
+        )
+    })
+
 });
 
 
 function toast(msg) {
     return Materialize.toast(msg, 4000);
+}
+
+function clickableCell() {
+    // Gestion du tableau d'ajout de competence. Dans quinzaine entreprise
+    $(".competence-element>td").on('click', function () {
+        if ($(this).parent().hasClass("competence-selected")) {
+            $(this).parent().removeClass("competence-selected");
+        } else {
+            $(this).parent().addClass("competence-selected");
+        }
+    });
 }

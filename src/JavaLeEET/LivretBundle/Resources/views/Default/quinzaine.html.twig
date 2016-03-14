@@ -10,7 +10,8 @@
                 <!-- bouton ajout d'une ligne -->
                 {% if is_granted("ROLE_APPRENTI") %}
                     <div class="addLine-formation">
-                        <button class="btn btn-floating bleu waves-effect waves-light">
+                        <button class="btn btn-floating bleu waves-effect waves-light"
+                                data-periode="{{ periodeFormation.id }}">
                             +
                         </button>
                     </div>
@@ -133,7 +134,8 @@
 
                 {% if is_granted("ROLE_APPRENTI") %}
                     <div class="addLine-entreprise">
-                        <button class="btn btn-floating bleu waves-effect waves-light">
+                        <button class="btn btn-floating bleu waves-effect waves-light"
+                                data-periode="{{ periodeFormation.id }}">
                             +
                         </button>
                     </div>
@@ -317,6 +319,7 @@
                                 {% for c in comp.competence %}
                                     <tr data-url="{{ path('livret_quinzaine_tuteur_maitrise') }}"
                                         data-idcomp="{{ comp.id }}" data-idlivret="{{ livret.id }}"
+                                        data-idperiode="{{ periodeFormation.id }}" data-iditem="{{ item.id }}"
                                         class="{% if is_granted("ROLE_TUTEUR") %} element-checkable {% endif %} {% if loop.parent.loop.index is divisibleby(2) %} odd {% else %} even {% endif %}">
                                         <td>{{ c }}</td>
                                         <td data-maitrise="1"

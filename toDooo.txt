@@ -73,4 +73,5 @@ $.fn.autoGrowInput = function(o) {
 
 //////////
 - pouvoir ajouter deux periodes de formation
-
+-- cacher tout quand on clique sur le bouton ajouter une période
+-- import csv - bug tuteur avec plusieurs apprenti. Ca doit ecraser ou j'sais pas.

@@ -1062,7 +1062,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
         }
     }
 
-    public function removeItemCours($idItem) {
+    public function removeItemCours($idItem)
+    {
         foreach ($this->getPeriodeFormation() as $p) {
 
             foreach ($p->getItemCours() as $i) {
@@ -1074,7 +1075,17 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
         }
     }
 
-    public function removeItemEntreprise($idItem) {
+    public function addItemCours($idPeriode, $itemCours)
+    {
+        foreach ($this->getPeriodeFormation() as $p) {
+            if ($p->getId() == $idPeriode) {
+                $p->addItemCour($itemCours);
+            }
+        }
+    }
+
+    public function removeItemEntreprise($idItem)
+    {
         foreach ($this->getPeriodeFormation() as $p) {
             foreach ($p->getItemEntreprise() as $i) {
                 if ($i->getId() == $idItem) {
@@ -1084,6 +1095,33 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
             }
         }
     }
+
+    public function addItemEntreprise($idPeriode, $itemEntreprise)
+    {
+        foreach ($this->getPeriodeFormation() as $p) {
+            if ($p->getId() == $idPeriode) {
+                $p->addItemEntreprise($itemEntreprise);
+            }
+        }
+    }
+
+    public function noterCompetence($ids, $degreMaitrise)
+    {
+        foreach ($this->getPeriodeFormation() as $p) {
+            if ($p->getId() == $ids["periode"]) {
+                foreach ($p->getItemEntreprise() as $i) {
+                    if ($i->getId() == $ids["itemEntreprise"]) {
+                        foreach ($i->getCompetencesUtil() as $c) {
+                            if ($c->getId() == $ids["competenceUtil"]) {
+                                $c->setDegreMaitrise($degreMaitrise);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 
     /**
      * @return collection
@@ -1240,7 +1278,6 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
     public function addPeriodeFormation(\JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation)
     {
         $this->periodeFormation[] = $periodeFormation;
-        $this->cleanPeriode();
     }
 
     /**

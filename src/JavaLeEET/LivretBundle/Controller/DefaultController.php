@@ -42,7 +42,11 @@ class DefaultController extends Controller
     {
         return $this->render('LivretBundle:Default:aide.html.twig');
     }
-
+    
+        public function aide_consultationAction()
+    {
+        return $this->render('LivretBundle:Default:Help/aide_consultation.html.twig');
+    }
 
     public function choisirApprentiAction()
     {

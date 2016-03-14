@@ -34,6 +34,10 @@ livret_aide:
     path:   /aide
     defaults: { _controller: LivretBundle:Default:aide }
 
+livret_aideConsult:
+    path:   /aideConsult
+    defaults: { _controller: LivretBundle:Default:aide_consultation }
+    
 livret_choix_apprenti:
     path:   /consulter/apprenti
     defaults: { _controller: LivretBundle:Default:choisirApprenti }

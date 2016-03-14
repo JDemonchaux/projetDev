@@ -1,1 +1,36 @@
-{# empty Twig template #}
+{% extends 'LivretBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <h2>Aide pour la consultation des différents modules sur le site</h2>
+
+        <ul class="collapsible popout" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">filter_drama</i>Consultation quinzaine</div>
+                <div class="collapsible-body">
+                    <p>Dans cette page, les feuilles de quinzaines crées et/ou signées seront accessibles à la lecture.</p><br/>
+                    <img src="{{ asset('./assets/img/consultation_quinzaine.png') }}"/><br/>
+                    <p>1) Ajout d'une période</p><br/>
+                    
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">place</i>Consultation livret</div>
+                <div class="collapsible-body">
+                    <p>Dans cette page, votre livret sera accessible à la lecture.</p><br/>
+                    <a href="{{ path("livret_consulter") }}">Aller sur la page de consultation du livret</a>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">whatshot</i>Consultation compétences</div>
+                <div class="collapsible-body">
+                    <p>Dans cette page, vous verrez vos compétences validées à chaque instant...</p><br/>
+                    <a href="{{ path("livret_aideConsult") }}">Changer lien pour aller sur la bonne page ;)</a>
+                </div>
+            </li>
+        </ul>
+
+
+        <a href="{{ path("livret_aide") }}">Revenir menu aide</a>
+    </div>
+{% endblock %}

@@ -104,20 +104,69 @@ class DefaultController extends Controller
             $dff = \DateTime::createFromFormat('d/m/y', $request->request->get("dff"));
             $dde = \DateTime::createFromFormat('d/m/y', $request->request->get("dde"));
             $dfe = \DateTime::createFromFormat('d/m/y', $request->request->get("dfe"));
-            $p = new PeriodeFormation();
-            $p->setDateDebutE($dde);
-            $p->setDateDebutF($ddf);
-            $p->setDateFinE($dfe);
-            $p->setDateFinF($dff);
-            $p->setItemCours(null);
-            $p->setItemEntreprise(null);
+            $periodeFormation = new PeriodeFormation();
+            $periodeFormation->setDateDebutE($dde);
+            $periodeFormation->setDateDebutF($ddf);
+            $periodeFormation->setDateFinE($dfe);
+            $periodeFormation->setDateFinF($dff);
+            $periodeFormation->setItemCours(null);
+            $periodeFormation->setItemEntreprise(null);
 
             $odm = $this->get('doctrine_mongodb')->getManager();
             $id = $this->getUser()->getId();
             $apprenti = $this->getUser();
             $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
             $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->findOneBy(array("_id" => new \MongoId($livret->getTuteur())));
-            $livret->setPeriodeFormation(array($p));
+
+
+            $periodes = array();
+            foreach ($livret->getPeriodeFormation()->getMongoData() as $periode) {
+                if (isset($periode["_id"])) {
+                    $p = new PeriodeFormation();
+                    $p->setDateDebutF($periode["dateDebutF"]);
+                    $p->setDateDebutE($periode["dateDebutE"]);
+                    $p->setDateFinF($periode["dateFinF"]);
+                    $p->setDateFinE($periode["dateFinE"]);
+                    $itemsCours = array();
+                    if (isset($periode["itemCours"])) {
+                        foreach ($periode["itemCours"] as $ic) {
+                            $i = new \JavaLeEET\LivretBundle\Document\ItemCours();
+                            $i->setDifficulte($ic["difficulte"]);
+                            $i->setModuleFormation($ic["moduleFormation"]);
+                            $i->setExperimentationEntreprise($ic["experimentationEntreprise"]);
+                            $i->setLiensEntreprise($ic["liensEntreprise"]);
+                            $itemsCours[] = $i;
+                        }
+                    }
+
+                    $itemEntreprise = array();
+                    if (isset($periode["itemEntreprise"])) {
+                        foreach ($periode["itemEntreprise"] as $ie) {
+                            $i = new ItemEntreprise();
+                            $i->setAptitudeRelationnelle($ie["aptitudeRelationnelle"]);
+                            $i->setDescriptionActivite($ie["descriptionActivite"]);
+                            $i->setLibelleActivite($ie["libelleActivite"]);
+                            $i->setSavoirTheorique($ie["savoirTheorique"]);
+                            $comp = array();
+                            if (isset($ie["competencesUtil"])) {
+                                foreach ($ie["competencesUtil"] as $cu) {
+                                    $c = new \JavaLeEET\LivretBundle\Document\CompetenceUtil();
+                                    $c->setCompetence($cu["competence"][0]);
+                                    $c->setDegreMaitrise($cu["degreMaitrise"]);
+                                    if (isset($cu["description"])) {
+                                        $c->setDescription($cu["description"]);
+                                    }
+                                    $comp[] = $c;
+                                }
+                            }
+                            $itemEntreprise[] = $i;
+                        }
+                    }
+                    $periodes[] = $p;
+                }
+            }
+            $periodes[] = $periodeFormation;
+            $livret->setPeriodeFormation($periodes);
             $odm->flush();
 
         }
@@ -319,6 +368,7 @@ class DefaultController extends Controller
         $lien = $request->request->get("lienEntreprise");
         $difficulte = $request->request->get("difficulte");
         $exp = $request->request->get("experimenter");
+        $idPeriode = $request->request->get("idPeriode");
 
         $item = new ItemCours();
         $item->setModuleFormation($module);
@@ -328,28 +378,19 @@ class DefaultController extends Controller
 
 
         $odm = $this->get("doctrine_mongodb")->getManager();
-        $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($this->getUser()->getId());
-//        $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($this->getUser()->getId())));
-        $qb = $odm->createQueryBuilder("LivretBundle:Livret")
-            ->field("apprenti")->equals(new \MongoId($this->getUser()->getId()))
-            ->hydrate(true)->getQuery();
-        $livret = $qb->getSingleResult();
+        $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($this->getUser()->getId())));
         $l = $livret;
 
         $odm->remove($livret);
         $odm->flush();
 
-
-        $l->getPeriodeFormation()->first()->addItemCour($item);
-
-//        var_dump($l['periodeFormation'][0]['itemCours']);
-//        array_push($l['periodeFormation'][0]['itemCours'], $item);
+        $l->addItemCours($idPeriode, $item);
 
         $odm->persist($l);
         $odm->flush();
 
         return $this->redirect($this->generateUrl("livret_quinzaine"));
-//
+
     }
 
     public function removeItemFormationAction(Request $request)
@@ -379,6 +420,7 @@ class DefaultController extends Controller
         $savoirfaire = $request->request->get("savoirfaire");
         $savoiretre = $request->request->get("savoiretre");
         $competences = $request->request->get("comp");
+        $idPeriode = $request->request->get("idPeriode");
 
         $itemEntreprise = new ItemEntreprise();
         $itemEntreprise->setLibelleActivite($intitule);
@@ -405,7 +447,7 @@ class DefaultController extends Controller
         $odm->flush();
 
 
-        $l->getPeriodeFormation()->first()->addItemEntreprise($itemEntreprise);
+        $l->addItemEntreprise($idPeriode, $itemEntreprise);
 
 
         $odm->persist($l);
@@ -446,7 +488,9 @@ class DefaultController extends Controller
             $data = json_decode($data);
 
             $idLivret = $data->data->idLivret;
-            $idComp = $data->data->idComp;
+            $ids["periode"] = $data->data->idPeriode;
+            $ids["itemEntreprise"] = $data->data->idItem;
+            $ids["competenceUtil"] = $data->data->idComp;
             $degreMaitrise = $data->data->degreMaitrise;
 
             $odm = $this->get("doctrine_mongodb")->getManager();
@@ -456,11 +500,7 @@ class DefaultController extends Controller
             $odm->remove($livret);
             $odm->flush();
 
-            foreach ($l->getPeriodeFormation()->first()->getItemEntreprise()->first()->getCompetencesUtil() as $c) {
-                if ($c->getId() == $idComp) {
-                    $c->setDegreMaitrise($degreMaitrise);
-                }
-            }
+            $l->noterCompetence($ids, $degreMaitrise);
 
             $odm->persist($l);
             $odm->flush();

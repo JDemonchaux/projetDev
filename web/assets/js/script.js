@@ -255,12 +255,17 @@ $(document).ready(function () {
 
     // Bouton ajout de ligne dans les fiches de quinzaines
     $(".addLine-formation > button").on("click", function () {
+        var idPeriode = $(this).data("periode");
+
         $(".periodes-livret").hide();
         $("#formAddItemFormation").show();
+        $("#formAddItemFormation>div>form").append('<input type="hidden" name="idPeriode" value="' + idPeriode + '" />');
     });
     $(".addLine-entreprise > button").on("click", function () {
+        var idPeriode = $(this).data("periode");
         $(".periodes-livret").hide();
         $("#formAddItemEntreprise").show();
+        $("#formAddItemEntreprise>div>form").append('<input type="hidden" name="idPeriode" value="' + idPeriode + '" />');
     });
 
 
@@ -275,7 +280,6 @@ $(document).ready(function () {
     $('.formationAdd').on('submit', function () {
 
     });
-
 
 
     $('.btn-ajout-competence').on('click', function () {
@@ -293,12 +297,12 @@ $(document).ready(function () {
 
     });
 
-    $(".paginate-button").on('click', function() {
-       clickableCell();
+    $(".paginate-button").on('click', function () {
+        clickableCell();
     });
 
-    $(".element-checkable>.checkable").on('click', function() {
-        $(this).parent().children().each(function() {
+    $(".element-checkable>.checkable").on('click', function () {
+        $(this).parent().children().each(function () {
             if ($(this).hasClass("checked")) {
                 $(this).removeClass("checked");
             }
@@ -308,6 +312,8 @@ $(document).ready(function () {
         var degreMaitrise = $(this).data("maitrise");
         var idComp = $(this).parent().data("idcomp");
         var idLivret = $(this).parent().data("idlivret");
+        var idPeriode = $(this).parent().data("idperiode");
+        var idItem = $(this).parent().data("iditem");
         var url = $(this).parent().data("url");
 
         var json = JSON.stringify({
@@ -316,7 +322,9 @@ $(document).ready(function () {
             "data": {
                 "degreMaitrise": degreMaitrise,
                 "idComp": idComp,
-                "idLivret": idLivret
+                "idLivret": idLivret,
+                "idPeriode": idPeriode,
+                "idItem": idItem
             }
         });
 
@@ -339,11 +347,11 @@ $(document).ready(function () {
         )
     });
 
-    $('.saveDescriptionComp').on('focus', function() {
+    $('.saveDescriptionComp').on('focus', function () {
         isChanged = $(this).val();
     });
 
-    $(".saveDescriptionComp").on("focusout", function() {
+    $(".saveDescriptionComp").on("focusout", function () {
         var description = $(this).val();
 
         if (description == isChanged) {

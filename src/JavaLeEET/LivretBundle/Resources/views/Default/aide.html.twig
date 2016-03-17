@@ -4,6 +4,13 @@
     <div class="row">
         <h1>Aide du site</h1>
         <p>Vous avez besoin d'aide ? Normal, vous êtes des noobs!! :)</p><br/>
-        <a href="{{ path("livret_aideConsult") }}">Aide consultation</a>
+        <ul>
+            <li> 
+                <a href="{{ path("livret_aideConsult") }}">Aide consultation</a> 
+            </li>
+            <li>
+                <a href="{{ path("livret_aide_navigation") }}">Aide Navigation</a>
+            </li>
+        </ul>
     </div>
 {% endblock %}

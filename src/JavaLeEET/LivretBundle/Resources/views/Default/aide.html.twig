@@ -3,15 +3,20 @@
 {% block body %}
     <div class="row">
         <h1>Aide du site</h1>
-        <p>Vous avez besoin d'aide ? Normal, vous êtes des noobs!! :)</p><br/>
         <ul>
-            <li> 
-                <a href="{{ path("livret_aide_navigation") }}">Aide Navigation</a>
-
+            <li>
+                <p>Vous avez besoin d'aide ? Normal, vous êtes des noobs!! :)</p>
+                <a href="{{ path("livret_aideConsult") }}">Aide consultation et remplissage du livret pour les apprentis</a><br/><br/>
             </li>
             <li>
-                <a href="{{ path("livret_aideConsult") }}">Aide consultation</a>
+                <p>Les tuteurs un ptit coup de main ? ;)</p>
+                <a href="{{ path("livret_aideConsultTuteur") }}">Aide consultation et remplissage du livret pour les tuteurs</a><br/><br/>
             </li>
+            <li>
+                <p>C'est comme un GPS mais virtuel !! :p</p>
+                <a href="{{ path("livret_aide_navigation") }}">Aide Navigation</a>
+            </li>
+
         </ul>
     </div>
 {% endblock %}

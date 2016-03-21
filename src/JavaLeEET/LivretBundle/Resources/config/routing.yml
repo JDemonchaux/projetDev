@@ -38,6 +38,10 @@ livret_aideConsult:
     path:   /aideConsult
     defaults: { _controller: LivretBundle:Default:aide_consultation }
     
+livret_aideConsultTuteur:
+    path:   /aideConsultTuteur
+    defaults: { _controller: LivretBundle:Default:aide_consultation_tuteur }
+
 livret_aide_navigation:
     path:   /aidenavigation
     defaults: { _controller: LivretBundle:Default:aidenavigation }

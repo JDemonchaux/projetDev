@@ -48,6 +48,11 @@ class DefaultController extends Controller
         return $this->render('LivretBundle:Default:Help/aide_consultation.html.twig');
     }
 
+    public function aide_consultation_tuteurAction()
+    {
+        return $this->render('LivretBundle:Default:Help/aide_consultation_tuteur.html.twig');
+    }
+
     public function aideNavigationAction()
     {
         return $this->render('LivretBundle:Default:Help/aidenavigation.html.twig');

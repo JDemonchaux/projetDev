@@ -47,37 +47,14 @@ class PeriodeFormation
      */
     protected $dateFinE;
 
-    /**
-     * @return date
-     */
-    public function getDateFinF()
-    {
-        return $this->dateFinF;
-    }
 
     /**
-     * @param date $dateFinF
+     * @var string
+     *
+     * @ODM\Field(name="conclusion", type="string")
      */
-    public function setDateFinF($dateFinF)
-    {
-        $this->dateFinF = $dateFinF;
-    }
+    protected $conclusion;
 
-    /**
-     * @return date
-     */
-    public function getDateFinE()
-    {
-        return $this->dateFinE;
-    }
-
-    /**
-     * @param date $dateFinE
-     */
-    public function setDateFinE($dateFinE)
-    {
-        $this->dateFinE = $dateFinE;
-    }
 
     /**
      * @var collection $itemCours
@@ -278,12 +255,13 @@ class PeriodeFormation
     {
         return $this->signatureApprenti;
     }
+
     public function __construct()
     {
         $this->itemCours = new \Doctrine\Common\Collections\ArrayCollection();
         $this->itemEntreprise = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add itemCour
      *
@@ -323,4 +301,55 @@ class PeriodeFormation
     {
         $this->itemEntreprise->removeElement($itemEntreprise);
     }
+
+    /**
+     * @return date
+     */
+    public function getDateFinF()
+    {
+        return $this->dateFinF;
+    }
+
+    /**
+     * @param date $dateFinF
+     */
+    public function setDateFinF($dateFinF)
+    {
+        $this->dateFinF = $dateFinF;
+    }
+
+    /**
+     * @return date
+     */
+    public function getDateFinE()
+    {
+        return $this->dateFinE;
+    }
+
+    /**
+     * @param date $dateFinE
+     */
+    public function setDateFinE($dateFinE)
+    {
+        $this->dateFinE = $dateFinE;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConclusion()
+    {
+        return $this->conclusion;
+    }
+
+    /**
+     * @param mixed $conclusion
+     */
+    public function setConclusion($conclusion)
+    {
+        $this->conclusion = $conclusion;
+    }
+
+
+
 }

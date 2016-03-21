@@ -42,17 +42,17 @@ class DefaultController extends Controller
     {
         return $this->render('LivretBundle:Default:aide.html.twig');
     }
-    
-        public function aide_consultationAction()
+
+    public function aide_consultationAction()
     {
         return $this->render('LivretBundle:Default:Help/aide_consultation.html.twig');
     }
-    
-        public function aideNavigationAction() 
+
+    public function aideNavigationAction()
     {
         return $this->render('LivretBundle:Default:Help/aidenavigation.html.twig');
     }
-    
+
     public function choisirApprentiAction()
     {
         // Vue pour le RD
@@ -123,9 +123,13 @@ class DefaultController extends Controller
             $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
             $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->findOneBy(array("_id" => new \MongoId($livret->getTuteur())));
 
+            $l = $livret;
+            $l->addPeriodeFormation($periodeFormation);
 
             $periodes = array();
+
             foreach ($livret->getPeriodeFormation()->getMongoData() as $periode) {
+
                 if (isset($periode["_id"])) {
                     $p = new PeriodeFormation();
                     $p->setDateDebutF($periode["dateDebutF"]);
@@ -142,6 +146,7 @@ class DefaultController extends Controller
                             $i->setLiensEntreprise($ic["liensEntreprise"]);
                             $itemsCours[] = $i;
                         }
+                        $p->setItemCours($itemsCours);
                     }
 
                     $itemEntreprise = array();
@@ -156,16 +161,23 @@ class DefaultController extends Controller
                             if (isset($ie["competencesUtil"])) {
                                 foreach ($ie["competencesUtil"] as $cu) {
                                     $c = new \JavaLeEET\LivretBundle\Document\CompetenceUtil();
-                                    $c->setCompetence($cu["competence"][0]);
+                                    $tempComp = array();
+                                    foreach ($cu["competence"] as $tmp) {
+                                        $tempComp[] = $tmp;
+                                    }
+                                    $c->setCompetence($tempComp);
                                     $c->setDegreMaitrise($cu["degreMaitrise"]);
                                     if (isset($cu["description"])) {
                                         $c->setDescription($cu["description"]);
                                     }
                                     $comp[] = $c;
                                 }
+                                $i->setCompetencesUtil($comp);
                             }
+
                             $itemEntreprise[] = $i;
                         }
+                        $p->setItemEntreprise($itemEntreprise);
                     }
                     $periodes[] = $p;
                 }
@@ -173,7 +185,6 @@ class DefaultController extends Controller
             $periodes[] = $periodeFormation;
             $livret->setPeriodeFormation($periodes);
             $odm->flush();
-
         }
         $url = $this->generateUrl("livret_quinzaine");
         return $this->redirect($url);
@@ -440,20 +451,18 @@ class DefaultController extends Controller
             $competenceUtil->setDegreMaitrise(0);
             array_push($a, $competenceUtil);
         }
-        var_dump($a);
-        $itemEntreprise->setCompetencesUtil($a);
 
+        $itemEntreprise->setCompetencesUtil($a);
 
         $user = $odm->getRepository("UtilisateurBundle:Utilisateur")->find($this->getUser()->getId());
         $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($this->getUser()->getId())));
         $l = $livret;
 
+
         $odm->remove($livret);
         $odm->flush();
 
-
         $l->addItemEntreprise($idPeriode, $itemEntreprise);
-
 
         $odm->persist($l);
         $odm->flush();
@@ -526,8 +535,10 @@ class DefaultController extends Controller
             $data = $request->getContent();
             $data = json_decode($data);
 
+            $idPeriode = $data->data->idPeriode;
             $idLivret = $data->data->idLivret;
             $idComp = $data->data->idComp;
+            $idItem = $data->data->idItem;
             $desc = $data->data->description;
 
             $odm = $this->get("doctrine_mongodb")->getManager();
@@ -537,11 +548,13 @@ class DefaultController extends Controller
             $odm->remove($livret);
             $odm->flush();
 
-            foreach ($l->getPeriodeFormation()->first()->getItemEntreprise()->first()->getCompetencesUtil() as $c) {
-                if ($c->getId() == $idComp) {
-                    $c->setDescription($desc);
-                }
-            }
+            $l->addDescriptionCompetence($idPeriode, $idComp, $idItem, $desc);
+
+//            foreach ($l->getPeriodeFormation()->first()->getItemEntreprise()->first()->getCompetencesUtil() as $c) {
+//                if ($c->getId() == $idComp) {
+//                    $c->setDescription($desc);
+//                }
+//            }
 
             $odm->persist($l);
             $odm->flush();
@@ -551,6 +564,37 @@ class DefaultController extends Controller
         (Exception $e) {
             $success = $e->getMessage();
         }
+
+        return $this->render('LivretBundle:Default/Ajax:action.html.twig', array("success" => $success));
+    }
+
+    public function addConclusionAction(Request $request)
+    {
+        $success = false;
+        try {
+            $data = $request->getContent();
+            $data = json_decode($data);
+
+            $idLivret = $data->data->idLivret;
+            $idPeriode = $data->data->idPeriode;
+            $conclusion = $data->data->conclusion;
+
+            $odm = $this->get("doctrine_mongodb")->getManager();
+            $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("id" => new \MongoId($idLivret)));
+            $l = $livret;
+
+            $odm->remove($livret);
+            $odm->flush();
+
+            $l->redigerConclusion($idPeriode, $conclusion);
+
+            $odm->persist($l);
+            $odm->flush();
+            $success = true;
+        } catch (Exception $e) {
+            $success = $e->getMessage();
+        }
+
 
         return $this->render('LivretBundle:Default/Ajax:action.html.twig', array("success" => $success));
     }

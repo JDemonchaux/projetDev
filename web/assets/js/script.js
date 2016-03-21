@@ -283,7 +283,6 @@ $(document).ready(function () {
 
 
     $('.btn-ajout-competence').on('click', function () {
-        console.log("ici");
         var c = [];
         $('.competence-selected').each(function () {
             var item = $(this).find(".comp").html();
@@ -291,10 +290,13 @@ $(document).ready(function () {
             $('.competence-ajoutee>tbody').append('<tr>' +
                 '<td>' + comp +
                 '</td>' +
+                '<td><a data-comp="' + comp + '" class="btn btn-floating red removeComp">X</a> ' +
+                '</td>' +
                 '</tr>');
-            $(".inputHidden").append('<input type="hidden" name="comp[]" value="' + comp[0] + '" />');
+            $(".inputHidden").append('<input type="hidden" name="comp[]" value="' + comp + '" />');
         });
 
+        removeCompetence();
     });
 
     $(".paginate-button").on('click', function () {
@@ -358,8 +360,10 @@ $(document).ready(function () {
             return false;
         }
 
+        var idPeriode = $(this).data("idperiode");
         var idComp = $(this).data("idcomp");
         var idLivret = $(this).data("idlivret");
+        var idItem = $(this).data("iditem");
         var url = $(this).data("url");
 
         var json = JSON.stringify({
@@ -367,7 +371,9 @@ $(document).ready(function () {
             "method": "POST",
             "data": {
                 "description": description,
+                "idPeriode": idPeriode,
                 "idComp": idComp,
+                "idItem": idItem,
                 "idLivret": idLivret
             }
         });
@@ -389,7 +395,52 @@ $(document).ready(function () {
                 }
             }
         )
-    })
+    });
+
+    $('.saveConclusion').on('focus', function () {
+        isChanged = $(this).val();
+    });
+
+    $('.saveConclusion').on('focusout', function () {
+        var conclusion = $(this).val();
+
+        if (conclusion == isChanged) {
+            return false;
+        }
+
+        var idPeriode = $(this).data("idperiode");
+        var idLivret = $(this).data("idlivret");
+        var url = $(this).data("url");
+
+        var json = JSON.stringify({
+            "jsonrpc": "2.0",
+            "method": "POST",
+            "data": {
+                "conclusion": conclusion,
+                "idPeriode": idPeriode,
+                "idLivret": idLivret
+            }
+        });
+
+        $.ajax(
+            {
+                url: url,
+                type: "POST",
+                dataType: "JSON",
+                data: json,
+                headers: {
+                    'content-type': "application/json; charset=utf-8"
+                },
+                success: function (data) {
+                    toast('Enregistrement réussi!');
+                },
+                error: function () {
+                    toast('Erreur lors de l\'enregistrement');
+                }
+            }
+        )
+
+    });
 
 });
 
@@ -406,5 +457,14 @@ function clickableCell() {
         } else {
             $(this).parent().addClass("competence-selected");
         }
+    });
+}
+
+function removeCompetence() {
+    $('.removeComp').on('click', function () {
+        var c = $(this).data("comp");
+        var input = $('.inputHidden input[value="' + c + '"]');
+        input.remove();
+        $(this).parent().parent().remove();
     });
 }

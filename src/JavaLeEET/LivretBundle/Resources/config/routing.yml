@@ -85,3 +85,7 @@ livret_quinzaine_tuteur_maitrise:
 livret_quinzaine_tuteur_description:
     path:   /quinzaine/tuteur/description
     defaults: { _controller: LivretBundle:Default:addDescriptionComp }
+
+livret_quinzaine_tuteur_conclusion:
+    path:   /quinzaine/tuteur/conclusion
+    defaults: { _controller: LivretBundle:Default:addConclusion }

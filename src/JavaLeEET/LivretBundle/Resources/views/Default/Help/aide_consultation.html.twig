@@ -6,39 +6,41 @@
 
         <ul class="collapsible popout" data-collapsible="accordion">
             <li>
-                <div class="collapsible-header"><i class="material-icons">filter_drama</i>Consultation quinzaine</div>
+                <div class="collapsible-header"><i class="material-icons">skip_next</i>Consultation/Remplissage quinzaine</div>
                 <div class="collapsible-body">
                     <p>Dans cette page, les feuilles de quinzaines crées et/ou signées seront accessibles en lecture et modification.</p><br/>
                     <img src="{{ asset('./assets/img/consultation_quinzaine.png') }}"/><br/>
                     <ul class="collapsible popout" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>1) Ajout d'une période</div>
+                            <div class="collapsible-header"><i class="material-icons">label</i>1) Ajout d'une période</div>
                             <div class="collapsible-body">
                                 <img src="{{ asset('./assets/img/ajout_periode.png') }}" width="1099" /><br/>
-                                <div style="text-align: left">
-                                    <p>1) Date de début de formation</p>
-                                    <p>2) Date de fin de formation</p>
-                                </div>
-                                <div style="text-align: right">
-                                    <p>3) Date de début d'entreprise</p>
-                                    <p>4) Date de fin d'entreprise</p>
+                                <div class='row'>
+                                    <div class='col s12 m6 l6' style="text-align: left">
+                                        <p>1) Date de début de formation</p>
+                                        <p>2) Date de fin de formation</p>
+                                    </div>
+                                    <div class='col s12 m6 l6' style="text-align: right">
+                                        <p>3) Date de début d'entreprise</p>
+                                        <p>4) Date de fin d'entreprise</p>
+                                    </div>
                                 </div>
                                 <p>Pour ajouter les dates appuyer sur les numéros et un calendrier comme ci-dessous apparait. Sélectionner la date correspondante au champs sélectionné et fermer le calendrier en cliquant sur "Fermer" en bas de la fenêtre ou en cliquant à coté du calendrier.</p>
                                 <img src="{{ asset('./assets/img/ajout_periode_calendrier.png') }}" /><br/>
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>2) Liste des périodes</div>
+                            <div class="collapsible-header"><i class="material-icons">label</i>2) Liste des périodes</div>
                             <div class="collapsible-body">
                                 <p>Pour voir, modifier ou signer une fiche de quinzaine, cliquer sur la période dans laquelle se trouve cette dernière puis sur la fiche de quinzaine qui vous interesse (Formation, Entreprise, Evaluation Tuteur)</p>
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>3) Ajout d'activités</div>
+                            <div class="collapsible-header"><i class="material-icons">label</i>3) Ajout d'activités</div>
                             <div class="collapsible-body">
                                 <ul class="collapsible popout" data-collapsible="accordion">
                                     <li>
-                                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Ajout Quinzaine Formation</div>
+                                        <div class="collapsible-header"><i class="material-icons">label_outline</i>Ajout Quinzaine Formation</div>
                                         <div class="collapsible-body">
                                             <img src="{{ asset('./assets/img/ajout_ligne_formation.png') }}" width="1099" /><br/>
                                             <p>Appuyer sur le bouton "+" et un formaulaire comme ci-dessous apparaitra. Remplissez-le et cliquez sur "Valider"</p><p style="color: red">Tous les champs doivent être renseignés !</p>
@@ -46,14 +48,14 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Ajout Quinzaine Entreprise</div>
+                                        <div class="collapsible-header"><i class="material-icons">label_outline</i>Ajout Quinzaine Entreprise</div>
                                         <div class="collapsible-body">
                                             <img src="{{ asset('./assets/img/ajout_ligne_entreprise.png') }}" width="1099" /><br/>
                                             <p>Appuyer sur le bouton "+" et un formaulaire comme ci-dessous apparaitra. Remplissez-le et cliquez sur "Valider"</p><p style="color: red">Tous les champs doivent être renseignés !</p>
                                             <img src="{{ asset('./assets/img/module_entreprise.png') }}" /><br/>
                                             <ul class="collapsible popout" data-collapsible="accordion">
                                                 <li>
-                                                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Ajout des compétences</div>
+                                                    <div class="collapsible-header"><i class="material-icons">play_arrow</i>Ajout des compétences</div>
                                                     <div class="collapsible-body">
                                                         <p>Appuyer sur le bouton "Ajouter des compétences" et une fenêtre comme ci-dessous apparaitra. Grâce au tableau, vous pourrez rechercher, trier et filtrer sur tous les champs du tableau (Nice, n'est-ce pas ?? :D ).
                                                             Cliquer sur les compétences que vous voulez sélectionner, elles se mettront en surbrillance, puis cliquer sur "Valider" (En bas à droite pour les aveugles... ;) )</p>
@@ -68,7 +70,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>4) Ajout de la signature</div>
+                            <div class="collapsible-header"><i class="material-icons">label</i>4) Ajout de la signature</div>
                             <div class="collapsible-body">
                                 <p>Pour signer une fiche de quinzaine, cliquer sur la période dans laquelle se trouve cette dernière puis sur la fiche de quinzaine qui vous interesse (Formation, Entreprise, Evaluation Tuteur) et cliquer sur le bouter "Ajouter la signature"</p>
                             </div>
@@ -76,18 +78,18 @@
                     </ul>
             </li>
             <li>
-                <div class="collapsible-header"><i class="material-icons">place</i>Consultation livret</div>
+                <div class="collapsible-header"><i class="material-icons">skip_next</i>Consultation/Remplissage livret</div>
                 <div class="collapsible-body">
                     <img src="{{ asset('./assets/img/consultation_livret.png') }}" width="1099"/><br/>
                     <ul class="collapsible popout" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>1) Sommaire du livret</div>
+                            <div class="collapsible-header"><i class="material-icons">label</i>1) Sommaire du livret</div>
                             <div class="collapsible-body">
                                 <p>Appuyer sur une section pour afficher ou cacher les sous-sections du livret. Cliquer sur la sous section pour faire apparaitres les différents champs à remplir (2)</p>
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>2) Champs à remplir</div>
+                            <div class="collapsible-header"><i class="material-icons">label</i>2) Champs à remplir</div>
                             <div class="collapsible-body">
                                 <p>Cliquer sur le champs que vous souhaitez remplir, lorsque vous aurez le focus sur ce dernier, un curseur va apparaitre et vous permettra de saisir ce que vous voulez.
                                     Une fois fois, les informations saisies, à chaque changement ou perte de focus, un enregistrement va s'effectuer en base de données. Lorsqu'il sera réussi, vous verrez apparaître ce message</p>
@@ -98,9 +100,9 @@
                 </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="material-icons">whatshot</i>Consultation compétences</div>
+                <div class="collapsible-header"><i class="material-icons">skip_next</i>Consultation/Remplissage compétences</div>
                 <div class="collapsible-body">
-                    <p>Cette page n'est pas encore dispo, peut-etre avec les équipes de l'an prochain... Non je rigole, le code est imbuvable et pas commenté ;) (En plus, on est trop fort :D )</p>
+                    <p>Cette page n'est pas encore dispo.... :)</p>
                 </div>
             </li>
         </ul>

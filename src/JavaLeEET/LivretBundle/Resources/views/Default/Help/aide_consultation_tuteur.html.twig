@@ -1,0 +1,52 @@
+{% extends 'LivretBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <h2>Aide pour suivre l'activité de votre apprenti</h2>
+
+        <ul class="collapsible popout" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">filter_drama</i>Consultation quinzaine</div>
+                <div class="collapsible-body">
+                    <p>Dans cette page, les feuilles de quinzaines crées et/ou signées seront accessibles en lecture.</p><br/>
+                    <p>Vous pouvez néanmois remplir la feuille d'évaluation.</p><br/>
+                    <img src="{{ asset('./assets/img/aide_remplissage_tuteur.png') }}" width="1099" /><br/>
+                    <ul class="collapsible popout" data-collapsible="accordion">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>1) Sélectionner le degré de maîtrise</div>
+                            <div class="collapsible-body">
+                                <p>Pour sélectionner le degré de maîtrise correspondant à la compétence que vous voulez évaluer, cliquer dans la colonne du degré et la ligne de la compétence souhaité.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>2) Validation des compétences</div>
+                            <div class="collapsible-body">
+                                <p>Pour voir, modifier ou signer une fiche de quinzaine, cliquer sur la période dans laquelle se trouve cette dernière puis sur la fiche de quinzaine qui vous interesse (Formation, Entreprise, Evaluation Tuteur)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>3) Conclusion de l'évaluation</div>
+                            <div class="collapsible-body">
+                                <p>Pour voir, modifier ou signer une fiche de quinzaine, cliquer sur la période dans laquelle se trouve cette dernière puis sur la fiche de quinzaine qui vous interesse (Formation, Entreprise, Evaluation Tuteur)</p>    
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>4) Ajout de la signature</div>
+                            <div class="collapsible-body">
+                                <p>Pour signer une fiche de quinzaine, cliquer sur la période dans laquelle se trouve cette dernière puis sur la fiche de quinzaine qui vous interesse (Formation, Entreprise, Evaluation Tuteur) et cliquer sur le bouter "Ajouter la signature"</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>5) Enregistrement en base</div>
+                            <div class="collapsible-body">
+                                <p>Lorsque </p>
+                            </div>
+                        </li>
+                    </ul>
+            </li>
+        </ul>
+
+
+        <a href="{{ path("livret_aide") }}">Revenir menu aide</a>
+    </div>
+{% endblock %}

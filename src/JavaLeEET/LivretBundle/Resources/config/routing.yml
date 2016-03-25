@@ -41,7 +41,7 @@ livret_aideConsult:
 livret_aideConsultTuteur:
     path:   /aideConsultTuteur
     defaults: { _controller: LivretBundle:Default:aide_consultation_tuteur }
-    
+
 livret_aide_navigation:
     path:   /aidenavigation
     defaults: { _controller: LivretBundle:Default:aidenavigation }
@@ -89,3 +89,7 @@ livret_quinzaine_tuteur_maitrise:
 livret_quinzaine_tuteur_description:
     path:   /quinzaine/tuteur/description
     defaults: { _controller: LivretBundle:Default:addDescriptionComp }
+
+livret_quinzaine_tuteur_conclusion:
+    path:   /quinzaine/tuteur/conclusion
+    defaults: { _controller: LivretBundle:Default:addConclusion }

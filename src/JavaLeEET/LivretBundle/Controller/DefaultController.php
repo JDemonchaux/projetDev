@@ -604,5 +604,23 @@ class DefaultController extends Controller
         return $this->render('LivretBundle:Default/Ajax:action.html.twig', array("success" => $success));
     }
 
+    public function tableauCroiseCompetenceAction()
+    {
+        $odm = $this->get('doctrine_mongodb')->getManager();
+
+        $livrets = Array();
+
+        // Tableau des compétences (entete du tableau)
+        $livret = $odm->getRepository("LivretBundle:Livret")->findAll();
+
+        foreach ($livret as $l) {
+            $app = $odm->getRepository("UtilisateurBundle:Utilisateur")->findOneBy(array("id" => new \MongoId($l->getApprenti())));
+            $app->setCompetenceValidee($l->getCompetenceValidee());
+            $livrets[] = array($livret, $app);
+//            var_dump($app->getCompetenceValidee());
+        }
+
+        return $this->render('LivretBundle:Default:tableauCompetence.html.twig', array("livrets" => $livrets));
+    }
 
 }

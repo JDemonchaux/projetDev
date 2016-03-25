@@ -1150,6 +1150,21 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
     }
 
 
+    public function getCompetenceValidee()
+    {
+        $arr = array();
+        if (!empty($this->getPeriodeFormation())) {
+            foreach ($this->getPeriodeFormation() as $p) {
+                foreach ($p->getItemEntreprise() as $ie) {
+                    foreach ($ie->getCompetencesUtil() as $cu) {
+                        $arr[] = $cu->getCompetence()[0];
+                    }
+                }
+            }
+        }
+        return $arr;
+    }
+
     /**
      * @return collection
      */

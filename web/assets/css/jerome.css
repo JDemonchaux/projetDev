@@ -246,15 +246,15 @@ ul.side-nav > li > a {
 }
 
 .competence-element {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .competence-selected {
     background-color: rgba(222, 255, 0, 0.35) !important;
 }
 
-.element-checkable>.checkable {
-    cursor:pointer;
+.element-checkable > .checkable {
+    cursor: pointer;
 }
 
 .checked {
@@ -264,7 +264,30 @@ ul.side-nav > li > a {
 }
 
 /*.even > .checked {*/
-    /*background-color: rgb(139, 184, 88) !important;*/
-    /*-moz-transition: background-color 300ms ease-in;*/
-    /*-webkit-transition: background-color 300ms ease-in;*/
+/*background-color: rgb(139, 184, 88) !important;*/
+/*-moz-transition: background-color 300ms ease-in;*/
+/*-webkit-transition: background-color 300ms ease-in;*/
 /*}*/
+
+#tableauCroiseCompetence {
+    /*position: absolute;*/
+    /*top: 64px;*/
+    /*left: 240px;*/
+    /*width: calc(100% - 240px);*/
+}
+
+#tableauCroiseCompetence > thead > tr > th {
+    /*padding: 0;*/
+    /*display: inline-flex;*/
+    /*width: 40px;*/
+    /*-webkit-transform: rotate(270deg);*/
+    /*-moz-transform: rotate(270deg);*/
+    /*-o-transform: rotate(270deg);*/
+}
+
+.checked-comp {
+    color: black;
+    width:100%;
+    height:10px;
+    text-align: center;
+}

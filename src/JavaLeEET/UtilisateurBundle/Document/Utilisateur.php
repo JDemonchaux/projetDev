@@ -64,6 +64,11 @@ class Utilisateur extends BaseUser
     protected $classe;
 
     /**
+     * @MongoDB\Field(name="competenceValidee", type="collection")
+     */
+    protected $competenceValidee;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -222,6 +227,23 @@ class Utilisateur extends BaseUser
     {
         $this->classe = $classe;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCompetenceValidee()
+    {
+        return $this->competenceValidee;
+    }
+
+    /**
+     * @param mixed $competenceValidee
+     */
+    public function setCompetenceValidee($competenceValidee)
+    {
+        $this->competenceValidee = $competenceValidee;
+    }
+
 
 
 

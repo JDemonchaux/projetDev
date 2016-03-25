@@ -332,7 +332,7 @@
                                         <td data-maitrise="4"
                                             class="checkable {% if comp.degreMaitrise == 4 %} checked {% endif %}"></td>
                                         <td class="description aRemplir">
-                                            {% if is_granted("ROLE_TUTEUR") %}
+                                            {% if is_granted("ROLE_APPRENTI") == false %}
                                                 <input type="text" name="description{{ loop.index }}"
                                                        class="saveDescriptionComp"
                                                        data-url="{{ path('livret_quinzaine_tuteur_description') }}"

@@ -93,3 +93,7 @@ livret_quinzaine_tuteur_description:
 livret_quinzaine_tuteur_conclusion:
     path:   /quinzaine/tuteur/conclusion
     defaults: { _controller: LivretBundle:Default:addConclusion }
+
+livret_tableau_croise_competence:
+    path:   /competence/tableau
+    defaults: { _controller: LivretBundle:Default:tableauCroiseCompetence }

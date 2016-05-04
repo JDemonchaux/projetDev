@@ -110,7 +110,7 @@ class Livret
         $i1->setNom("L'apprenti");
         $i1->setTypeVariable("tableau");
         $a = array(
-            "nom et prénom" => "",
+            "Nom et prénom" => "",
             "Adresse personnelle" => "",
             "N° de téléphone fixe" => "",
             "N° de portable" => "",
@@ -1122,11 +1122,54 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
         }
     }
 
+    public function addDescriptionCompetence($idPeriode, $idComp, $idItem, $desc)
+    {
+        foreach ($this->getPeriodeFormation() as $p) {
+            if ($p->getId() == $idPeriode) {
+                foreach ($p->getItemEntreprise() as $i) {
+                    if ($i->getId() == $idItem) {
+                        foreach ($i->getCompetencesUtil() as $c) {
+                            if ($c->getId() == $idComp) {
+                                $c->setDescription($desc);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public
+    function redigerConclusion($idPeriode, $conclusion)
+    {
+        foreach ($this->getPeriodeFormation() as $p) {
+            if ($p->getId() == $idPeriode) {
+                $p->setConclusion($conclusion);
+            }
+        }
+    }
+
+
+    public function getCompetenceValidee()
+    {
+        $arr = array();
+        if (!empty($this->getPeriodeFormation())) {
+            foreach ($this->getPeriodeFormation() as $p) {
+                foreach ($p->getItemEntreprise() as $ie) {
+                    foreach ($ie->getCompetencesUtil() as $cu) {
+                        $arr[] = $cu->getCompetence()[0];
+                    }
+                }
+            }
+        }
+        return $arr;
+    }
 
     /**
      * @return collection
      */
-    public function getActivite()
+    public
+    function getActivite()
     {
         return $this->activite;
     }
@@ -1135,7 +1178,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      * @param collection $activite
      * @return self
      */
-    public function setActivite($activite)
+    public
+    function setActivite($activite)
     {
         $this->activite = $activite;
         return $this;
@@ -1147,7 +1191,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      *
      * @return id $id
      */
-    public function getId()
+    public
+    function getId()
     {
         return $this->id;
     }
@@ -1158,7 +1203,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      * @param object_id $apprenti
      * @return self
      */
-    public function setApprenti($apprenti)
+    public
+    function setApprenti($apprenti)
     {
         $this->apprenti = $apprenti;
         return $this;
@@ -1169,7 +1215,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      *
      * @return object_id $apprenti
      */
-    public function getApprenti()
+    public
+    function getApprenti()
     {
         return $this->apprenti;
     }
@@ -1180,7 +1227,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      * @param object_id $tuteur
      * @return self
      */
-    public function setTuteur($tuteur)
+    public
+    function setTuteur($tuteur)
     {
         $this->tuteur = $tuteur;
         return $this;
@@ -1191,7 +1239,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      *
      * @return object_id $tuteur
      */
-    public function getTuteur()
+    public
+    function getTuteur()
     {
         return $this->tuteur;
     }
@@ -1202,7 +1251,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      * @param collection $categorie
      * @return self
      */
-    public function setCategorie($categorie)
+    public
+    function setCategorie($categorie)
     {
         $this->categorie = $categorie;
         return $this;
@@ -1213,7 +1263,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      *
      * @return collection $categorie
      */
-    public function getCategorie()
+    public
+    function getCategorie()
     {
         return $this->categorie;
     }
@@ -1224,7 +1275,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      * @param collection $periodeFormation
      * @return self
      */
-    public function setPeriodeFormation($periodeFormation)
+    public
+    function setPeriodeFormation($periodeFormation)
     {
         $this->periodeFormation = $periodeFormation;
         return $this;
@@ -1235,7 +1287,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      *
      * @return collection $periodeFormation
      */
-    public function getPeriodeFormation()
+    public
+    function getPeriodeFormation()
     {
         return $this->periodeFormation;
     }
@@ -1246,12 +1299,14 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      *
      * @param JavaLeEET\LivretBundle\Document\Categorie $categorie
      */
-    public function addCategorie(\JavaLeEET\LivretBundle\Document\Categorie $categorie)
+    public
+    function addCategorie(\JavaLeEET\LivretBundle\Document\Categorie $categorie)
     {
         $this->categorie[] = $categorie;
     }
 
-    public function replaceCategorie($categorie)
+    public
+    function replaceCategorie($categorie)
     {
         for ($i = 0; $i < count($this->categorie); $i++) {
             if ($this->categorie[$i]->getId() == $categorie->getId()) {
@@ -1265,7 +1320,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      *
      * @param JavaLeEET\LivretBundle\Document\Categorie $categorie
      */
-    public function removeCategorie(\JavaLeEET\LivretBundle\Document\Categorie $categorie)
+    public
+    function removeCategorie(\JavaLeEET\LivretBundle\Document\Categorie $categorie)
     {
         $this->categorie->removeElement($categorie);
     }
@@ -1273,9 +1329,10 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
     /**
      * Add periodeFormation
      *
-     * @param JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation
+     * $periodeFormation
      */
-    public function addPeriodeFormation(\JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation)
+    public
+    function addPeriodeFormation($periodeFormation)
     {
         $this->periodeFormation[] = $periodeFormation;
     }
@@ -1285,7 +1342,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      *
      * @param JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation
      */
-    public function removePeriodeFormation(\JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation)
+    public
+    function removePeriodeFormation(\JavaLeEET\LivretBundle\Document\PeriodeFormation $periodeFormation)
     {
         $this->periodeFormation->removeElement($periodeFormation);
     }
@@ -1295,7 +1353,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      *
      * @param JavaLeEET\LivretBundle\Document\Activite $activite
      */
-    public function addActivite(\JavaLeEET\LivretBundle\Document\Activite $activite)
+    public
+    function addActivite(\JavaLeEET\LivretBundle\Document\Activite $activite)
     {
         $this->activites[] = $activite;
     }
@@ -1305,7 +1364,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      *
      * @param JavaLeEET\LivretBundle\Document\Activite $activite
      */
-    public function removeActivite(\JavaLeEET\LivretBundle\Document\Activite $activite)
+    public
+    function removeActivite(\JavaLeEET\LivretBundle\Document\Activite $activite)
     {
         $this->activites->removeElement($activite);
     }
@@ -1316,7 +1376,8 @@ La réussite de cette formation suppose donc qu’une coordination étroite soit
      *
      */
 
-    public function cleanPeriode()
+    public
+    function cleanPeriode()
     {
 
     }

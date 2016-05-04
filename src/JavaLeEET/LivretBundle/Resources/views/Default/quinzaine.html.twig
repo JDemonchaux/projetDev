@@ -182,7 +182,7 @@
                                 <td>
                                     {% for c in item.competencesUtil %}
                                         {% for competence in c.competence %}
-                                            {{ competence }}
+                                            {{ competence| striptags | slice(0, 4) }}
                                         {% endfor %}
                                     {% endfor %}
                                 </td>
@@ -322,8 +322,9 @@
                                     <tr data-url="{{ path('livret_quinzaine_tuteur_maitrise') }}"
                                         data-idcomp="{{ comp.id }}" data-idlivret="{{ livret.id }}"
                                         data-idperiode="{{ periodeFormation.id }}" data-iditem="{{ item.id }}"
-                                        class="{% if is_granted("ROLE_TUTEUR") %} element-checkable {% endif %} {% if loop.parent.loop.index is divisibleby(2) %} odd {% else %} even {% endif %}">
-                                        <td>{{ c }}</td>
+                                        class="{% if is_granted("ROLE_TUTEUR") %} element-checkable {% endif %}">
+                                        <td class="tooltipped" data-tooltip="{{ c | striptags | slice(5, 200) }}"
+                                            data-position="top">{{ c | striptags | slice(0, 4) }}</td>
                                         <td data-maitrise="1"
                                             class="checkable {% if comp.degreMaitrise == 1 %} checked {% endif %}"></td>
                                         <td data-maitrise="2"
@@ -333,10 +334,12 @@
                                         <td data-maitrise="4"
                                             class="checkable {% if comp.degreMaitrise == 4 %} checked {% endif %}"></td>
                                         <td class="description aRemplir">
-                                            {% if is_granted("ROLE_TUTEUR") %}
+                                            {% if is_granted("ROLE_APPRENTI") == false %}
                                                 <input type="text" name="description{{ loop.index }}"
                                                        class="saveDescriptionComp"
                                                        data-url="{{ path('livret_quinzaine_tuteur_description') }}"
+                                                       data-idPeriode="{{ periodeFormation.id }}"
+                                                       data-idItem="{{ item.id }}"
                                                        data-idcomp="{{ comp.id }}" data-idlivret="{{ livret.id }}"
                                                        value="{{ comp.description }}"/>
                                             {% else %}
@@ -350,7 +353,16 @@
 
                         <tr>
                             <td><strong>Conclusion de l'évaluation : </strong></td>
-                            <td colspan="6"></td>
+                            <td colspan="6">
+                                {% if is_granted("ROLE_TUTEUR") %}
+                                    <input type="text" name="conclusion" class="saveConclusion"
+                                           data-url="{{ path('livret_quinzaine_tuteur_conclusion') }}"
+                                           data-idlivret="{{ livret.id }}"
+                                           data-idperiode="{{ periodeFormation.id }}"/>
+                                {% else %}
+                                    {{ periodeFormation.conclusion }}
+                                {% endif %}
+                            </td>
                         </tr>
 
                         </tbody>

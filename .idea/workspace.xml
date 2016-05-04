@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="deec10a3-871a-4bfa-86a1-2f8fadf7c260" name="Default" comment="Ajout / suppression d'item de formation dans les fiches de quinzaines">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/DegreMaitrise.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/modifier_degre_competence.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/projetASI2.iml" afterPath="$PROJECT_DIR$/.idea/projetASI2.iml" />
+    <list default="true" id="384fc19e-150a-4724-a704-05a4144f81b1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/img/aide_remplissage_tuteur.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/Help/aide_consultation_tuteur.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/tableauCompetence.html.twig" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/projetASI2.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/symfony2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/private/private.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/private/private.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/project.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/project.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Activite.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Activite.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Categorie.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Categorie.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Competence.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Competence.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/CompetenceUtil.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/CompetenceUtil.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/ItemCours.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/ItemCours.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/ItemEntreprise.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/ItemEntreprise.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/ItemLivret.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/ItemLivret.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Livret.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Livret.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/PeriodeFormation.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/PeriodeFormation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Section.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Section.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/Help/aide_consultation.html.twig" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/Help/aide_consultation.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/Help/aidenavigation.html.twig" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/Help/aidenavigation.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/aide.html.twig" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/aide.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/quinzaine.html.twig" afterPath="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/quinzaine.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavaLeEET/UtilisateurBundle/Document/Utilisateur.php" afterPath="$PROJECT_DIR$/src/JavaLeEET/UtilisateurBundle/Document/Utilisateur.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/jerome.css" afterPath="$PROJECT_DIR$/web/assets/css/jerome.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/script.js" afterPath="$PROJECT_DIR$/web/assets/js/script.js" />
     </list>
-    <ignored path="projetASI2.iws" />
+    <ignored path="projetDev.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,102 +49,15 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="projetASI2" />
+    <favorites_list name="projetDev" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Livret.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Livret.php">
+    <leaf>
+      <file leaf-file-name="PeriodeFormation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/PeriodeFormation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17776">
-              <caret line="1113" column="51" selection-start-line="1113" selection-start-column="51" selection-end-line="1113" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Controller/DefaultController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="573" column="0" selection-start-line="573" selection-start-column="0" selection-end-line="573" selection-end-column="0" />
-              <folding>
-                <element signature="e#53#107#0#PHP" expanded="true" />
-                <element signature="e#1326#1357#1#PHP" expanded="true" />
-                <element signature="e#2237#2268#1#PHP" expanded="true" />
-                <element signature="e#3194#3225#1#PHP" expanded="true" />
-                <element signature="e#3341#3372#1#PHP" expanded="true" />
-                <element signature="e#3642#3673#1#PHP" expanded="true" />
-                <element signature="e#3743#3774#1#PHP" expanded="true" />
-                <element signature="e#4004#4035#1#PHP" expanded="true" />
-                <element signature="e#4105#4136#1#PHP" expanded="true" />
-                <element signature="e#4281#4309#1#PHP" expanded="true" />
-                <element signature="e#4361#4382#1#PHP" expanded="true" />
-                <element signature="e#5655#5676#1#PHP" expanded="true" />
-                <element signature="e#5772#5803#1#PHP" expanded="true" />
-                <element signature="e#8826#8847#1#PHP" expanded="true" />
-                <element signature="e#9504#9535#1#PHP" expanded="true" />
-                <element signature="e#9607#9638#1#PHP" expanded="true" />
-                <element signature="e#9993#10014#1#PHP" expanded="true" />
-                <element signature="e#10892#10913#1#PHP" expanded="true" />
-                <element signature="e#12178#12199#1#PHP" expanded="true" />
-                <element signature="e#13172#13203#1#PHP" expanded="true" />
-                <element signature="e#13545#13566#1#PHP" expanded="true" />
-                <element signature="e#15131#15162#1#PHP" expanded="true" />
-                <element signature="e#15236#15257#1#PHP" expanded="true" />
-                <element signature="e#16407#16428#1#PHP" expanded="true" />
-                <element signature="e#16983#17014#1#PHP" expanded="true" />
-                <element signature="e#17088#17109#1#PHP" expanded="true" />
-                <element signature="e#18621#18652#1#PHP" expanded="true" />
-                <element signature="e#18726#18747#1#PHP" expanded="true" />
-                <element signature="e#19320#19351#1#PHP" expanded="true" />
-                <element signature="e#19425#19446#1#PHP" expanded="true" />
-                <element signature="e#20393#20414#1#PHP" expanded="true" />
-                <element signature="e#21321#21342#1#PHP" expanded="true" />
-                <element signature="e#22250#22278#1#PHP" expanded="true" />
-                <element signature="e#22550#22578#1#PHP" expanded="true" />
-                <element signature="e#22896#22924#1#PHP" expanded="true" />
-                <element signature="e#23046#23104#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="quinzaine.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/quinzaine.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="294" column="51" selection-start-line="294" selection-start-column="51" selection-end-line="294" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modifier_degre_competence.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/modifier_degre_competence.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DegreMaitrise.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/DegreMaitrise.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="23" column="66" selection-start-line="23" selection-start-column="66" selection-end-line="23" selection-end-column="66" />
+            <state relative-caret-position="560">
+              <caret line="62" column="7" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -141,51 +66,99 @@
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1344">
-              <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+            <state relative-caret-position="32">
+              <caret line="2" column="57" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="consulterLivret.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/consulterLivret.html.twig">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" column="92" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="92" />
+            <state relative-caret-position="848">
+              <caret line="625" column="5" selection-start-line="625" selection-start-column="5" selection-end-line="625" selection-end-column="5" />
+              <folding>
+                <element signature="e#1326#1357#1#PHP" expanded="true" />
+                <element signature="e#1971#2033#1#PHP" expanded="true" />
+                <element signature="e#2121#2173#1#PHP" expanded="true" />
+                <element signature="e#2397#2428#1#PHP" expanded="true" />
+                <element signature="e#2726#2773#0#PHP" expanded="true" />
+                <element signature="e#3354#3385#1#PHP" expanded="true" />
+                <element signature="e#3501#3532#1#PHP" expanded="true" />
+                <element signature="e#3802#3833#1#PHP" expanded="true" />
+                <element signature="e#3903#3934#1#PHP" expanded="true" />
+                <element signature="e#4164#4195#1#PHP" expanded="true" />
+                <element signature="e#4265#4296#1#PHP" expanded="true" />
+                <element signature="e#4441#4469#1#PHP" expanded="true" />
+                <element signature="e#4521#4542#1#PHP" expanded="true" />
+                <element signature="e#4625#4667#0#PHP" expanded="true" />
+                <element signature="e#5815#5836#1#PHP" expanded="true" />
+                <element signature="e#5932#5963#1#PHP" expanded="true" />
+                <element signature="e#9470#9491#1#PHP" expanded="true" />
+                <element signature="e#9535#9573#0#PHP" expanded="true" />
+                <element signature="e#10148#10179#1#PHP" expanded="true" />
+                <element signature="e#10251#10282#1#PHP" expanded="true" />
+                <element signature="e#10637#10658#1#PHP" expanded="true" />
+                <element signature="e#10742#10790#0#PHP" expanded="true" />
+                <element signature="e#10900#10941#1#PHP" expanded="true" />
+                <element signature="e#11536#11557#1#PHP" expanded="true" />
+                <element signature="e#12167#12212#0#PHP" expanded="true" />
+                <element signature="e#12822#12843#1#PHP" expanded="true" />
+                <element signature="e#13451#13495#0#PHP" expanded="true" />
+                <element signature="e#13816#13847#1#PHP" expanded="true" />
+                <element signature="e#14189#14210#1#PHP" expanded="true" />
+                <element signature="e#14825#14869#0#PHP" expanded="true" />
+                <element signature="e#15775#15806#1#PHP" expanded="true" />
+                <element signature="e#15880#15901#1#PHP" expanded="true" />
+                <element signature="e#17051#17072#1#PHP" expanded="true" />
+                <element signature="e#17627#17658#1#PHP" expanded="true" />
+                <element signature="e#17732#17753#1#PHP" expanded="true" />
+                <element signature="e#19243#19274#1#PHP" expanded="true" />
+                <element signature="e#19348#19369#1#PHP" expanded="true" />
+                <element signature="e#19941#19972#1#PHP" expanded="true" />
+                <element signature="e#20046#20067#1#PHP" expanded="true" />
+                <element signature="e#21014#21035#1#PHP" expanded="true" />
+                <element signature="e#21445#21489#0#PHP" expanded="true" />
+                <element signature="e#22034#22055#1#PHP" expanded="true" />
+                <element signature="e#22742#22786#0#PHP" expanded="true" />
+                <element signature="e#23270#23291#1#PHP" expanded="true" />
+                <element signature="e#23698#23742#0#PHP" expanded="true" />
+                <element signature="e#24024#24045#1#PHP" expanded="true" />
+                <element signature="e#24133#24164#1#PHP" expanded="true" />
+                <element signature="e#24435#24485#0#PHP" expanded="true" />
+                <element signature="e#24751#24779#1#PHP" expanded="true" />
+                <element signature="e#25051#25079#1#PHP" expanded="true" />
+                <element signature="e#25397#25425#1#PHP" expanded="true" />
+                <element signature="e#25547#25605#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/assets/js/script.js">
+      <file leaf-file-name="quinzaine.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/quinzaine.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5216">
-              <caret line="326" column="18" selection-start-line="326" selection-start-column="18" selection-end-line="326" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jerome.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/assets/css/jerome.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4064">
-              <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="-336">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#12#42#0#Twig" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -198,21 +171,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/consulterLivret.html.twig" />
-        <option value="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/ItemEntreprise.php" />
-        <option value="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/CompetenceUtil.php" />
-        <option value="$PROJECT_DIR$/web/assets/css/jerome.css" />
-        <option value="$PROJECT_DIR$/toDooo.txt" />
-        <option value="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Livret.php" />
-        <option value="$PROJECT_DIR$/web/assets/js/script.js" />
-        <option value="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/modifier_degre_competence.html" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/PeriodeFormation.php" />
         <option value="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/DegreMaitrise.php" />
-        <option value="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/quinzaine.html.twig" />
-        <option value="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/modifier_degre_competence.html.twig" />
         <option value="$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       </list>
     </option>
   </component>
@@ -221,22 +183,7 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState />
-  </component>
-  <component name="PhpServers">
-    <servers>
-      <server host="localhost" id="3d359bce-6a7f-492c-9b0d-1294b55da726" name="localhost" port="9000" />
-    </servers>
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.6" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
@@ -268,17 +215,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -288,7 +236,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -302,7 +250,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -320,7 +268,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -342,7 +290,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -372,7 +320,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -406,7 +354,83 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetDev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaLeEET" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LivretBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Help" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetDev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetDev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaLeEET" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LivretBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ajax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -436,7 +460,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -462,7 +486,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -488,7 +512,25 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetDev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -502,7 +544,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projetASI2" />
+              <option name="myItemId" value="projetDev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -522,65 +564,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetDev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetDev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="js-jscs-nodeInterpreter" value="D:\dev\nodejs\node.exe" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="GO_FMT" value="false" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
-  <component name="RunManager" selected="PHP Remote Debug.Xdebug">
+  <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -606,178 +620,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
-      <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="" />
-      <option name="IOSSimulatorSdkPath" value="" />
-      <option name="adlOptions" value="" />
-      <option name="airProgramParameters" value="" />
-      <option name="appDescriptorForEmulator" value="Android" />
-      <option name="debugTransport" value="USB" />
-      <option name="debuggerSdkRaw" value="BC SDK" />
-      <option name="emulator" value="NexusOne" />
-      <option name="emulatorAdlOptions" value="" />
-      <option name="fastPackaging" value="true" />
-      <option name="fullScreenHeight" value="0" />
-      <option name="fullScreenWidth" value="0" />
-      <option name="launchUrl" value="false" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="mobileRunTarget" value="Emulator" />
-      <option name="moduleName" value="" />
-      <option name="overriddenMainClass" value="" />
-      <option name="overriddenOutputFileName" value="" />
-      <option name="overrideMainClass" value="false" />
-      <option name="runTrusted" value="true" />
-      <option name="screenDpi" value="0" />
-      <option name="screenHeight" value="0" />
-      <option name="screenWidth" value="0" />
-      <option name="url" value="http://" />
-      <option name="usbDebugPort" value="7936" />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="" />
-      <working_directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GoRunFileConfiguration" factoryName="Go Single File">
-      <module name="" />
-      <working_directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="" />
-      <working_directory value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <kind value="DIRECTORY" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list />
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="false" />
-      <setting name="depsClasspath" value="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <method />
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -799,107 +641,12 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="JarApplication" factoryName="JAR Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SCRATCH_FILE_ID" value="0" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="projetASI2" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" server_name="localhost" start_url="/projetDev/web/app_dev.php/">
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -930,814 +677,157 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
-      <method />
-    </configuration>
-    <configuration default="false" name="Localhost" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/..">
-      <CommandLine workingDirectory="$PROJECT_DIR$" />
-      <option name="workingDirectory" value="D:\Prog\Web\ProjetDev" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Xdebug" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="localhost" session_id="jerom">
-      <method />
-    </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="PHP Built-in Web Server.Localhost" />
-      <item index="1" class="java.lang.String" itemvalue="PHP Remote Debug.Xdebug" />
-    </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="deec10a3-871a-4bfa-86a1-2f8fadf7c260" name="Default" comment="" />
-      <created>1454236273253</created>
+      <changelist id="384fc19e-150a-4724-a704-05a4144f81b1" name="Default" comment="" />
+      <created>1462367711815</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1454236273253</updated>
-      <workItem from="1454236275504" duration="1709000" />
-      <workItem from="1455456188697" duration="2077000" />
-      <workItem from="1456742885394" duration="136000" />
-      <workItem from="1456743125327" duration="22000" />
-      <workItem from="1456743178418" duration="3120000" />
-      <workItem from="1456821457124" duration="1823000" />
-      <workItem from="1456839699976" duration="8722000" />
-      <workItem from="1456908607766" duration="2841000" />
-      <workItem from="1456924137925" duration="6694000" />
-      <workItem from="1457110676070" duration="1748000" />
-      <workItem from="1457270818960" duration="22000" />
-      <workItem from="1457270868856" duration="1233000" />
-      <workItem from="1457354994300" duration="11259000" />
-      <workItem from="1457541819278" duration="75000" />
-      <workItem from="1457602255241" duration="4725000" />
-      <workItem from="1457613872461" duration="14000" />
-      <workItem from="1457804474878" duration="3112000" />
-      <workItem from="1457891830339" duration="17000" />
-      <workItem from="1458385252271" duration="598000" />
-      <workItem from="1458504386688" duration="30000" />
-      <workItem from="1462012968154" duration="619000" />
-      <workItem from="1462090196660" duration="8720000" />
-      <workItem from="1462366030199" duration="1559000" />
+      <updated>1462367711815</updated>
+      <workItem from="1462367713737" duration="802000" />
     </task>
-    <task id="LOCAL-00001" summary="Ajout / suppression d'item de formation dans les fiches de quinzaines">
-      <created>1456842437880</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1456842437880</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70247000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="802000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295699" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18802084" sideWeight="0.43340382" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18802084" sideWeight="0.5665962" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35400227" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295699" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2636656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973205" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
-  </component>
-  <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USER_GROUPS">
-      <collection />
-    </option>
-    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-      <collection />
-    </option>
+    </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ajout / suppression d'item de formation dans les fiches de quinzaines" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout / suppression d'item de formation dans les fiches de quinzaines" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/shorty-fr/projetDev&#10;&#10;# Conflicts:&#10;#&#9;src/JavaLeEET/LivretBundle/Controller/DefaultController.php&#10;#&#9;src/JavaLeEET/LivretBundle/Document/PeriodeFormation.php&#10;#&#9;src/JavaLeEET/LivretBundle/Resources/config/routing.yml&#10;&#10;&#10;+&#10;&#10;&#10;&quot;modification degre des competences pour RD OK&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/shorty-fr/projetDev&#10;&#10;# Conflicts:&#10;#&#9;src/JavaLeEET/LivretBundle/Controller/DefaultController.php&#10;#&#9;src/JavaLeEET/LivretBundle/Document/PeriodeFormation.php&#10;#&#9;src/JavaLeEET/LivretBundle/Resources/config/routing.yml&#10;&#10;&#10;+&#10;&#10;&#10;&quot;modification degre des competences pour RD OK&quot;" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="2" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
   </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#53#107#0#PHP" expanded="true" />
-            <element signature="e#1326#1357#1#PHP" expanded="true" />
-            <element signature="e#2237#2268#1#PHP" expanded="true" />
-            <element signature="e#3194#3225#1#PHP" expanded="true" />
-            <element signature="e#3341#3372#1#PHP" expanded="true" />
-            <element signature="e#3642#3673#1#PHP" expanded="true" />
-            <element signature="e#3743#3774#1#PHP" expanded="true" />
-            <element signature="e#4004#4035#1#PHP" expanded="true" />
-            <element signature="e#4105#4136#1#PHP" expanded="true" />
-            <element signature="e#4281#4309#1#PHP" expanded="true" />
-            <element signature="e#4361#4382#1#PHP" expanded="true" />
-            <element signature="e#5655#5676#1#PHP" expanded="true" />
-            <element signature="e#5772#5803#1#PHP" expanded="true" />
-            <element signature="e#8826#8847#1#PHP" expanded="true" />
-            <element signature="e#9504#9535#1#PHP" expanded="true" />
-            <element signature="e#9607#9638#1#PHP" expanded="true" />
-            <element signature="e#9993#10014#1#PHP" expanded="true" />
-            <element signature="e#10892#10913#1#PHP" expanded="true" />
-            <element signature="e#12178#12199#1#PHP" expanded="true" />
-            <element signature="e#13172#13203#1#PHP" expanded="true" />
-            <element signature="e#13545#13566#1#PHP" expanded="true" />
-            <element signature="e#15131#15162#1#PHP" expanded="true" />
-            <element signature="e#15236#15257#1#PHP" expanded="true" />
-            <element signature="e#16407#16428#1#PHP" expanded="true" />
-            <element signature="e#16983#17014#1#PHP" expanded="true" />
-            <element signature="e#17088#17109#1#PHP" expanded="true" />
-            <element signature="e#18621#18652#1#PHP" expanded="true" />
-            <element signature="e#18726#18747#1#PHP" expanded="true" />
-            <element signature="e#19320#19351#1#PHP" expanded="true" />
-            <element signature="e#19425#19446#1#PHP" expanded="true" />
-            <element signature="e#20393#20414#1#PHP" expanded="true" />
-            <element signature="e#21321#21342#1#PHP" expanded="true" />
-            <element signature="e#22250#22278#1#PHP" expanded="true" />
-            <element signature="e#22550#22578#1#PHP" expanded="true" />
-            <element signature="e#22896#22924#1#PHP" expanded="true" />
-            <element signature="e#23046#23104#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/consulterLivret.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="54" column="80" selection-start-line="54" selection-start-column="80" selection-end-line="54" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Livret.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="431" column="48" selection-start-line="431" selection-start-column="48" selection-end-line="431" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/PeriodeFormation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="177" column="20" selection-start-line="177" selection-start-column="20" selection-end-line="177" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/quinzaine.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="51" column="157" selection-start-line="51" selection-start-column="157" selection-end-line="51" selection-end-column="157" />
+        <state relative-caret-position="560">
+          <caret line="62" column="7" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="262" column="11" selection-start-line="262" selection-start-column="11" selection-end-line="262" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/css/jerome.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="246" column="0" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#53#107#0#PHP" expanded="true" />
-            <element signature="e#1326#1357#1#PHP" expanded="true" />
-            <element signature="e#2237#2268#1#PHP" expanded="true" />
-            <element signature="e#3194#3225#1#PHP" expanded="true" />
-            <element signature="e#3341#3372#1#PHP" expanded="true" />
-            <element signature="e#3642#3673#1#PHP" expanded="true" />
-            <element signature="e#3743#3774#1#PHP" expanded="true" />
-            <element signature="e#4004#4035#1#PHP" expanded="true" />
-            <element signature="e#4105#4136#1#PHP" expanded="true" />
-            <element signature="e#4281#4309#1#PHP" expanded="true" />
-            <element signature="e#4361#4382#1#PHP" expanded="true" />
-            <element signature="e#5655#5676#1#PHP" expanded="true" />
-            <element signature="e#5772#5803#1#PHP" expanded="true" />
-            <element signature="e#8826#8847#1#PHP" expanded="true" />
-            <element signature="e#9504#9535#1#PHP" expanded="true" />
-            <element signature="e#9607#9638#1#PHP" expanded="true" />
-            <element signature="e#9993#10014#1#PHP" expanded="true" />
-            <element signature="e#10892#10913#1#PHP" expanded="true" />
-            <element signature="e#12178#12199#1#PHP" expanded="true" />
-            <element signature="e#13172#13203#1#PHP" expanded="true" />
-            <element signature="e#13545#13566#1#PHP" expanded="true" />
-            <element signature="e#15131#15162#1#PHP" expanded="true" />
-            <element signature="e#15236#15257#1#PHP" expanded="true" />
-            <element signature="e#16407#16428#1#PHP" expanded="true" />
-            <element signature="e#16983#17014#1#PHP" expanded="true" />
-            <element signature="e#17088#17109#1#PHP" expanded="true" />
-            <element signature="e#18621#18652#1#PHP" expanded="true" />
-            <element signature="e#18726#18747#1#PHP" expanded="true" />
-            <element signature="e#19320#19351#1#PHP" expanded="true" />
-            <element signature="e#19425#19446#1#PHP" expanded="true" />
-            <element signature="e#20393#20414#1#PHP" expanded="true" />
-            <element signature="e#21321#21342#1#PHP" expanded="true" />
-            <element signature="e#22250#22278#1#PHP" expanded="true" />
-            <element signature="e#22550#22578#1#PHP" expanded="true" />
-            <element signature="e#22896#22924#1#PHP" expanded="true" />
-            <element signature="e#23046#23104#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/consulterLivret.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="54" column="80" selection-start-line="54" selection-start-column="80" selection-end-line="54" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Livret.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="431" column="48" selection-start-line="431" selection-start-column="48" selection-end-line="431" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/PeriodeFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="177" column="20" selection-start-line="177" selection-start-column="20" selection-end-line="177" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/quinzaine.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="51" column="157" selection-start-line="51" selection-start-column="157" selection-end-line="51" selection-end-column="157" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="262" column="11" selection-start-line="262" selection-start-column="11" selection-end-line="262" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/css/jerome.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="246" column="0" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="338" column="0" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
-          <folding>
-            <element signature="e#53#107#0#PHP" expanded="true" />
-            <element signature="e#1326#1357#1#PHP" expanded="true" />
-            <element signature="e#2237#2268#1#PHP" expanded="true" />
-            <element signature="e#3194#3225#1#PHP" expanded="true" />
-            <element signature="e#3341#3372#1#PHP" expanded="true" />
-            <element signature="e#3642#3673#1#PHP" expanded="true" />
-            <element signature="e#3743#3774#1#PHP" expanded="true" />
-            <element signature="e#4004#4035#1#PHP" expanded="true" />
-            <element signature="e#4105#4136#1#PHP" expanded="true" />
-            <element signature="e#4281#4309#1#PHP" expanded="true" />
-            <element signature="e#4361#4382#1#PHP" expanded="true" />
-            <element signature="e#5655#5676#1#PHP" expanded="true" />
-            <element signature="e#5772#5803#1#PHP" expanded="true" />
-            <element signature="e#8826#8847#1#PHP" expanded="true" />
-            <element signature="e#9504#9535#1#PHP" expanded="true" />
-            <element signature="e#9607#9638#1#PHP" expanded="true" />
-            <element signature="e#9993#10014#1#PHP" expanded="true" />
-            <element signature="e#10892#10913#1#PHP" expanded="true" />
-            <element signature="e#12178#12199#1#PHP" expanded="true" />
-            <element signature="e#13172#13203#1#PHP" expanded="true" />
-            <element signature="e#13545#13566#1#PHP" expanded="true" />
-            <element signature="e#15131#15162#1#PHP" expanded="true" />
-            <element signature="e#15236#15257#1#PHP" expanded="true" />
-            <element signature="e#16407#16428#1#PHP" expanded="true" />
-            <element signature="e#16983#17014#1#PHP" expanded="true" />
-            <element signature="e#17088#17109#1#PHP" expanded="true" />
-            <element signature="e#18621#18652#1#PHP" expanded="true" />
-            <element signature="e#18726#18747#1#PHP" expanded="true" />
-            <element signature="e#19320#19351#1#PHP" expanded="true" />
-            <element signature="e#19425#19446#1#PHP" expanded="true" />
-            <element signature="e#20393#20414#1#PHP" expanded="true" />
-            <element signature="e#21321#21342#1#PHP" expanded="true" />
-            <element signature="e#22250#22278#1#PHP" expanded="true" />
-            <element signature="e#22550#22578#1#PHP" expanded="true" />
-            <element signature="e#22896#22924#1#PHP" expanded="true" />
-            <element signature="e#23046#23104#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/consulterLivret.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="54" column="80" selection-start-line="54" selection-start-column="80" selection-end-line="54" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Livret.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="431" column="48" selection-start-line="431" selection-start-column="48" selection-end-line="431" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/PeriodeFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="177" column="20" selection-start-line="177" selection-start-column="20" selection-end-line="177" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/quinzaine.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="54" column="66" selection-start-line="54" selection-start-column="66" selection-end-line="54" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/css/jerome.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="246" column="0" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-          <folding>
-            <element signature="e#53#107#0#PHP" expanded="true" />
-            <element signature="e#1326#1357#1#PHP" expanded="true" />
-            <element signature="e#2237#2268#1#PHP" expanded="true" />
-            <element signature="e#3194#3225#1#PHP" expanded="true" />
-            <element signature="e#3341#3372#1#PHP" expanded="true" />
-            <element signature="e#3642#3673#1#PHP" expanded="true" />
-            <element signature="e#3743#3774#1#PHP" expanded="true" />
-            <element signature="e#4004#4035#1#PHP" expanded="true" />
-            <element signature="e#4105#4136#1#PHP" expanded="true" />
-            <element signature="e#4281#4309#1#PHP" expanded="true" />
-            <element signature="e#4361#4382#1#PHP" expanded="true" />
-            <element signature="e#5655#5676#1#PHP" expanded="true" />
-            <element signature="e#5772#5803#1#PHP" expanded="true" />
-            <element signature="e#8826#8847#1#PHP" expanded="true" />
-            <element signature="e#9504#9535#1#PHP" expanded="true" />
-            <element signature="e#9607#9638#1#PHP" expanded="true" />
-            <element signature="e#9993#10014#1#PHP" expanded="true" />
-            <element signature="e#10892#10913#1#PHP" expanded="true" />
-            <element signature="e#12178#12199#1#PHP" expanded="true" />
-            <element signature="e#13172#13203#1#PHP" expanded="true" />
-            <element signature="e#13545#13566#1#PHP" expanded="true" />
-            <element signature="e#15131#15162#1#PHP" expanded="true" />
-            <element signature="e#15236#15257#1#PHP" expanded="true" />
-            <element signature="e#16407#16428#1#PHP" expanded="true" />
-            <element signature="e#16983#17014#1#PHP" expanded="true" />
-            <element signature="e#17088#17109#1#PHP" expanded="true" />
-            <element signature="e#18621#18652#1#PHP" expanded="true" />
-            <element signature="e#18726#18747#1#PHP" expanded="true" />
-            <element signature="e#19320#19351#1#PHP" expanded="true" />
-            <element signature="e#19425#19446#1#PHP" expanded="true" />
-            <element signature="e#20393#20414#1#PHP" expanded="true" />
-            <element signature="e#21321#21342#1#PHP" expanded="true" />
-            <element signature="e#22250#22278#1#PHP" expanded="true" />
-            <element signature="e#22550#22578#1#PHP" expanded="true" />
-            <element signature="e#22896#22924#1#PHP" expanded="true" />
-            <element signature="e#23046#23104#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/consulterLivret.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="190" column="67" selection-start-line="190" selection-start-column="67" selection-end-line="190" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Livret.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-          <folding>
-            <element signature="e#53#107#0#PHP" expanded="true" />
-            <element signature="e#1326#1357#1#PHP" expanded="true" />
-            <element signature="e#2237#2268#1#PHP" expanded="true" />
-            <element signature="e#3194#3225#1#PHP" expanded="true" />
-            <element signature="e#3341#3372#1#PHP" expanded="true" />
-            <element signature="e#3642#3673#1#PHP" expanded="true" />
-            <element signature="e#3743#3774#1#PHP" expanded="true" />
-            <element signature="e#4004#4035#1#PHP" expanded="true" />
-            <element signature="e#4105#4136#1#PHP" expanded="true" />
-            <element signature="e#4281#4309#1#PHP" expanded="true" />
-            <element signature="e#4361#4382#1#PHP" expanded="true" />
-            <element signature="e#5655#5676#1#PHP" expanded="true" />
-            <element signature="e#5772#5803#1#PHP" expanded="true" />
-            <element signature="e#8826#8847#1#PHP" expanded="true" />
-            <element signature="e#9504#9535#1#PHP" expanded="true" />
-            <element signature="e#9607#9638#1#PHP" expanded="true" />
-            <element signature="e#9993#10014#1#PHP" expanded="true" />
-            <element signature="e#10892#10913#1#PHP" expanded="true" />
-            <element signature="e#12178#12199#1#PHP" expanded="true" />
-            <element signature="e#13172#13203#1#PHP" expanded="true" />
-            <element signature="e#13545#13566#1#PHP" expanded="true" />
-            <element signature="e#15131#15162#1#PHP" expanded="true" />
-            <element signature="e#15236#15257#1#PHP" expanded="true" />
-            <element signature="e#16407#16428#1#PHP" expanded="true" />
-            <element signature="e#16983#17014#1#PHP" expanded="true" />
-            <element signature="e#17088#17109#1#PHP" expanded="true" />
-            <element signature="e#18621#18652#1#PHP" expanded="true" />
-            <element signature="e#18726#18747#1#PHP" expanded="true" />
-            <element signature="e#19320#19351#1#PHP" expanded="true" />
-            <element signature="e#19425#19446#1#PHP" expanded="true" />
-            <element signature="e#20393#20414#1#PHP" expanded="true" />
-            <element signature="e#21321#21342#1#PHP" expanded="true" />
-            <element signature="e#22250#22278#1#PHP" expanded="true" />
-            <element signature="e#22550#22578#1#PHP" expanded="true" />
-            <element signature="e#22896#22924#1#PHP" expanded="true" />
-            <element signature="e#23046#23104#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/consulterLivret.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="190" column="67" selection-start-line="190" selection-start-column="67" selection-end-line="190" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Livret.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/ItemCours.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Activite.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/Ajax/action.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/CompetenceUtil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/web-forms2.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/UtilisateurBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="161" column="0" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/PeriodeFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4656">
-          <caret line="291" column="20" selection-start-line="291" selection-start-column="20" selection-end-line="291" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/ItemEntreprise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5216">
-          <caret line="326" column="18" selection-start-line="326" selection-start-column="18" selection-end-line="326" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/toDooo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/css/jerome.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4064">
-          <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Livret.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17776">
-          <caret line="1113" column="51" selection-start-line="1113" selection-start-column="51" selection-end-line="1113" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/Competence.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        <state relative-caret-position="32">
+          <caret line="2" column="57" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="23" column="66" selection-start-line="23" selection-start-column="66" selection-end-line="23" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1344">
-          <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/consulterLivret.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="92" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Document/DegreMaitrise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+        <state relative-caret-position="496">
+          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/quinzaine.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="294" column="51" selection-start-line="294" selection-start-column="51" selection-end-line="294" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Resources/views/Default/modifier_degre_competence.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="-336">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#42#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JavaLeEET/LivretBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="573" column="0" selection-start-line="573" selection-start-column="0" selection-end-line="573" selection-end-column="0" />
+        <state relative-caret-position="848">
+          <caret line="625" column="5" selection-start-line="625" selection-start-column="5" selection-end-line="625" selection-end-column="5" />
           <folding>
-            <element signature="e#53#107#0#PHP" expanded="true" />
             <element signature="e#1326#1357#1#PHP" expanded="true" />
-            <element signature="e#2237#2268#1#PHP" expanded="true" />
-            <element signature="e#3194#3225#1#PHP" expanded="true" />
-            <element signature="e#3341#3372#1#PHP" expanded="true" />
-            <element signature="e#3642#3673#1#PHP" expanded="true" />
-            <element signature="e#3743#3774#1#PHP" expanded="true" />
-            <element signature="e#4004#4035#1#PHP" expanded="true" />
-            <element signature="e#4105#4136#1#PHP" expanded="true" />
-            <element signature="e#4281#4309#1#PHP" expanded="true" />
-            <element signature="e#4361#4382#1#PHP" expanded="true" />
-            <element signature="e#5655#5676#1#PHP" expanded="true" />
-            <element signature="e#5772#5803#1#PHP" expanded="true" />
-            <element signature="e#8826#8847#1#PHP" expanded="true" />
-            <element signature="e#9504#9535#1#PHP" expanded="true" />
-            <element signature="e#9607#9638#1#PHP" expanded="true" />
-            <element signature="e#9993#10014#1#PHP" expanded="true" />
-            <element signature="e#10892#10913#1#PHP" expanded="true" />
-            <element signature="e#12178#12199#1#PHP" expanded="true" />
-            <element signature="e#13172#13203#1#PHP" expanded="true" />
-            <element signature="e#13545#13566#1#PHP" expanded="true" />
-            <element signature="e#15131#15162#1#PHP" expanded="true" />
-            <element signature="e#15236#15257#1#PHP" expanded="true" />
-            <element signature="e#16407#16428#1#PHP" expanded="true" />
-            <element signature="e#16983#17014#1#PHP" expanded="true" />
-            <element signature="e#17088#17109#1#PHP" expanded="true" />
-            <element signature="e#18621#18652#1#PHP" expanded="true" />
-            <element signature="e#18726#18747#1#PHP" expanded="true" />
-            <element signature="e#19320#19351#1#PHP" expanded="true" />
-            <element signature="e#19425#19446#1#PHP" expanded="true" />
-            <element signature="e#20393#20414#1#PHP" expanded="true" />
-            <element signature="e#21321#21342#1#PHP" expanded="true" />
-            <element signature="e#22250#22278#1#PHP" expanded="true" />
-            <element signature="e#22550#22578#1#PHP" expanded="true" />
-            <element signature="e#22896#22924#1#PHP" expanded="true" />
-            <element signature="e#23046#23104#0#PHP" expanded="true" />
+            <element signature="e#1971#2033#1#PHP" expanded="true" />
+            <element signature="e#2121#2173#1#PHP" expanded="true" />
+            <element signature="e#2397#2428#1#PHP" expanded="true" />
+            <element signature="e#2726#2773#0#PHP" expanded="true" />
+            <element signature="e#3354#3385#1#PHP" expanded="true" />
+            <element signature="e#3501#3532#1#PHP" expanded="true" />
+            <element signature="e#3802#3833#1#PHP" expanded="true" />
+            <element signature="e#3903#3934#1#PHP" expanded="true" />
+            <element signature="e#4164#4195#1#PHP" expanded="true" />
+            <element signature="e#4265#4296#1#PHP" expanded="true" />
+            <element signature="e#4441#4469#1#PHP" expanded="true" />
+            <element signature="e#4521#4542#1#PHP" expanded="true" />
+            <element signature="e#4625#4667#0#PHP" expanded="true" />
+            <element signature="e#5815#5836#1#PHP" expanded="true" />
+            <element signature="e#5932#5963#1#PHP" expanded="true" />
+            <element signature="e#9470#9491#1#PHP" expanded="true" />
+            <element signature="e#9535#9573#0#PHP" expanded="true" />
+            <element signature="e#10148#10179#1#PHP" expanded="true" />
+            <element signature="e#10251#10282#1#PHP" expanded="true" />
+            <element signature="e#10637#10658#1#PHP" expanded="true" />
+            <element signature="e#10742#10790#0#PHP" expanded="true" />
+            <element signature="e#10900#10941#1#PHP" expanded="true" />
+            <element signature="e#11536#11557#1#PHP" expanded="true" />
+            <element signature="e#12167#12212#0#PHP" expanded="true" />
+            <element signature="e#12822#12843#1#PHP" expanded="true" />
+            <element signature="e#13451#13495#0#PHP" expanded="true" />
+            <element signature="e#13816#13847#1#PHP" expanded="true" />
+            <element signature="e#14189#14210#1#PHP" expanded="true" />
+            <element signature="e#14825#14869#0#PHP" expanded="true" />
+            <element signature="e#15775#15806#1#PHP" expanded="true" />
+            <element signature="e#15880#15901#1#PHP" expanded="true" />
+            <element signature="e#17051#17072#1#PHP" expanded="true" />
+            <element signature="e#17627#17658#1#PHP" expanded="true" />
+            <element signature="e#17732#17753#1#PHP" expanded="true" />
+            <element signature="e#19243#19274#1#PHP" expanded="true" />
+            <element signature="e#19348#19369#1#PHP" expanded="true" />
+            <element signature="e#19941#19972#1#PHP" expanded="true" />
+            <element signature="e#20046#20067#1#PHP" expanded="true" />
+            <element signature="e#21014#21035#1#PHP" expanded="true" />
+            <element signature="e#21445#21489#0#PHP" expanded="true" />
+            <element signature="e#22034#22055#1#PHP" expanded="true" />
+            <element signature="e#22742#22786#0#PHP" expanded="true" />
+            <element signature="e#23270#23291#1#PHP" expanded="true" />
+            <element signature="e#23698#23742#0#PHP" expanded="true" />
+            <element signature="e#24024#24045#1#PHP" expanded="true" />
+            <element signature="e#24133#24164#1#PHP" expanded="true" />
+            <element signature="e#24435#24485#0#PHP" expanded="true" />
+            <element signature="e#24751#24779#1#PHP" expanded="true" />
+            <element signature="e#25051#25079#1#PHP" expanded="true" />
+            <element signature="e#25397#25425#1#PHP" expanded="true" />
+            <element signature="e#25547#25605#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

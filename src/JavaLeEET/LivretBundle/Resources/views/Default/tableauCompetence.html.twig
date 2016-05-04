@@ -1,0 +1,33 @@
+{% extends 'LivretBundle::layout.html.twig' %}
+
+{% block body %}
+    <table id="tableauCroiseCompetence" class="bordered striped">
+        <thead>
+        <tr>
+            <th></th>
+            {% for livret in livrets %}
+                <th>{{ livret[1].prenom }} {{ livret[1].nom }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for activite in livrets[0][0][0].activite %}
+            {% for competence in activite.competences %}
+                <tr>
+                    <td>{{ competence.code }}</td>
+                    {% for livret in livrets %}
+                        <td>
+                            {% for c in livret[1].competenceValidee|slice(0,4) %}
+                                {% if competence.code == c|slice(0,4) %}
+                                    <div class="checked-comp">X</div>
+                                {% else %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -50,7 +50,7 @@ class ItemEntreprise
     /**
      * @var collection $competencesUtil
      *
-     * @ODM\Field(name="competencesUtil", type="collection")
+     * @ODM\EmbedMany(targetDocument="CompetenceUtil")
      */
     protected $competencesUtil;
 
@@ -173,5 +173,23 @@ class ItemEntreprise
     public function getCompetencesUtil()
     {
         return $this->competencesUtil;
+    }
+
+    public function addCompetencesUtil(CompetenceUtil $c) {
+        $this->competencesUtil[] = $c;
+    }
+    public function __construct()
+    {
+        $this->competencesUtil = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Remove competencesUtil
+     *
+     * @param JavaLeEET\LivretBundle\Document\CompetenceUtil $competencesUtil
+     */
+    public function removeCompetencesUtil(\JavaLeEET\LivretBundle\Document\CompetenceUtil $competencesUtil)
+    {
+        $this->competencesUtil->removeElement($competencesUtil);
     }
 }

@@ -33,6 +33,13 @@ class CompetenceUtil
      */
     protected $degreMaitrise;
 
+    /**
+     * @var string $description
+     *
+     * @ODM\Field(name="description", type="string")
+     */
+    protected $description;
+
 
     /**
      * Get id
@@ -87,4 +94,21 @@ class CompetenceUtil
     {
         return $this->degreMaitrise;
     }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
 }

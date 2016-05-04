@@ -85,3 +85,11 @@ livret_quinzaine_tuteur_maitrise:
 livret_quinzaine_tuteur_description:
     path:   /quinzaine/tuteur/description
     defaults: { _controller: LivretBundle:Default:addDescriptionComp }
+
+livret_modification_degre_competence:
+    path:   /modification/degreCompetence
+    defaults: { _controller: LivretBundle:Default:modifierDegreComp}
+
+livret_test:
+    path: /test
+    defaults: { _controller: LivretBundle:Default:test }

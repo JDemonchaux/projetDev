@@ -178,4 +178,18 @@ class ItemEntreprise
     public function addCompetencesUtil(CompetenceUtil $c) {
         $this->competencesUtil[] = $c;
     }
+    public function __construct()
+    {
+        $this->competencesUtil = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Remove competencesUtil
+     *
+     * @param JavaLeEET\LivretBundle\Document\CompetenceUtil $competencesUtil
+     */
+    public function removeCompetencesUtil(\JavaLeEET\LivretBundle\Document\CompetenceUtil $competencesUtil)
+    {
+        $this->competencesUtil->removeElement($competencesUtil);
+    }
 }

@@ -289,22 +289,24 @@
                             <th rowspan="2">Validation des compétences. Acquise/Non Acquise</th>
                         </tr>
                         <tr>
-                            <th class="tooltipped" data-position="top"
-                                data-tooltip="1. En formation : le (la) salarié(e) découvre l'activité">
-                                1
-                            </th>
-                            <th class="tooltipped" data-position="top"
-                                data-tooltip="2. Autonomie : Il (elle) exécute correctement l'activité sans aide">
-                                2
-                            </th>
-                            <th class="tooltipped" data-position="top"
-                                data-tooltip="3. Maîtrise : il (elle) réussit et atteint les objectifs">
-                                3
-                            </th>
-                            <th class="tooltipped" data-position="top"
-                                data-tooltip="4. Innovation : il (elle) améliore l'activité et peut former quelqu'un d'autre">
-                                4
-                            </th>
+                            {% for degre in degreMaitrises %}
+                                <th class="tooltipped" data-position="top"
+                                    data-tooltip="{{ degre.numero }}. {{ degre.libelle }} : {{ degre.description }}">
+                                    {{ degre.numero }}
+                                </th>
+                            {% endfor %}
+                            {#<th class="tooltipped" data-position="top"#}
+                            {#data-tooltip="2. Autonomie : Il (elle) exécute correctement l'activité sans aide">#}
+                            {#2#}
+                            {#</th>#}
+                            {#<th class="tooltipped" data-position="top"#}
+                            {#data-tooltip="3. Maîtrise : Il (elle) réussit et atteint les objectifs">#}
+                            {#3#}
+                            {#</th>#}
+                            {#<th class="tooltipped" data-position="top"#}
+                            {#data-tooltip="4. Innovation : Il (elle) améliore l'activité et peut former quelqu'un d'autre">#}
+                            {#4#}
+                            {#</th>#}
                         </tr>
                         </thead>
                         <tbody class="separator">

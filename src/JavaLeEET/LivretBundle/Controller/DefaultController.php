@@ -7,6 +7,7 @@ use Doctrine\ODM\MongoDB\Types\ObjectIdType;
 use Hydrators\JavaLeEETLivretBundleDocumentItemEntrepriseHydrator;
 use JavaLeEET\LivretBundle\Document\Categorie;
 use JavaLeEET\LivretBundle\Document\Competence;
+use JavaLeEET\LivretBundle\Document\DegreMaitrise;
 use JavaLeEET\LivretBundle\Document\ItemEntreprise;
 use JavaLeEET\LivretBundle\Document\Livret;
 use JavaLeEET\LivretBundle\Document\PeriodeFormation;
@@ -42,17 +43,17 @@ class DefaultController extends Controller
     {
         return $this->render('LivretBundle:Default:aide.html.twig');
     }
-    
-        public function aide_consultationAction()
+
+    public function aide_consultationAction()
     {
         return $this->render('LivretBundle:Default:Help/aide_consultation.html.twig');
     }
-    
-        public function aideNavigationAction() 
+
+    public function aideNavigationAction()
     {
         return $this->render('LivretBundle:Default:Help/aidenavigation.html.twig');
     }
-    
+
     public function choisirApprentiAction()
     {
         // Vue pour le RD
@@ -98,8 +99,9 @@ class DefaultController extends Controller
             $tuteur = $odm->getRepository("UtilisateurBundle:Utilisateur")->findBy(array("email" => $apprenti->getTuteur()[0]));
             $tuteur = $tuteur[0];
         }
+        $degreMaitrise = $odm->getRepository("LivretBundle:DegreMaitrise")->findAll();
         $livret = $odm->getRepository("LivretBundle:Livret")->findOneBy(array("apprenti" => new \MongoId($id)));
-        return $this->render('LivretBundle:Default:quinzaine.html.twig', array("livret" => $livret, "apprenti" => $apprenti, "tuteur" => $tuteur));
+        return $this->render('LivretBundle:Default:quinzaine.html.twig', array("livret" => $livret, "apprenti" => $apprenti, "tuteur" => $tuteur, "degreMaitrises" => $degreMaitrise));
     }
 
     public function quinzaineAjouterAction(Request $request)
@@ -556,4 +558,58 @@ class DefaultController extends Controller
     }
 
 
+    public function modifierDegreCompAction(Request $request)
+    {
+        $odm = $this->get("doctrine_mongodb")->getManager();
+        if ($request->getMethod() != "POST") {
+            $degreMaitrises = $odm->getRepository("LivretBundle:DegreMaitrise")->findAll();
+        } else {
+            $id = $request->get("id");
+            $numero = $request->get("numero");
+            $libelle = $request->get("libelle");
+            $description = $request->get("description");
+
+
+            $degreAModif = $odm->getRepository("LivretBundle:DegreMaitrise")->findOneBy(array("id" => new \MongoId($id)));
+
+            $degreAModif->setNumero($numero);
+            $degreAModif->setLibelle($libelle);
+            $degreAModif->setDescription($description);
+
+            $odm->persist($degreAModif);
+            $odm->flush();
+            $degreMaitrises = $odm->getRepository("LivretBundle:DegreMaitrise")->findAll();
+
+
+        }
+
+
+        usort($degreMaitrises, array($this, 'compare_numero'));
+
+        return $this->render("LivretBundle:Default:modifier_degre_competence.html.twig", array("degreMaitrises" => $degreMaitrises));
+    }
+
+
+    public function testAction()
+    {
+//        $d = new DegreMaitrise();
+//        $d->setNumero("4");
+//        $d->setLibelle("Innovation");
+//        $d->setDescription("Il (elle) améliore l'activité et peut former quelqu'un d'autre");
+//
+//        $odm = $this->get("doctrine_mongodb")->getManager();
+//        $odm->persist($d);
+//        $odm->flush();
+    }
+
+    function compare_numero($a, $b)
+    {
+        if ($a->getNumero() == $b->getNumero()) {
+            return 0;
+        }
+        return ($a->getNumero() < $b->getNumero()) ? -1 : 1;
+    }
+
+
 }
+

@@ -1,0 +1,40 @@
+{% extends 'LivretBundle::layout.html.twig' %}
+
+{% block body %}
+    <div>
+        <img src="{{ asset('assets/img/fond-title.png') }}" class="fond-title"/>
+        <h3 class="section-title bleu-text">Degr&eacute; des comp&eacute;tences</h3>
+
+        <div class="form-degre-competence">
+
+
+            {% for degre in degreMaitrises|sort %}
+                <div class="row">
+                    <fieldset>
+                        <legend>Degr&eacute; comp&eacute;tence {{ loop.index }}</legend>
+                        <form action="{{ path("livret_modification_degre_competence") }}" method="POST">
+                            <input type="hidden" name="id" value="{{ degre.id }}" />
+                            <input type="hidden" name="numero" value="{{ degre.numero }}" />
+
+                            <div class="input-field col s4">
+                                <label for="lib{{ loop.index }}">Libellé : </label>
+                                <input id="lib{{ loop.index }}" name="libelle" type="text" value="{{ degre.libelle }}"/>
+
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="desc{{ loop.index }}">Description : </label>
+                                <input id="desc{{ loop.index }}" name="description" type="text" value="{{ degre.description }}"/>
+                            </div>
+                            <div class="col s2">
+                                <button type="submit" class="btn">
+                                    <i class="material-icons">send</i>
+                                </button>
+                            </div>
+                        </form>
+                    </fieldset>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

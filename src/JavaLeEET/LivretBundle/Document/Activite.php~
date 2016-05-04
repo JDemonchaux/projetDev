@@ -105,4 +105,28 @@ class Activite
     {
         return $this->descriptif;
     }
+    public function __construct()
+    {
+        $this->competences = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add competence
+     *
+     * @param JavaLeEET\LivretBundle\Document\Competence $competence
+     */
+    public function addCompetence(\JavaLeEET\LivretBundle\Document\Competence $competence)
+    {
+        $this->competences[] = $competence;
+    }
+
+    /**
+     * Remove competence
+     *
+     * @param JavaLeEET\LivretBundle\Document\Competence $competence
+     */
+    public function removeCompetence(\JavaLeEET\LivretBundle\Document\Competence $competence)
+    {
+        $this->competences->removeElement($competence);
+    }
 }

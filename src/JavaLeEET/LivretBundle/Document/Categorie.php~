@@ -87,11 +87,12 @@ class Categorie
     {
         return $this->sections;
     }
+
     public function __construct()
     {
         $this->sections = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add section
      *
@@ -100,6 +101,14 @@ class Categorie
     public function addSection(\JavaLeEET\LivretBundle\Document\Section $section)
     {
         $this->sections[] = $section;
+    }
+
+    public function replaceSection($section) {
+        for ($i = 0; $i < count($this->sections); $i++) {
+            if ($this->sections[$i]->getId() == $section->getId()) {
+                $this->sections[$i] = $section;
+            }
+        }
     }
 
     /**

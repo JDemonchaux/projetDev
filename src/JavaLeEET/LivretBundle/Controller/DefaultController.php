@@ -659,14 +659,40 @@ class DefaultController extends Controller
 
     public function testAction()
     {
-//        $d = new DegreMaitrise();
-//        $d->setNumero("4");
-//        $d->setLibelle("Innovation");
-//        $d->setDescription("Il (elle) améliore l'activité et peut former quelqu'un d'autre");
-//
-//        $odm = $this->get("doctrine_mongodb")->getManager();
-//        $odm->persist($d);
-//        $odm->flush();
+        $d = new DegreMaitrise();
+        $d->setNumero("1");
+        $d->setLibelle("En formation");
+        $d->setDescription("le (la) salarié(e) découvre l’activité");
+
+        $odm = $this->get("doctrine_mongodb")->getManager();
+        $odm->persist($d);
+        $odm->flush();
+
+
+        $d = new DegreMaitrise();
+        $d->setNumero("2");
+        $d->setLibelle("Autonomie");
+        $d->setDescription("il (elle) exécute  correctement l’activité sans aide");
+
+
+        $odm->persist($d);
+        $odm->flush();
+
+        $d = new DegreMaitrise();
+        $d->setNumero("3");
+        $d->setLibelle("Maitrîse");
+        $d->setDescription("il (elle) réussit et atteint les objectifs");
+
+        $odm->persist($d);
+        $odm->flush();
+
+        $d = new DegreMaitrise();
+        $d->setNumero("4");
+        $d->setLibelle("Innovation  ");
+        $d->setDescription("Il (elle) améliore l'activité et peut former quelqu'un d'autre");
+
+        $odm->persist($d);
+        $odm->flush();
     }
 
     function compare_numero($a, $b)
